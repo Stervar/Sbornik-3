@@ -1550,12 +1550,12 @@
 ## Остальную часть списка не сортировать, а расположить
 ## в обратном порядке.
 
-def sort_list(lst):
-    n = len(lst)
-    avg = sum(lst) / n
-    if avg > 0:
-        lst[:2*n//3] = sorted(lst[:2*n//3])
-    else:
-        lst[:n//3] = sorted(lst[:n//3])
-        lst[n//3:] = lst[n//3:][::-1]
-    return lst
+# def sort_list(lst):
+#     n = len(lst)
+#     avg = sum(lst) / n
+#     if avg > 0:
+#         lst[:2*n//3] = sorted(lst[:2*n//3])
+#     else:
+#         lst[:n//3] = sorted(lst[:n//3])
+#         lst[n//3:] = lst[n//3:][::-1]
+#     return lst
