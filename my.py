@@ -1301,48 +1301,48 @@
 # чество сделанных пользователем попыток. В программе
 # необходимо использовать рекурсию
 
-import random
+# import random
 
-def game():
+# def game():
 
-    number = str(random.randint(1000, 9999))  # загадываем число
+#     number = str(random.randint(1000, 9999))  # загадываем число
 
-    attempts = 0
+#     attempts = 0
 
-    while True:
+#     while True:
 
-        guess = input("Введите четырёхзначное число: ")
+#         guess = input("Введите четырёхзначное число: ")
 
-        if len(guess) != 4 or not guess.isdigit():
+#         if len(guess) != 4 or not guess.isdigit():
 
-            print("Некорректный ввод. Введите четырёхзначное число")
+#             print("Некорректный ввод. Введите четырёхзначное число")
 
-            continue
+#             continue
 
-        attempts += 1
+#         attempts += 1
 
-        bulls = 0
+#         bulls = 0
 
-        cows = 0
+#         cows = 0
 
-        for i in range(4):
+#         for i in range(4):
 
-            if guess[i] == number[i]:
+#             if guess[i] == number[i]:
 
-                bulls += 1
+#                 bulls += 1
 
-            elif guess[i] in number:
+#             elif guess[i] in number:
              
-             cows += 1
+#              cows += 1
 
-            print(f"Быки: {bulls}, Коровы: {cows}")
+#             print(f"Быки: {bulls}, Коровы: {cows}")
 
-            if bulls == 4:
+#             if bulls == 4:
              
-             print(f"Вы угадали! Количество попыток: {attempts}")
-            break
+#              print(f"Вы угадали! Количество попыток: {attempts}")
+#             break
         
-game() # запуск игры
+# game() # запуск игры
 
         
 
@@ -1404,4 +1404,138 @@ game() # запуск игры
 
 ## Наконец, для запуска игры вызывается функция game().
 
-##fdsgsdfds 
+## Задание 4
+## Написать игру «Пятнашки».
+
+def game():
+    import random
+
+# Заготовки для отображения поля
+up = """+-----+-----+-----+-----+
+|     |     |     |     |"""
+mid = """|     |     |     |     |
++-----+-----+-----+-----+
+|     |     |     |     |"""
+bot = """|     |     |     |     |
++-----+-----+-----+-----+"""
+
+def get_new_random():
+    line = list(range(16))
+    random.shuffle(line)
+    return line
+
+def print_board(new_game):
+    print(up)
+    for i in range(0, 16):
+        if new_game[i]<10:
+            if new_game[i] == 0:
+                print('| ', end = '')
+            else:
+                print('| '+str(new_game[i])+' ', end = '')
+        else:
+            num = str(new_game[i])
+            print('| '+num[0]+' '+num[1]+' ', end = '')
+        if i == 3 or i == 7 or i == 11:
+            print('|')
+            print(mid) 
+    print('|')
+    print(bot)
+
+def ansver():
+    while True:
+        text = input('Введите число от 1 до 15:')
+        if text.isdigit() == False:
+            print('Вводите только целые числа!')
+        elif 15<int(text) or int(text)<0:
+            print('Нет такого числа на игровом поле!')
+        else:
+            return int(text)
+
+def possible_moves(new_game):
+    moves = []
+    ind = new_game.index(0)
+    if ind == 0:
+        moves.append(new_game[1])
+        moves.append(new_game[4])
+    elif ind == 1:
+        moves.append(new_game[0])
+        moves.append(new_game[2])
+        moves.append(new_game[5])
+    elif ind == 2:
+        moves.append(new_game[1])
+        moves.append(new_game[3])
+        moves.append(new_game[6])
+    elif ind == 3:
+        moves.append(new_game[2])
+        moves.append(new_game[7])
+    elif ind == 4:
+        moves.append(new_game[0])
+        moves.append(new_game[5])
+        moves.append(new_game[8])
+    elif ind == 5:
+        moves.append(new_game[1])
+        moves.append(new_game[4])
+        moves.append(new_game[6])
+        moves.append(new_game[9])
+    elif ind == 6:
+        moves.append(new_game[2])
+        moves.append(new_game[5])
+        moves.append(new_game[7])
+        moves.append(new_game[10])
+    elif ind == 7:
+        moves.append(new_game[3])
+        moves.append(new_game[6])
+        moves.append(new_game[11])
+    elif ind == 8:
+        moves.append(new_game[4])
+        moves.append(new_game[9])
+        moves.append(new_game[12])
+    elif ind == 9:
+        moves.append(new_game[5])
+        moves.append(new_game[8])
+        moves.append(new_game[10])
+        moves.append(new_game[13])
+    elif ind == 10:
+        moves.append(new_game[6])
+        moves.append(new_game[9])
+        moves.append(new_game[11])
+        moves.append(new_game[14])
+    elif ind == 11:
+        moves.append(new_game[7])
+        moves.append(new_game[10])
+        moves.append(new_game[15])
+    elif ind == 12:
+        moves.append(new_game[8])
+        moves.append(new_game[13])
+    elif ind == 13:
+        moves.append(new_game[9])
+        moves.append(new_game[12])
+        moves.append(new_game[14])
+    elif ind == 14:
+        moves.append(new_game[10])
+        moves.append(new_game[13])
+        moves.append(new_game[15])
+    else:
+        moves.append(new_game[11])
+        moves.append(new_game[14])
+    return moves
+
+# Основной код игры
+win = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0]
+new_game = get_new_random()
+print_board(new_game)
+
+while True:
+    moves = possible_moves(new_game)
+    move_num = ansver()
+    if move_num in moves:
+        ind_move = new_game.index(move_num)
+        ind_0 = new_game.index(0)
+        new_game[ind_0] = move_num
+        new_game[ind_move] = 0
+        print_board(new_game)
+    else:
+        print('Это число нельзя переместить!')
+    if new_game == win:
+        print('Поздравляю! Вы победили!')
+        break
