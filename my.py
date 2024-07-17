@@ -1751,3 +1751,129 @@
 #     else:
 #         print("Неверный выбор. Пожалуйста, попробуйте снова.")
 
+## Модуль 7 Сортировка и поиск.
+## Тема: Сортировка и поиск. Часть 3
+
+## Задание 1
+## Есть четыре списка целых. Необходимо их объединить
+## в пятом списке. Полученный результат в зависимости от
+## выбора пользователя отсортировать по убыванию или
+## возрастанию. Найти значение, введенное пользователем,
+## с использованием линейного поиска.
+## Вывести результат на экран.
+
+## Определите четыре списка целых чисел
+# list1 = [1, 2, 3, 4]
+# list2 = [5, 6, 7, 8]
+# list3 = [9, 10, 11, 12]
+# list4 = [13, 14, 15, 16]
+
+# ## Объедините четыре списка в один
+# combined_list = list1 + list2 + list3 + list4
+
+# ## Попросите пользователя выбрать порядок сортировки
+# print("Выберите порядок сортировки:")
+# print("1. Восходящий")
+# print("2. Нисходящий")
+# choice = int(input("Введите свой выбор: "))
+
+# ## Отсортируйте объединенный список на основе выбора пользователя
+# if choice == 1:
+#     combined_list.sort()
+#     print("Отсортированный список в порядке возрастания:", combined_list)
+# elif choice == 2:
+#     combined_list.sort(reverse=True)
+#     print("Отсортированный список в порядке убывания:", combined_list)
+# else:
+#     print("Неверный выбор. Выходящий.")
+
+# ## Попросите пользователя ввести значение для поиска
+# search_value = int(input("Введите значение для поиска: "))
+
+# ## Выполнять линейный поиск
+# found = False
+# for i, value in enumerate(combined_list):
+#     if value == search_value:
+#         found = True
+#         print(f"Ценность {search_value} найдено по индексу {i}")
+#         break
+
+# if not found:
+#     print(f"Ценность {search_value} не найден в списке")
+
+
+## Задание 2
+## Есть четыре списка целых. Необходимо объединить
+## в пятом списке только те элементы, которые уникальны
+## для каждого списка. Полученный результат в зависимости
+## от выбора пользователя отсортировать по убыванию или
+## возрастанию. Найти значение, введенное пользователем,
+## с использованием бинарного поиска
+
+# def unique_elements(list1, list2, list3, list4):
+#     ## Объедините все списки в один
+#     combined_list = list1 + list2 + list3 + list4
+    
+#     ## Найдите уникальные элементы в объединенном списке
+#     unique_list = [x for x in combined_list if combined_list.count(x) == 1]
+    
+#     return unique_list
+
+# def sort_list(unique_list, order):
+#     if order == 'asc':
+#         return sorted(unique_list)
+#     elif order == 'desc':
+#         return sorted(unique_list, reverse=True)
+#     else:
+#         return "Неверный заказ. Пожалуйста, выберите 'asc' или 'desc'."
+
+# def binary_search(sorted_list, target):
+#     low = 0
+#     high = len(sorted_list) - 1
+    
+#     while low <= high:
+#         mid = (low + high) // 2
+#         if sorted_list[mid] == target:
+#             return mid
+#         elif sorted_list[mid] < target:
+#             low = mid + 1
+#         else:
+#             high = mid - 1
+    
+#     return -1
+
+# ## Пример использования
+# list1 = [1, 2, 3, 4]
+# list2 = [3, 4, 5, 6]
+# list3 = [5, 6, 7, 8]
+# list4 = [7, 8, 9, 10]
+
+# unique_list = unique_elements(list1, list2, list3, list4)
+# print("Уникальные элементы:", unique_list)
+
+# order = input("Введите 'asc' для возрастания или 'desc' для убывания: ")
+# sorted_list = sort_list(unique_list, order)
+# print("Отсортированный список:", sorted_list)
+
+# target = int(input("Введите номер для поиска: "))
+# index = binary_search(sorted_list, target)
+
+# if index != -1:
+#     print("Элемент, найденный по индексу", index)
+# else:
+#     print("Элемент не найден")
+
+## Модуль 8 Кортежи, множества, словари
+## Тема: Кортежи, множества, словари. Часть 1
+
+## Задание 1
+## Есть три кортежа целых чисел необходимо найти
+## элементы, которые есть во всех кортежах
+
+# t1 = (1, 2, 3, 4, 5)
+# t2 = (2, 4, 6, 8, 10)
+# t3 = (2, 3, 4, 7, 9)
+
+# common_elements = list(set(t1) & set(t2) & set(t3))
+
+# print(common_elements)  # [2, 4, 3]
