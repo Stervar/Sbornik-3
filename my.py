@@ -1646,28 +1646,108 @@
 ## Выход
 
 
-lst1 = ['123', '456', '789', '012', '345', '678']
-lst2 = ['+79394593', '+724904480294', '+724940934566', '+7435352525', '+734536346', '+74636326226']
+# lst1 = ['123', '456', '789', '012', '345', '678']
+# lst2 = ['+79394593', '+724904480294', '+724940934566', '+7435352525', '+734536346', '+74636326226']
 
-def insertion_sort(a1:list, a2:list):
-    if (len(a1)!=len(a2)):
-        raise ValueError('len not equals')
-    n = len(a1)
-    for i in range(1, n):
-        x = a1[i]
-        j = i
-        z = a2[i]
-        while j > 0 and a1[j - 1] > x:
-            a1[j] = a1[j - 1]
-            a2[j] = a2[j - 1]
-            j -= 1
+# def insertion_sort(a1:list, a2:list):
+#     if (len(a1)!=len(a2)):
+#         raise ValueError('len not equals')
+#     n = len(a1)
+#     for i in range(1, n):
+#         x = a1[i]
+#         j = i
+#         z = a2[i]
+#         while j > 0 and a1[j - 1] > x:
+#             a1[j] = a1[j - 1]
+#             a2[j] = a2[j - 1]
+#             j -= 1
 
-        a1[j] = x
-        a2[j] = z
+#         a1[j] = x
+#         a2[j] = z
 
-insertion_sort(lst1,lst2)
-print(lst1)    
-print(lst2)    
-insertion_sort(lst2,lst1)
-print(lst1)    
-print(lst2)    
+# insertion_sort(lst1,lst2)
+# print(lst1)    
+# print(lst2)    
+# insertion_sort(lst2,lst1)
+# print(lst1)    
+# print(lst2)    
+
+# Задание 2
+
+## Написать программу «успеваемость». Пользователь
+## вводит 10 оценок студента. Оценки от 1 до 12 Реализовать
+## меню для пользователя:
+## ■ Вывод оценок (вывод содержимого списка);
+## ■ Пересдача экзамена (пользователь вводит номер эле-
+## мента списка и новую оценку);
+## ■ Выходит ли стипендия (стипендия выходит, если
+## средний бал не ниже 10.7);
+## ■ Вывод отсортированного списка оценок: по возрас-
+## танию или убыванию.
+## ■ Выход.
+
+            ## Инициализируйте пустой список для хранения оценок
+# grades = []
+
+# ## Предложите пользователю ввести 10 оценок
+# for i in range(10):
+#     while True:
+#         grade = int(input(f"Введите оценку {i+1} (1-12): "))
+#         if 1 <= grade <= 12:
+#             grades.append(grade)
+#             break
+#         else:
+#             print("Неверная оценка. Пожалуйста, попробуйте снова.")
+
+# ## Определите функцию для вычисления среднего балла
+# def calculate_average():
+#     return sum(grades) / len(grades)
+
+# ## Определите функцию для проверки того, имеет ли студент право на получение стипендии
+# def is_scholarship_eligible():
+#     return calculate_average() >= 10.7
+
+# ## Определите функцию для сортировки оценок в порядке возрастания или убывания
+# def sort_grades(order):
+#     if order == "asc":
+#         return sorted(grades)
+#     elif order == "desc":
+#         return sorted(grades, reverse=True)
+#     else:
+#         print("Недействительный заказ. Пожалуйста, попробуйте снова.")
+
+# ## Цикл работы главного меню
+# while True:
+#     print("\nАкадемическое меню выступлений:")
+#     print("1. Просмотр оценок")
+#     print("2. Пересдать экзамен")
+#     print("3. Проверьте право на получение стипендии")
+#     print("4. Сортировка оценок")
+#     print("5. Выход")
+#     choice = input("Введите свой выбор: ")
+
+#     if choice == "1":
+#         print("Оценки:", grades)
+#     elif choice == "2":
+#         index = int(input("Введите номер экзамена для пересдачи (1-10): ")) - 1
+#         if 0 <= index < 10:
+#             new_grade = int(input("Переход в новый класс (1-12): "))
+#             grades[index] = new_grade
+#             print("Оценка успешно обновлена!")
+#         else:
+#             print("Неверный номер экзамена. Пожалуйста, попробуйте снова.")
+#     elif choice == "3":
+#         if is_scholarship_eligible():
+#             print("Студент имеет право на получение стипендии!")
+#         else:
+#             print("Студент не имеет права на получение стипендии.")
+#     elif choice == "4":
+#         order = input("Введите порядок сортировки (asc/desc): ")
+#         sorted_grades = sort_grades(order)
+#         print("Отсортированные сорта:", sorted_grades)
+#     elif choice == "5":
+#         print("До свидания!")
+#         break
+#     else:
+#         print("Неверный выбор. Пожалуйста, попробуйте снова.")
+
