@@ -1914,3 +1914,80 @@
 # common_elements = [x for x, y, z in zip(t1, t2, t3) if x == y == z]
 
 # print(common_elements)  # [1, 2, 3]
+
+## Модуль 8 Кортежи, множества, словари
+## Тема: Кортежи, множества, словари. Часть 1
+
+## Задание 1
+## Создайте программу, хранящую информацию о вели-
+## ких баскетболистах. Нужно хранить ФИО баскетболиста и
+## его рост. Требуется реализовать возможность добавления,
+## удаления, поиска, замены данных. Используйте словарь
+## для хранения информации.
+
+# Создаем пустой словарь для хранения информации о баскетболистах
+# basketball_players = {}
+
+# def add_player():
+#     # Добавляем нового баскетболиста
+#     name = input("Введите ФИО баскетболиста: ")
+#     height = int(input("Введите рост баскетболиста (в см): "))
+#     basketball_players[name] = height
+#     print(f"Баскетболист {name} добавлен в список!")
+
+# def delete_player():
+#     # Удаляем баскетболиста из списка
+#     name = input("Введите ФИО баскетболиста для удаления: ")
+#     if name in basketball_players:
+#         del basketball_players[name]
+#         print(f"Баскетболист {name} удален из списка!")
+#     else:
+#         print(f"Баскетболист {name} не найден в списке!")
+
+# def search_player():
+#     # Ищем баскетболиста по ФИО
+#     name = input("Введите ФИО баскетболиста для поиска: ")
+#     if name in basketball_players:
+#         print(f"Баскетболист {name} найден! Его рост: {basketball_players[name]} см")
+#     else:
+#         print(f"Баскетболист {name} не найден в списке!")
+
+# def replace_player():
+#     # Заменяем информацию о баскетболисте
+#     name = input("Введите ФИО баскетболиста для замены: ")
+#     if name in basketball_players:
+#         new_height = int(input("Введите новый рост баскетболиста (в см): "))
+#         basketball_players[name] = new_height
+#         print(f"Информация о баскетболисте {name} обновлена!")
+#     else:
+#         print(f"Баскетболист {name} не найден в списке!")
+
+# def print_players():
+#     # Выводим список всех баскетболистов
+#     print("Список баскетболистов:")
+#     for name, height in basketball_players.items():
+#         print(f"{name} - {height} см")
+
+# while True:
+#     print("Меню:")
+#     print("1. Добавить баскетболиста")
+#     print("2. Удалить баскетболиста")
+#     print("3. Найти баскетболиста")
+#     print("4. Заменить информацию о баскетболисте")
+#     print("5. Вывести список баскетболистов")
+#     print("6. Выход")
+#     choice = int(input("Выберите пункт меню: "))
+#     if choice == 1:
+#         add_player()
+#     elif choice == 2:
+#         delete_player()
+#     elif choice == 3:
+#         search_player()
+#     elif choice == 4:
+#         replace_player()
+#     elif choice == 5:
+#         print_players()
+#     elif choice == 6:
+#         break
+#     else:
+#         print("Неверный выбор!")
