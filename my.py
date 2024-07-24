@@ -1916,7 +1916,7 @@
 # print(common_elements)  # [1, 2, 3]
 
 ## Модуль 8 Кортежи, множества, словари
-## Тема: Кортежи, множества, словари. Часть 1
+## Тема: Кортежи, множества, словари. Часть 2
 
 ## Задание 1
 ## Создайте программу, хранящую информацию о вели-
@@ -1987,6 +1987,296 @@
 #         replace_player()
 #     elif choice == 5:
 #         print_players()
+#     elif choice == 6:
+#         break
+#     else:
+#         print("Неверный выбор!")
+
+## Задание 2
+## Создайте программу «Англо-русский словарь».
+## Нужно хранить слово на английском языке и его перевод
+## на французский. Требуется реализовать возможность до-
+## бавления, удаления, поиска, замены данных. Используйте
+## словарь для хранения информации.
+
+# dictionary_wor = {}
+
+# def add_word():
+#     # Добавляем новое слово
+#     name = input("Введите слово на русском: ")
+#     height = input("Введите слово на английском: ")
+#     dictionary_wor[name] = height
+#     print(f"Слово {name} добавлено в список!")
+
+# def delete_word():
+#     # Удаляем слово из списка
+#     name = input("Введите слово для удаления: ")
+#     if name in dictionary_wor:
+#         del dictionary_wor[name]
+#         print(f"Слово {name} удалено из списка!")
+#     else:
+#         print(f"Слово {name} не найдено в списке!")
+
+# def search_word():
+#     # Ищем слово на русском
+#     name = input("Введите слово для поиска: ")
+#     if name in dictionary_wor:
+#         print(f"Слово {name} найдено! Это слово по-английски: {dictionary_wor[name]} ")
+#     else:
+#         print(f"Слово {name} не найдено в списке!")
+
+# def replace_word():
+#     # Заменяем информацию о слове
+#     name = input("Введите слово на русском для замены: ")
+#     if name in dictionary_wor:
+#         new_height = input("Введите новое слово на английском: ")
+#         dictionary_wor[name] = new_height
+#         print(f"Информация о слове {name} обновлена!")
+#     else:
+#         print(f"Слово {name} не найдено в списке!")
+
+# def print_word():
+#     # Выводим список всех слов
+#     print("Список слов:")
+#     for name, height in dictionary_wor.items():
+#         print(f"{name} - {height} ")
+
+# while True:
+#     print("Меню:")
+#     print("1. Добавить слово")
+#     print("2. Удалить слово")
+#     print("3. Найти слово")
+#     print("4. Заменить информацию о слове")
+#     print("5. Вывести список слов")
+#     print("6. Выход")
+#     choice = int(input("Выберите пункт меню: "))
+
+#     if choice == 1:
+#         add_word()
+#     elif choice == 2:
+#         delete_word()
+#     elif choice == 3:
+#         search_word()
+#     elif choice == 4:
+#         replace_word()
+#     elif choice == 5:
+#         print_word()
+#     elif choice == 6:
+#         break
+#     else:
+#         print("Неверный выбор!")
+
+
+
+## Задание 3
+##  Создайте программу «Фирма». Нужно хранить ин-
+##  формацию о человеке: ФИО, телефон, рабочий email,
+##  название должности, номер кабинета, skype. Требуется
+##  реализовать возможность добавления, удаления, поис-
+##  ка, замены данных. Используйте словарь для хранения
+##  информации.
+
+# Firm_human = {}
+
+# Firm_human = {}
+
+# def add_human():
+#     # Добавляем нового сотрудника
+#     name = input("Введите ФИО сотрудника: ")
+#     phone = input("Введите телефон сотрудника: ")
+#     email = input("Введите email сотрудника: ")
+#     position = input("Введите должность сотрудника: ")
+#     cabinet = input("Введите номер кабинета сотрудника: ")
+#     skype = input("Введите skype сотрудника: ")
+#     Firm_human[name] = {
+#         "телефон": phone,
+#         "email": email,
+#         "должность": position,
+#         "кабинет": cabinet,
+#         "skype": skype
+#     }
+#     print(f"Сотрудник {name} добавлен в список!")
+
+# def delete_human():
+#     # Удаляем сотрудника из списка
+#     name = input("Введите ФИО сотрудника для удаления: ")
+#     if name in Firm_human:
+#         del Firm_human[name]
+#         print(f"Сотрудник {name} удален из списка!")
+#     else:
+#         print(f"Сотрудник {name} не найден в списке!")
+
+# def search_human():
+#     # Ищем сотрудника по ФИО
+#     name = input("Введите ФИО сотрудника для поиска: ")
+#     if name in Firm_human:
+#         print(f"Сотрудник {name} найден!")
+#         print(f"Телефон: {Firm_human[name]['телефон']}")
+#         print(f"Email: {Firm_human[name]['email']}")
+#         print(f"Должность: {Firm_human[name]['должность']}")
+#         print(f"Кабинет: {Firm_human[name]['кабинет']}")
+#         print(f"Skype: {Firm_human[name]['skype']}")
+#     else:
+#         print(f"Сотрудник {name} не найден в списке!")
+
+# def replace_human():
+#     # Заменяем информацию о сотруднике
+#     name = input("Введите ФИО сотрудника для замены: ")
+#     if name in Firm_human:
+#         phone = input("Введите новый телефон сотрудника: ")
+#         email = input("Введите новый email сотрудника: ")
+#         position = input("Введите новую должность сотрудника: ")
+#         cabinet = input("Введите новый номер кабинета сотрудника: ")
+#         skype = input("Введите новый skype сотрудника: ")
+#         Firm_human[name] = {
+#             "телефон": phone,
+#             "email": email,
+#             "должность": position,
+#             "кабинет": cabinet,
+#             "skype": skype
+#         }
+#         print(f"Информация о сотруднике {name} обновлена!")
+#     else:
+#         print(f"Сотрудник {name} не найден в списке!")
+
+# def print_human():
+#     # Выводим список всех сотрудников
+#     print("Список сотрудников:")
+#     for name, info in Firm_human.items():
+#         print(f"{name}:")
+#         print(f"Телефон: {info['телефон']}")
+#         print(f"Email: {info['email']}")
+#         print(f"Должность: {info['должность']}")
+#         print(f"Кабинет: {info['кабинет']}")
+#         print(f"Skype: {info['skype']}")
+#         print()
+
+# while True:
+#     print("Меню:")
+#     print("1. Добавить сотрудника")
+#     print("2. Удалить сотрудника")
+#     print("3. Найти сотрудника")
+#     print("4. Заменить информацию о сотруднике")
+#     print("5. Вывести список сотрудников")
+#     print("6. Выход")
+#     choice = int(input("Выберите пункт меню: "))
+
+#     if choice == 1:
+#         add_human()
+#     elif choice == 2:
+#         delete_human()
+#     elif choice == 3:
+#         search_human()
+#     elif choice == 4:
+#         replace_human()
+#     elif choice == 5:
+#         print_human()
+#     elif choice == 6:
+#         break
+#     else:
+#         print("Неверный выбор!")
+
+## Задание 4
+## Создайте программу «Книжная коллекция». Нужно
+## хранить информацию о книгах: автор, название книги,
+## жанр, год выпуска, количество страниц, издательство.
+## Требуется реализовать возможность добавления, удале-
+## ния, поиска, замены данных. Используйте словарь для
+## хранения информации.
+
+# book_collection = {}
+
+# def add_book():
+#     # Добавляем новую книгу
+#     title = input("Введите название книги: ")
+#     author = input("Введите автора книги: ")
+#     genre = input("Введите жанр книги: ")
+#     year = input("Введите год выпуска книги: ")
+#     pages = input("Введите количество страниц книги: ")
+#     publisher = input("Введите издательство книги: ")
+#     book_collection[title] = {
+#         "author": author,
+#         "genre": genre,
+#         "year": year,
+#         "pages": pages,
+#         "publisher": publisher
+#     }
+#     print(f"Книга {title} добавлена в коллекцию!")
+
+# def delete_book():
+#     # Удаляем книгу из коллекции
+#     title = input("Введите название книги для удаления: ")
+#     if title in book_collection:
+#         del book_collection[title]
+#         print(f"Книга {title} удалена из коллекции!")
+#     else:
+#         print(f"Книга {title} не найдена в коллекции!")
+
+# def search_book():
+#     # Ищем книгу по названию
+#     title = input("Введите название книги для поиска: ")
+#     if title in book_collection:
+#         print(f"Книга {title} найдена!")
+#         print(f"Автор: {book_collection[title]['author']}")
+#         print(f"Жанр: {book_collection[title]['genre']}")
+#         print(f"Год выпуска: {book_collection[title]['year']}")
+#         print(f"Количество страниц: {book_collection[title]['pages']}")
+#         print(f"Издательство: {book_collection[title]['publisher']}")
+#     else:
+#         print(f"Книга {title} не найдена в коллекции!")
+
+# def replace_book():
+#     # Заменяем информацию о книге
+#     title = input("Введите название книги для замены: ")
+#     if title in book_collection:
+#         author = input("Введите нового автора книги: ")
+#         genre = input("Введите новый жанр книги: ")
+#         year = input("Введите новый год выпуска книги: ")
+#         pages = input("Введите новое количество страниц книги: ")
+#         publisher = input("Введите новое издательство книги: ")
+#         book_collection[title] = {
+#             "author": author,
+#             "genre": genre,
+#             "year": year,
+#             "pages": pages,
+#             "publisher": publisher
+#         }
+#         print(f"Информация о книге {title} обновлена!")
+#     else:
+#         print(f"Книга {title} не найдена в коллекции!")
+
+# def print_books():
+#     # Выводим список всех книг
+#     print("Список книг:")
+#     for title, book in book_collection.items():
+#         print(f"{title}:")
+#         print(f"Автор: {book['author']}")
+#         print(f"Жанр: {book['genre']}")
+#         print(f"Год выпуска: {book['year']}")
+#         print(f"Количество страниц: {book['pages']}")
+#         print(f"Издательство: {book['publisher']}")
+#         print()
+
+# while True:
+#     print("Меню:")
+#     print("1. Добавить книгу")
+#     print("2. Удалить книгу")
+#     print("3. Найти книгу")
+#     print("4. Заменить информацию о книге")
+#     print("5. Вывести список книг")
+#     print("6. Выход")
+#     choice = int(input("Выберите пункт меню: "))
+
+#     if choice == 1:
+#         add_book()
+#     elif choice == 2:
+#         delete_book()
+#     elif choice == 3:
+#         search_book()
+#     elif choice == 4:
+#         replace_book()
+#     elif choice == 5:
+#         print_books()
 #     elif choice == 6:
 #         break
 #     else:
