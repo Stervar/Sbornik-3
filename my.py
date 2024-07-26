@@ -2281,3 +2281,398 @@
 #         break
 #     else:
 #         print("Неверный выбор!")
+
+ #Модуль 5 Файлы.Файлы.(Часть 1)
+
+## Задание 1
+## Дано два текстовых файла. Выяснить, совпадают ли
+## их строки. Если нет, то вывести несовпадающую строку
+## из каждого файла.
+
+# import os
+
+# def compare_files(file1_name, file2_name):
+#     """
+#     Сравнивает строки двух текстовых файлов.
+
+#     Args:
+#         file1_name (str): Имя первого файла.
+#         file2_name (str): Имя второго файла.
+
+#     Returns:
+#         None
+#     """
+#     try:
+#         with open(file1_name, 'r', encoding='utf-8') as file1, open(file2_name, 'r', encoding='utf-8') as file2:
+#             file1_lines = file1.readlines()
+#             file2_lines = file2.readlines()
+
+#             # Сравниваем количество строк в файлах
+#             if len(file1_lines) != len(file2_lines):
+#                 print("Файлы имеют разное количество строк.")
+#                 print(f"Файл {file1_name} имеет {len(file1_lines)} строк.")
+#                 print(f"Файл {file2_name} имеет {len(file2_lines)} строк.")
+#                 return
+
+#             # Сравниваем строки
+#             not_match = False
+#             for i, (line1, line2) in enumerate(zip(file1_lines, file2_lines), start=1):
+#                 if line1.strip() != line2.strip():
+#                     not_match = True
+#                     print(f"Несовпадающие строки в строке {i}:")
+#                     print(f"Файл {file1_name}: {line1.strip()}")
+#                     print(f"Файл {file2_name}: {line2.strip()}")
+#                     print()
+
+#             if not not_match:
+#                 print("Все строки совпадают.")
+
+#     except FileNotFoundError:
+#         print("Один из файлов не найден. Пожалуйста, проверьте путь к файлам.")
+
+# def main():
+#     while True:
+#         print("Меню:")
+#         print("1. Сравнить файлы")
+#         print("2. Выход")
+#         choice = input("Выберите действие: ")
+
+#         if choice == "1":
+#             file1_name = input("Введите полный путь к первому файлу: ")
+#             file2_name = input("Введите полный путь к второму файлу: ")
+
+#             # Проверяем, существуют ли файлы
+#             if not os.path.exists(file1_name):
+#                 print(f"Файл {file1_name} не найден.")
+#                 continue
+#             if not os.path.exists(file2_name):
+#                 print(f"Файл {file2_name} не найден.")
+#                 continue
+
+#             compare_files(file1_name, file2_name)
+#         elif choice == "2":
+#             print("Выход из программы.")
+#             break
+#         else:
+#             print("Неправильный выбор. Пожалуйста, выберите действие из меню.")
+
+# if __name__ == "__main__":
+#     main()
+
+##     Дан текстовый файл. Необходимо создать новый файл
+## и записать в него следующую статистику по исходному
+## файлу:
+## ■ Количество символов;
+## ■ Количество строк;
+## ■ Количество гласных букв;
+## ■ Количество согласных букв;
+## ■ Количество цифр.
+
+# def count_chars(file_name):
+#     with open(file_name, 'r', encoding='utf-8') as file:
+#         text = file.read()
+#         char_count = len(text)
+#         line_count = len(text.splitlines())
+#         vowel_count = sum(1 for char in text.lower() if char in 'aeiouy')
+#         consonant_count = sum(1 for char in text.lower() if char.isalpha() and char not in 'aeiouy')
+#         digit_count = sum(1 for char in text if char.isdigit())
+
+#     with open('stats.txt', 'w', encoding='utf-8') as stats_file:
+#         stats_file.write(f'Количество символов: {char_count}\n')
+#         stats_file.write(f'Количество строк: {line_count}\n')
+#         stats_file.write(f'Количество гласных букв: {vowel_count}\n')
+#         stats_file.write(f'Количество согласных букв: {consonant_count}\n')
+#         stats_file.write(f'Количество цифр: {digit_count}\n')
+
+# def main():
+#     file_name = input("Введите имя файла для анализа: ")
+#     count_chars(file_name)
+#     print("Статистика записана в файл stats.txt.")
+
+# if __name__ == "__main__":
+#     main()
+
+## Задание 3
+## Дан текстовый файл. Удалить из него последнюю
+## строку. Результат записать в другой файл.
+
+# def remove_last_line(input_file_name, output_file_name):
+#     with open(input_file_name, 'r', encoding='utf-8') as input_file:
+#         lines = input_file.readlines()
+#         lines = lines[:-1]  # удалить последнюю строку
+
+#     with open(output_file_name, 'w', encoding='utf-8') as output_file:
+#         output_file.writelines(lines)
+
+# def main():
+#     input_file_name = input("Введите имя файла для редактирования: ")
+#     output_file_name = input("Введите имя файла для результата: ")
+#     remove_last_line(input_file_name, output_file_name)
+#     print("Результат записан в файл", output_file_name)
+
+# if __name__ == "__main__":
+#     main()
+
+## Задание 4
+## Дан текстовый файл. Найти длину самой длинной
+## строки.
+
+# def find_longest_line_length(file_name):
+#     with open(file_name, 'r', encoding='utf-8') as file:
+#         lines = file.readlines()
+#         longest_line_length = max(len(line.strip()) for line in lines)
+
+#     print(f"Длина самой длинной строки: {longest_line_length}")
+
+# def main():
+#     file_name = input("Введите имя файла для анализа: ")
+#     find_longest_line_length(file_name)
+
+# if __name__ == "__main__":
+#     main()
+
+# Задание 5
+# Дан текстовый файл. Посчитать сколько раз в нем
+# встречается заданное пользователем слово.
+
+# def count_word_occurrences(file_name, word):
+#     with open(file_name, 'r', encoding='utf-8') as file:
+#         text = file.read().lower()
+#         word = word.lower()
+#         occurrences = text.count(word)
+
+#     print(f"Слово '{word}' встречается {occurrences} раз(а)")
+
+# def main():
+#     file_name = input("Введите имя файла для анализа: ")
+#     word = input("Введите слово для поиска: ")
+#     count_word_occurrences(file_name, word)
+
+# if __name__ == "__main__":
+#     main()
+
+## Задание 6
+## Дан текстовый файл. Найти и заменить в нем задан-
+## ное слово. Что искать и на что заменять определяется
+## пользователем.
+
+## №1
+
+# def replace_word(file_name, old_word, new_word):
+#     with open(file_name, 'r', encoding='utf-8') as file:
+#         text = file.read().lower()
+#         old_word = old_word.lower()
+#         new_word = new_word.lower()
+#         text = text.replace(old_word, new_word)
+#         with open(file_name, 'w', encoding='utf-8') as file:
+#             file.write(text)
+#     print(f"Слово '{old_word}' заменено на '{new_word}'")
+# def main():
+#     file_name = input("Введите имя файла для редактирования: ")
+#     old_word = input("Введите слово для замены: ")
+#     new_word = input("Введите новое слово: ")
+#     replace_word(file_name, old_word, new_word)
+# if __name__ == "__main__":
+#     main()
+
+## №2
+
+# def replace_word_in_file(file_name, old_word, new_word):
+#     with open(file_name, 'r', encoding='utf-8') as file:
+#         text = file.read()
+
+#     new_text = text.replace(old_word, new_word)
+
+#     with open(file_name, 'w', encoding='utf-8') as file:
+#         file.write(new_text)
+
+#     print(f"Слово '{old_word}' заменено на '{new_word}' в файле {file_name}")
+
+# def main():
+#     file_name = input("Введите имя файла для редактирования: ")
+#     old_word = input("Введите слово для замены: ")
+#     new_word = input("Введите новое слово: ")
+#     replace_word_in_file(file_name, old_word, new_word)
+
+# if __name__ == "__main__":
+#     main()
+
+## Модуль 5 Файлы.
+## Тема: Файлы. Часть 2
+
+## Задание 1
+## Напишите информационную систему «Сотрудники».
+## Программа должна обеспечивать ввод данных, редакти-
+## рование данных сотрудника, удаление сотрудника, поиск
+## сотрудника по фамилии, вывод информации обо всех
+## сотрудниках, указанного возраста, или фамилия которых
+## начинается на указанную букву. Организуйте возможность
+## сохранения найденной информации в файл. Также весь
+## список сотрудников сохраняется в файл (при выходе из
+## программы — автоматически, в процессе исполнения
+## программы — по команде пользователя). При старте
+## программы происходит загрузка списка сотрудников из
+## указанного пользователем файла.
+
+# class Employee:
+#     def __init__(self, surname, name, age):
+#         self.surname = surname
+#         self.name = name
+#         self.age = age
+
+#     def __str__(self):
+#         return f"{self.surname} {self.name}, {self.age} лет"
+
+# class EmployeeSystem:
+#     def __init__(self, file_name):
+#         self.employees = self.load_employees_from_file(file_name)
+
+#     def load_employees_from_file(self, file_name):
+#         try:
+#             with open(file_name, 'r', encoding='utf-8') as file:
+#                 employees = []
+#                 for line in file:
+#                     surname, name, age = line.strip().split(',')
+#                     employees.append(Employee(surname, name, int(age)))
+#                 return employees
+#         except FileNotFoundError:
+#             return []
+
+#     def save_employees_to_file(self, file_name):
+#         with open(file_name, 'w', encoding='utf-8') as file:
+#             for employee in self.employees:
+#                 file.write(f"{employee.surname},{employee.name},{employee.age}\n")
+
+#     def add_employee(self, surname, name, age):
+#         self.employees.append(Employee(surname, name, age))
+
+#     def edit_employee(self, surname, name, age):
+#         for employee in self.employees:
+#             if employee.surname == surname:
+#                 employee.name = name
+#                 employee.age = age
+#                 return
+#         print("Сотрудник не найден")
+
+#     def delete_employee(self, surname):
+#         for employee in self.employees:
+#             if employee.surname == surname:
+#                 self.employees.remove(employee)
+#                 return
+#         print("Сотрудник не найден")
+
+#     def find_employees_by_surname(self, surname):
+#         return [employee for employee in self.employees if employee.surname.startswith(surname)]
+
+#     def find_employees_by_age(self, age):
+#         return [employee for employee in self.employees if employee.age == age]
+
+#     def print_employees(self, employees):
+#         for employee in employees:
+#             print(employee)
+
+# def main():
+#     file_name = input("Введите имя файла для загрузки списка сотрудников: ")
+#     system = EmployeeSystem(file_name)
+
+#     while True:
+#         print("Меню:")
+#         print("1. Добавить сотрудника")
+#         print("2. Редактировать сотрудника")
+#         print("3. Удалить сотрудника")
+#         print("4. Найти сотрудника по фамилии")
+#         print("5. Найти сотрудника по возрасту")
+#         print("6. Вывести информацию обо всех сотрудниках")
+#         print("7. Сохранить список сотрудников в файл")
+#         print("8. Выход")
+
+#         choice = input("Введите номер пункта меню: ")
+
+#         if choice == "1":
+#             surname = input("Введите фамилию: ")
+#             name = input("Введите имя: ")
+#             age = int(input("Введите возраст: "))
+#             system.add_employee(surname, name, age)
+#         elif choice == "2":
+#             surname = input("Введите фамилию: ")
+#             name = input("Введите имя: ")
+#             age = int(input("Введите возраст: "))
+#             system.edit_employee(surname, name, age)
+#         elif choice == "3":
+#             surname = input("Введите фамилию: ")
+#             system.delete_employee(surname)
+#         elif choice == "4":
+#             surname = input("Введите фамилию: ")
+#             employees = system.find_employees_by_surname(surname)
+#             system.print_employees(employees)
+#         elif choice == "5":
+#             age = int(input("Введите возраст: "))
+#             employees = system.find_employees_by_age(age)
+#             system.print_employees(employees)
+#         elif choice == "6":
+#             system.print_employees(system.employees)
+#         elif choice == "7":
+#             file_name = input("Введите имя файла для сохранения списка сотрудников: ")
+#             system.save_employees_to_file(file_name)
+#         elif choice == "8":
+#             system.save_employees_to_file(file_name)
+#             break
+#         else:
+#             print("Неверный выбор")
+
+# if __name__ == "__main__":
+#     main()
+
+##     Шаг 1: Определение класса Employee
+
+## Код определяет класс Employee с тремя атрибутами: фамилией, именем и возрастом. Метод __init__ инициализирует эти атрибуты при создании экземпляра класса. Метод __str__ возвращает строковое представление сотрудника в формате "Фамилия, имя, возраст, годы".
+
+## Шаг 2: Определение класса EmployeeSystem
+
+## В коде определяется класс EmployeeSystem, который управляет списком сотрудников. Метод __init__ инициализирует список сотрудников, загружая их из файла, указанного параметром file_name. Метод load_employees_from_file считывает файл и создает экземпляр класса Employee для каждой строки в файле.
+
+## Шаг 3: Определение методов для класса EmployeeSystem
+
+## В коде определено несколько методов для класса EmployeeSystem:
+
+## add_employee: добавляет нового сотрудника в список
+## edit_employee: редактирует существующего сотрудника в списке
+## delete_employee: удаляет сотрудника из списка
+## find_employees_by_surname: находит сотрудников по фамилии
+## find_employees_by_age: находит сотрудников по возрасту
+## print_employees: печатает список сотрудников
+## save_employees_to_file: сохраняет список сотрудников в файл
+## Шаг 4: Определение основной функции
+
+## Код определяет основную функцию, которая запускает программу. Функция:
+
+## Просит пользователя ввести имя файла для загрузки списка сотрудников
+## Создает экземпляр класса EmployeeSystem с указанным именем файла
+## Переходит в цикл, в котором пользователю повторно предлагается выбрать действие из меню
+## Шаг 5: Цикл меню
+
+## В цикле меню пользователю повторно предлагается выбрать действие из следующего меню:
+
+## Добавить сотрудника
+## Отредактировать сотрудника
+## Удалить сотрудника
+## Поиск сотрудников по фамилии
+## Поиск сотрудников по возрасту
+## Вывести всех сотрудников
+## Сохранить сотрудников в файл
+## Выход
+## В зависимости от выбора пользователя программа выполняет соответствующее действие, используя методы, определенные в классе EmployeeSystem.
+
+## Шаг 6: Сохранение сотрудников в файл
+
+## Когда пользователь выбирает сохранение сотрудников в файл, программа запрашивает имя сотрудника.выберите файл для сохранения, а затем вызовите метод save_employees_to_file, чтобы сохранить список сотрудников в указанном файле.
+
+## Шаг 7: Выход из программы
+
+## Когда пользователь решает выйти из программы, программа сохраняет список сотрудников в файл, указанный в переменной file_name, а затем завершает цикл.
+
+## Это общий обзор того, что делает код на высоком уровне! Дайте мне знать, если у вас возникнут какие-либо конкретные вопросы по поводу любого из этих шагов.
+
+# Модуль 10. Обьектно-ориентированное программирование
+#        Тема: Множественное наследование.
+# Полиморфизм. Реализация магических методов. Часть 6
