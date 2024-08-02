@@ -2676,3 +2676,878 @@
 # Модуль 10. Обьектно-ориентированное программирование
 #        Тема: Множественное наследование.
 # Полиморфизм. Реализация магических методов. Часть 6
+
+## Задание 1
+## Создать базовый класс Фигура с методом для подсчета
+## площади. Создать производные классы: прямоугольник,
+## круг, прямоугольный треугольник, трапеция со своими
+## методами для подсчета площади.
+
+# import math
+
+# ## Базовый класс Фигура
+# class Figure:
+#     def __init__(self):
+#         pass
+
+#     def area(self):
+#         pass
+
+# ## Производный класс Прямоугольник
+# class Rectangle(Figure):
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+
+#     def area(self):
+#         return self.width * self.height
+
+# ## Производный класс Круг
+# class Circle(Figure):
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     def area(self):
+#         return math.pi * (self.radius ** 2)
+
+# ##Производный класс Прямоугольный треугольник
+# class RightTriangle(Figure):
+#     def __init__(self, base, height):
+#         self.base = base
+#         self.height = height
+
+#     def area(self):
+#         return 0.5 * self.base * self.height
+
+# ## Производный класс Трапеция
+# class Trapezoid(Figure):
+#     def __init__(self, base1, base2, height):
+#         self.base1 = base1
+#         self.base2 = base2
+#         self.height = height
+
+#     def area(self):
+#         return 0.5 * (self.base1 + self.base2) * self.height
+
+# ## Пример использования
+# rectangle = Rectangle(4, 5)
+# print(f"Площадь прямоугольника: {rectangle.area()}")
+
+# circle = Circle(3)
+# print(f"Площадь круга: {circle.area()}")
+
+# right_triangle = RightTriangle(3, 4)
+# print(f"Площадь прямоугольного треугольника: {right_triangle.area()}")
+
+# trapezoid = Trapezoid(3, 5, 4)
+# print(f"Площадь трапеции: {trapezoid.area()}")
+
+# ## Задание 2
+# ## Для классов из задания 1 нужно переопределить маги-
+# ## ческие методы int(возвращает площадь) и str (возвращает
+# ## информацию о фигуре).
+# import math
+
+# # Базовый класс Фигура
+# class Figure:
+#     def __init__(self):
+#         pass
+
+#     def area(self):
+#         pass
+
+#     def __int__(self):
+#         return int(self.area())
+
+#     def __str__(self):
+#         pass
+
+# ## Производный класс Прямоугольник
+# class Rectangle(Figure):
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+
+#     def area(self):
+#         return self.width * self.height
+
+#     def __str__(self):
+#         return f"Прямоугольник: ширина = {self.width}, высота = {self.height}, площадь = {self.area()}"
+
+# ## Производный класс Круг
+# class Circle(Figure):
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     def area(self):
+#         return math.pi * (self.radius ** 2)
+
+#     def __str__(self):
+#         return f"Круг: радиус = {self.radius}, площадь = {self.area()}"
+
+# ## Производный класс Прямоугольный треугольник
+# class RightTriangle(Figure):
+#     def __init__(self, base, height):
+#         self.base = base
+#         self.height = height
+
+#     def area(self):
+#         return 0.5 * self.base * self.height
+
+#     def __str__(self):
+#         return f"Прямоугольный треугольник: основание = {self.base}, высота = {self.height}, площадь = {self.area()}"
+
+# ## Производный класс Трапеция
+# class Trapezoid(Figure):
+#     def __init__(self, base1, base2, height):
+#         self.base1 = base1
+#         self.base2 = base2
+#         self.height = height
+
+#     def area(self):
+#         return 0.5 * (self.base1 + self.base2) * self.height
+
+#     def __str__(self):
+#         return f"Трапеция: основания = {self.base1} и {self.base2}, высота = {self.height}, площадь = {self.area()}"
+
+# ## Пример использования
+# rectangle = Rectangle(4, 5)
+# print(int(rectangle))  ## Выводит площадь прямоугольника
+# print(rectangle)  # Выводит информацию о прямоугольнике
+
+# circle = Circle(3)
+# print(int(circle))  ## Выводит площадь круга
+# print(circle)  ## Выводит информацию о круге
+
+# right_triangle = RightTriangle(3, 4)
+# print(int(right_triangle))  ## Выводит площадь прямоугольного треугольника
+# print(right_triangle)  ## Выводит информацию о прямоугольном треугольнике
+
+# trapezoid = Trapezoid(3, 5, 4)
+# print(int(trapezoid))  ## Выводит площадь трапеции
+# print(trapezoid)  ## Выводит информацию о трапеции
+
+# ## Задание 3
+# ## Создайте базовый класс Shape для рисования плоских
+# ## фигур.
+# ## Определите методы:
+# ## ■ Show() — вывод на экран информации о фигуре;
+# ## ■ Save() — сохранение фигуры в файл;
+# ## ■ Load() — считывание фигуры из файла.
+# ## Определите производные классы:
+# ## ■ Square — квадрат, который характеризуется коорди-
+# ## натами левого верхнего угла и длиной стороны;
+# ## ■ Rectangle — прямоугольник с заданными координа-
+# ## тами верхнего левого угла и размерами;
+# ## ■ Circle — окружность с заданными координатами цен-
+# ## тра и радиусом;
+# ## ■ Ellipse — эллипс с заданными координатами верхнего
+# ## угла описанного вокруг него прямоугольника со сто-
+# ## ронами, параллельными осям координат, и размерами
+# ## этого прямоугольника.
+# ## Создайте список фигур, сохраните фигуры в файл,
+# ## загрузите в другой список и отобразите информацию о
+# ## каждой из фигур.
+
+# import json
+
+# ## Базовый класс Shape
+# class Shape:
+#     def __init__(self):
+#         pass
+
+#     def show(self):
+#         pass
+
+#     def save(self, filename):
+#         with open(filename, 'a') as file:
+#             json.dump(self.__dict__, file)
+#             file.write('\n')
+
+#     @classmethod
+#     def load(cls, filename):
+#         shapes = []
+#         with open(filename, 'r') as file:
+#             for line in file:
+#                 shape_dict = json.loads(line)
+#                 shape = cls()
+#                 shape.__dict__.update(shape_dict)
+#                 shapes.append(shape)
+#         return shapes
+
+# ## Производный класс Square
+# class Square(Shape):
+#     def __init__(self, x, y, side):
+#         self.x = x
+#         self.y = y
+#         self.side = side
+
+#     def show(self):
+#         print(f"Квадрат: ({self.x}, {self.y}), сторона = {self.side}")
+
+# ## Производный класс Rectangle
+# class Rectangle(Shape):
+#     def __init__(self, x, y, width, height):
+#         self.x = x
+#         self.y = y
+#         self.width = width
+#         self.height = height
+
+#     def show(self):
+#         print(f"Прямоугольник: ({self.x}, {self.y}), ширина = {self.width}, высота = {self.height}")
+
+# ## Производный класс Circle
+# class Circle(Shape):
+#     def __init__(self, x, y, radius):
+#         self.x = x
+#         self.y = y
+#         self.radius = radius
+
+#     def show(self):
+#         print(f"Окружность: ({self.x}, {self.y}), радиус = {self.radius}")
+
+# ## Производный класс Ellipse
+# class Ellipse(Shape):
+#     def __init__(self, x, y, width, height):
+#         self.x = x
+#         self.y = y
+#         self.width = width
+#         self.height = height
+
+#     def show(self):
+#         print(f"Эллипс: ({self.x}, {self.y}), ширина = {self.width}, высота = {self.height}")
+
+# ## Создание списка фигур
+# shapes = [
+#     Square(1, 2, 3),
+#     Rectangle(4, 5, 6, 7),
+#     Circle(8, 9, 10),
+#     Ellipse(11, 12, 13, 14)
+# ]
+
+# ## Сохранение фигур в файл
+# for shape in shapes:
+#     shape.save('shapes.txt')
+
+# ## Загрузка фигур из файла
+# loaded_shapes = []
+# with open('shapes.txt', 'r') as file:
+#     for line in file:
+#         shape_dict = json.loads(line)
+#         if 'side' in shape_dict:
+#             shape = Square(0, 0, 0)
+#         elif 'width' in shape_dict and 'height' in shape_dict:
+#             if 'radius' not in shape_dict:
+#                 shape = Rectangle(0, 0, 0, 0)
+#             else:
+#                 shape = Ellipse(0, 0, 0, 0)
+#         else:
+#             shape = Circle(0, 0, 0)
+#         shape.__dict__.update(shape_dict)
+#         loaded_shapes.append(shape)
+
+# ## Отображение информации о каждой фигуре
+# for shape in loaded_shapes:
+#     shape.show()
+
+## Модуль 10. Обьектно-ориентированное программирование
+##            Тема:наследование.
+
+#  Задание 1
+#  Создайте класс Device, который содержит информа-
+#  цию об устройстве.
+#  С помощью механизма наследования, реализуйте класс
+# CoffeeMachine (содержит информацию о кофемашине),
+#  класс Blender (содержит информацию о блендере), класс
+#  MeatGrinder (содержит информацию о мясорубке).
+#  Каждый из классов должен содержать необходимые
+#  для работы методы.
+
+# #№1
+# class Device:
+#     def __init__(self, name, power, voltage):
+#         """
+#         Инициализация устройства
+
+#         :param name: Название устройства
+#         :param power: Мощность устройства
+#         :param voltage: Напряжение устройства
+#         """
+#         self.name = name
+#         self.power = power
+#         self.voltage = voltage
+
+#     def get_info(self):
+#         """
+#         Получение информации об устройстве
+
+#         :return: Информация об устройстве
+#         """
+#         return f"Устройство: {self.name}, Мощность: {self.power} Вт, Напряжение: {self.voltage} В"
+
+#     def turn_on(self):
+#         """
+#         Включение устройства
+#         """
+#         print(f"{self.name} включен")
+
+#     def turn_off(self):
+#         """
+#         Выключение устройства
+#         """
+#         print(f"{self.name} выключен")
+
+# device = Device("Philips", 300, 220)
+# print(device.get_info())
+# device.turn_on()
+# device.turn_off()
+
+
+
+# #№2
+# class CoffeeMachine(Device):
+#     def __init__(self, name, power, voltage, coffee_types):
+#         """
+#         Инициализация кофемашины
+
+#         :param name: Название кофемашины
+#         :param power: Мощность кофемашины
+#         :param voltage: Напряжение кофемашины
+#         :param coffee_types: Типы кофе, которые может приготовить кофемашина
+#         """
+#         super().__init__(name, power, voltage)
+#         self.coffee_types = coffee_types
+
+#     def make_coffee(self, coffee_type):
+#         """
+#         Приготовление кофе
+
+#         :param coffee_type: Тип кофе
+#         """
+#         if coffee_type in self.coffee_types:
+#             print(f"Приготовлен {coffee_type} кофе")
+#         else:
+#             print("Кофемашина не может приготовить такой тип кофе")
+
+#     def get_coffee_types(self):
+#         """
+#         Получение списка доступных типов кофе
+
+#         :return: Список доступных типов кофе
+#         """
+#         return self.coffee_types
+
+# coffee_machine = CoffeeMachine("Philips", 1200, 220, ["Эспрессо", "Капучино", "Латте"])
+# print(coffee_machine.get_info())
+# coffee_machine.turn_on()
+# coffee_machine.make_coffee
+
+
+
+
+# #№3
+# class Blender(Device):
+#     def __init__(self, name, power, voltage, speed_modes):
+#         """
+#         Инициализация блендера
+
+#         :param name: Название блендера
+#         :param power: Мощность блендера
+#         :param voltage: Напряжение блендера
+#         :param speed_modes: Режимы скорости блендера
+#         """
+#         super().__init__(name, power, voltage)
+#         self.speed_modes = speed_modes
+
+#     def blend(self, speed_mode):
+#         """
+#         Взбивание
+
+#         :param speed_mode: Режим скорости
+#         """
+#         if speed_mode in self.speed_modes:
+#             print(f"Взбивание на скорости {speed_mode}")
+#         else:
+#             print("Блендер не имеет такого режима скорости")
+
+#     def get_speed_modes(self):
+#         """
+#         Получение списка доступных режимов скорости
+
+#         :return: Список доступных режимов скорости
+#         """
+#         return self.speed_modes
+
+# blender = Blender("Bosch", 500, 220, ["Low", "Medium", "High"])
+# print(blender.get_info())
+# blender.turn_on()
+# blender.blend("Medium")
+
+
+
+# #№4
+# class MeatGrinder(Device):
+#     def __init__(self, name, power, voltage, grinding_modes):
+#         """
+#         Инициализация мясорубки
+
+#         :param name: Название мясорубки
+#         :param power: Мощность мясорубки
+#         :param voltage: Напряжение мясорубки
+#         :param grinding_modes: Режимы измельчения мясорубки
+#         """
+#         super().__init__(name, power, voltage)
+#         self.grinding_modes = grinding_modes
+
+#     def grind(self, grinding_mode):
+#         """
+#         Измельчение
+
+#         :param grinding_mode: Режим измельчения
+#         """
+#         if grinding_mode in self.grinding_modes:
+#             print(f"Измельчение на режиме {grinding_mode}")
+#         else:
+#             print("Мясорубка не имеет такого режима измельчения")
+
+#     def get_grinding_modes(self):
+#         """
+#         Получение списка доступных режимов измельчения
+
+#         :return: Список доступных режимов измельчения
+#         """
+#         return self.grinding_modes
+
+# meat_grinder = MeatGrinder("Moulinex", 800, 220, ["Fine", "Medium", "Coarse"])
+# print(meat_grinder.get_info())
+# meat_grinder.turn_on()
+# print(meat_grinder.get_grinding_modes())
+# meat_grinder.grind("Medium")
+
+# Задание 2
+# Создайте класс Ship, который содержит информацию
+# о корабле.
+# С помощью механизма наследования, реализуйте
+# класс Frigate (содержит информацию о фрегате), класс
+# Destroyer (содержит информацию об эсминце), класс
+# Cruiser (содержит информацию о крейсере).
+# Каждый из классов должен содержать необходимые
+# для работы методы.
+
+
+# #№1
+# # ship.py
+# class Ship:
+#     def __init__(self, name, length, width, draft):
+#         """
+#         Инициализация корабля.
+
+#         :param name: Название корабля
+#         :param length: Длина корабля
+#         :param width: Ширина корабля
+#         :param draft: Осадка корабля
+#         """
+#         self.name = name
+#         self.length = length
+#         self.width = width
+#         self.draft = draft
+
+#     def get_info(self):
+#         """
+#         Возвращает информацию о корабле.
+
+#         :return: Строка с информацией о корабле
+#         """
+#         return f"Корабль '{self.name}': длина - {self.length} м, ширина - {self.width} м, осадка - {self.draft} м"
+
+#     def __str__(self):
+#         return self.get_info()
+    
+# ship = Ship("Корабль", 100, 10, 5)
+# print(ship)  # Выводит: Корабль 'Корабль': длина - 100 м, ширина - 10 м, осадка - 5 м
+
+
+
+
+
+
+
+# #№2
+# # frigate.py
+
+# class Frigate(Ship):
+#     def __init__(self, name, length, width, draft, speed):
+#         """
+#         Инициализация фрегата.
+
+#         :param name: Название фрегата
+#         :param length: Длина фрегата
+#         :param width: Ширина фрегата
+#         :param draft: Осадка фрегата
+#         :param speed: Скорость фрегата
+#         """
+#         super().__init__(name, length, width, draft)
+#         self.speed = speed
+
+#     def get_info(self):
+#         """
+#         Возвращает информацию о фрегате.
+
+#         :return: Строка с информацией о фрегате
+#         """
+#         return f"{super().get_info()}, скорость - {self.speed} узлов"
+
+#     def __str__(self):
+#         return self.get_info()
+    
+# frigate = Frigate("Фрегат", 100, 10, 5, 20)
+# print(frigate)  # Выводит: Корабль 'Фрегат': длина - 100 м, ширина - 10 м, осадка - 5 м, скорость - 20 узлов
+# # destroyer.py
+
+
+
+
+
+
+
+# #№3
+# # Destroyer.py
+
+# class Destroyer(Ship):
+#     def __init__(self, name, length, width, draft, torpedo_tubes):
+#         """
+#         Инициализация эсминца.
+
+#         :param name: Название эсминца
+#         :param length: Длина эсминца
+#         :param width: Ширина эсминца
+#         :param draft: Осадка эсминца
+#         :param torpedo_tubes: Количество торпедных аппаратов
+#         """
+#         super().__init__(name, length, width, draft)
+#         self.torpedo_tubes = torpedo_tubes
+
+#     def get_info(self):
+#         """
+#         Возвращает информацию об эсминце.
+
+#         :return: Строка с информацией об эсминце
+#         """
+#         return f"{super().get_info()}, торпедные аппараты - {self.torpedo_tubes} шт."
+
+#     def __str__(self):
+#         return self.get_info()
+    
+# destroyer = Destroyer("Эсминец", 100, 10, 5, 4)
+# print(destroyer)  # Выводит: Корабль 'Эсминец': длина - 100 м, ширина - 10 м, осадка - 5 м, торпедные аппараты - 4 шт.
+
+
+
+
+
+
+# #№4
+# # cruiser.py
+
+# class Cruiser(Ship):
+#     def __init__(self, name, length, width, draft, main_caliber):
+#         """
+#         Инициализация крейсера.
+
+#         :param name: Название крейсера
+#         :param length: Длина крейсера
+#         :param width: Ширина крейсера
+#         :param draft: Осадка крейсера
+#         :param main_caliber: Калибр главной артиллерии
+#         """
+#         super().__init__(name, length, width, draft)
+#         self.main_caliber = main_caliber
+
+#     def get_info(self):
+#         """
+#         Возвращает информацию о крейсере.
+
+#         :return: Строка с информацией о крейсере
+#         """
+#         return f"{super().get_info()}, главный калибр - {self.main_caliber}"
+
+# cruiser = Cruiser("Крейсер", 150, 15, 6, "203 мм")
+# print(cruiser.get_info())  # Выводит: Корабль 'Крейсер': длина - 150 м, ширина - 15 м, осадка - 6 м, главный калибр - 203 мм
+
+
+
+
+
+# #№5
+# # main.py
+
+# frigate = Frigate("Фрегат", 100, 10, 5, 20)
+# destroyer = Destroyer("Эсминец", 120, 12, 6, 4)
+# cruiser = Cruiser("Крейсер", 150, 15, 7, 152)
+
+# print(frigate.get_info())
+# print(destroyer.get_info())
+# print(cruiser.get_info())
+
+
+
+## Задание 3
+## Запрограммируйте класс Money (объект класса опе-
+## рирует одной валютой) для работы с деньгами.
+## В классе должны быть предусмотрены поле для хра-
+## нения целой части денег (доллары, евро, гривны и т.д.) и
+## поле для хранения копеек (центы, евроценты, копейки
+## и т.д.).
+## Реализовать методы для вывода суммы на экран, за-
+## дания значений для частей.
+
+
+##№1
+
+# class Money:
+#     def __init__(self, currency, dollars=0, cents=0):
+#         """
+#         Инициализация объекта Money.
+
+#         :param currency: Валюта (строка)
+#         :param dollars: Целая часть денег (доллары, евро, гривны и т.д.)
+#         :param cents: Дробная часть денег (центы, евроценты, копейки и т.д.)
+#         """
+#         self.currency = currency
+#         self.dollars = dollars
+#         self.cents = cents
+
+#     def set_dollars(self, dollars):
+#         """
+#         Установка целой части денег.
+
+#         :param dollars: Целая часть денег
+#         """
+#         self.dollars = dollars
+
+#     def set_cents(self, cents):
+#         """
+#         Установка дробной части денег.
+
+#         :param cents: Дробная часть денег
+#         """
+#         self.cents = cents
+
+#     def get_amount(self):
+#         """
+#         Возвращает сумму денег в виде строки.
+
+#         :return: Сумма денег в виде строки
+#         """
+#         return f"{self.dollars}.{self.cents:02} {self.currency}"
+
+#     def __str__(self):
+#         return self.get_amount()
+
+# # Пример использования класса Money
+# money = Money("USD", 10, 50)
+# print(money)  # Выводит: 10.50 USD
+
+# money.set_dollars(20)
+# money.set_cents(25)
+# print(money)  # Выводит: 20.25 USD
+
+
+
+
+
+
+
+##№2
+
+# class Money:
+#     def __init__(self, currency, dollars=0, cents=0):
+#         """
+#         Инициализация объекта Money.
+
+#         :param currency: Валюта (строка)
+#         :param dollars: Целая часть денег (доллары, евро, гривны и т.д.)
+#         :param cents: Дробная часть денег (центы, евроценты, копейки и т.д.)
+#         """
+#         self.currency = currency
+#         self.dollars = dollars
+#         self.cents = cents
+
+#     def set_dollars(self, dollars):
+#         """
+#         Установка целой части денег.
+
+#         :param dollars: Целая часть денег
+#         """
+#         self.dollars = dollars
+
+#     def set_cents(self, cents):
+#         """
+#         Установка дробной части денег.
+
+#         :param cents: Дробная часть денег
+#         """
+#         self.cents = cents
+
+#     def get_amount(self):
+#         """
+#         Возвращает сумму денег в виде строки.
+
+#         :return: Сумма денег в виде строки
+#         """
+#         return f"{self.dollars}.{self.cents:02} {self.currency}"
+
+#     def __str__(self):
+#         return self.get_amount()
+
+# def main():
+#     print("Добро пожаловать в меню Money!")
+#     currency = input("Введите валюту (например, USD, EUR, UAH): ")
+#     money = Money(currency)
+
+#     while True:
+#         print("\nМеню:")
+#         print("1. Установить сумму денег")
+#         print("2. Вывести сумму денег")
+#         print("3. Выход")
+
+#         choice = input("Введите номер пункта меню: ")
+
+#         if choice == "1":
+#             dollars = int(input("Введите целую часть денег: "))
+#             cents = int(input("Введите дробную часть денег: "))
+#             money.set_dollars(dollars)
+#             money.set_cents(cents)
+#         elif choice == "2":
+#             print(money)
+#         elif choice == "3":
+#             print("До свидания!")
+#             break
+#         else:
+#             print("Неверный номер пункта меню. Пожалуйста, попробуйте еще раз.")
+
+# if __name__ == "__main__":
+#     main()
+
+
+
+
+
+
+## №3
+
+# class Money:
+#     def __init__(self, currency, dollars=0, cents=0):
+#         """
+#         Инициализация объекта Money.
+
+#         :param currency: Валюта (строка)
+#         :param dollars: Целая часть денег (доллары, евро, гривны и т.д.)
+#         :param cents: Дробная часть денег (центы, евроценты, копейки и т.д.)
+#         """
+#         self.currency = currency
+#         self.dollars = dollars
+#         self.cents = cents
+
+#     def set_dollars(self, dollars):
+#         """
+#         Установка целой части денег.
+
+#         :param dollars: Целая часть денег
+#         """
+#         self.dollars = dollars
+
+#     def set_cents(self, cents):
+#         """
+#         Установка дробной части денег.
+
+#         :param cents: Дробная часть денег
+#         """
+#         self.cents = cents
+
+#     def get_amount(self):
+#         """
+#         Возвращает сумму денег в виде строки.
+
+#         :return: Сумма денег в виде строки
+#         """
+#         return f"{self.dollars}.{self.cents:02} {self.currency}"
+
+#     def __str__(self):
+#         return self.get_amount()
+
+# class Bank:
+#     def __init__(self):
+#         self.exchange_rates = {
+#             "USD": 1.0,
+#             "EUR": 0.88,
+#             "UAH": 26.5
+#         }
+#         self.interest_rates = {
+#             "USD": 0.05,
+#             "EUR": 0.03,
+#             "UAH": 0.10
+#         }
+
+#     def convert(self, money, new_currency):
+#         """
+#         Переводит деньги из одной валюты в другую.
+
+#         :param money: Объект Money
+#         :param new_currency: Новая валюта
+#         :return: Объект Money с новой валютой
+#         """
+#         new_amount = money.dollars * self.exchange_rates[money.currency] / self.exchange_rates[new_currency]
+#         return Money(new_currency, int(new_amount), int((new_amount - int(new_amount)) * 100))
+
+#     def deposit(self, money, years):
+#         """
+#         Положить деньги под процент.
+
+#         :param money: Объект Money
+#         :param years: Количество лет
+#         :return: Объект Money с новой суммой
+#         """
+#         interest_rate = self.interest_rates[money.currency]
+#         new_amount = money.dollars * (1 + interest_rate) ** years
+#         return Money(money.currency, int(new_amount), int((new_amount - int(new_amount)) * 100))
+
+# def main():
+#     print("Добро пожаловать в меню Money!")
+#     bank = Bank()
+#     currency = input("Введите валюту (например, USD, EUR, UAH): ")
+#     money = Money(currency)
+
+#     while True:
+#         print("\nМеню:")
+#         print("1. Установить сумму денег")
+#         print("2. Вывести сумму денег")
+#         print("3. Перевести деньги в другую валюту")
+#         print("4. Положить деньги под процент")
+#         print("5. Выход")
+
+#         choice = input("Введите номер пункта меню: ")
+
+#         if choice == "1":
+#             dollars = int(input("Введите целую часть денег: "))
+#             cents = int(input("Введите дробную часть денег: "))
+#             money.set_dollars(dollars)
+#             money.set_cents(cents)
+#         elif choice == "2":
+#             print(money)
+#         elif choice == "3":
+#             new_currency = input("Введите новую валюту (например, USD, EUR, UAH): ")
+#             new_money = bank.convert(money, new_currency)
+#             print(new_money)
+#         elif choice == "4":
+#             years = int(input("Введите количество лет: "))
+#             new_money = bank.deposit(money, years)
+#             print(new_money)
+#         elif choice == "5":
+#             print("До свидания!")
+#             break
+#         else:
+#             print("Неверный номер пункта меню. Пожалуйста, попробуйте еще раз.")
+
+# if __name__ == "__main__":
+#     main()
