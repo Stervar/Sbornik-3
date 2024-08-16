@@ -1,3 +1,31 @@
+class MyClass:
+    def __init__(self, name):
+        self.name = name
+
+    def instance_method(self):
+        print(f"Hello, my name is {self.name}")
+
+    @staticmethod
+    def static_method():
+        print("This is a static method")
+
+    @classmethod
+    def class_method(cls):
+        print(f"This is a class method of {cls.__name__}")
+
+# Create an instance of the class
+obj = MyClass("John")
+
+# Call the instance method
+obj.instance_method()  # Output: Hello, my name is John
+
+# Call the static method
+MyClass.static_method()  # Output: This is a static method
+
+# Call the class method
+MyClass.class_method()  # Output: This is a class method of MyClass
+
+
 # Модуль 1 (часть 2)
 
 
@@ -4514,3 +4542,953 @@
 
 # if __name__ == "__main__":
 #     main()
+
+
+
+
+
+## Модуль 10.Обьектно-ориентированное программирование 
+## Тема:Перезагрузка операторов.Часть 5
+
+
+
+
+
+
+
+# [Обозночение]
+
+# Комплексное число - это математическое понятие, которое расширяет понятие обычного числа, добавляя к нему.imaginary часть. Комплексное число обычно записывается в виде:
+
+# a + bi
+
+# где:
+
+# a - real part (действительная часть)
+# b - imaginary part (мнимая часть)
+# i - imaginary unit (мнимая единица), которая равна квадратному корню из -1 (i = √(-1))
+                                                                            
+# Комплексные числа используются в различных областях математики и физики, таких как алгебра, геометрия, анализ, электротехника, физика и другие.
+
+# В частности, комплексные числа полезны для решения уравнений, которые не имеют решений в области вещественных чисел. Например, уравнение x^2 + 1 = 0 не имеет решений в области вещественных чисел, но имеет два комплексных решения: x = i и x = -i.
+
+# Комплексные числа также используются для описания периодических процессов, таких как колебания и волны, а также для моделирования электрических цепей и других физических систем.                                                                            
+
+
+
+
+
+
+
+## Задание 1
+## Создайте класс Circle (окружность). Для данного
+## класса реализуйте ряд перегруженных операторов:
+## ■ Проверка на равенство радиусов двух окружностей
+## (операция = =);
+## ■ Сравнения длин двух окружностей (операции >, <,
+## <=,>=);
+## ■ Пропорциональное изменение размеров окружности,
+## путем изменения ее радиуса (операции + - += -=).
+
+
+
+
+
+# class Circle:
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     def __eq__(self, other):
+#         return self.radius == other.radius
+
+#     def __lt__(self, other):
+#         return self.radius < other.radius
+
+#     def __le__(self, other):
+#         return self.radius <= other.radius
+
+#     def __gt__(self, other):
+#         return self.radius > other.radius
+
+#     def __ge__(self, other):
+#         return self.radius >= other.radius
+
+#     def __add__(self, other):
+#         return Circle(self.radius + other.radius)
+
+#     def __sub__(self, other):
+#         return Circle(self.radius - other.radius)
+
+#     def __iadd__(self, other):
+#         self.radius += other.radius
+#         return self
+
+
+
+
+## Это определение класса Python для класса Circle. Вот описание того, что происходит:
+
+## Инициализация
+
+## Метод __init__ является конструктором класса. Он принимает единственный аргумент radius и устанавливает его в качестве переменной экземпляра self.radius.
+
+## Методы сравнения
+
+## В классе определено несколько методов сравнения:
+
+## __eq__: проверяет, равны ли две окружности (т. е. имеют ли они одинаковый радиус).
+## __lt__: проверяет, меньше ли одна окружность другой (т. е. имеет ли она меньший радиус)
+## __le__: проверяет, меньше или равна ли одна окружность другой
+## __gt__: проверяет, больше ли одна окружность другой
+## __ge__: проверяет, больше или равна ли одна окружность другой.
+## Эти методы позволяют сравнивать объекты Circle с помощью стандартных операторов сравнения (==, <, <=, >, >=).
+
+## Арифметические методы
+
+## В классе определены два арифметических метода:
+
+## __add__: складывает две окружности путем сложения их радиусов и возвращает новый объект Circle с полученным радиусом.
+## __sub__: вычитает одну окружность из другой путем вычитания их радиусов и возвращает новый объект Circle с полученным радиусом
+## __iadd__: увеличивает радиус текущей окружности путем добавления радиуса другой окружности (сложение на месте).
+## Эти методы позволяют выполнять арифметические операции над объектами Circle с помощью стандартных операторов (+, -, +=).
+
+## Примечание
+
+## Отступы в исходном коде сделаны неправильно. Методы должны быть определены на уровне класса, а не внутри метода __init__. Вот исправленный код:
+
+
+
+
+
+
+## Задание 2
+## Создайте класс Complex (комплексное число). Более
+## подробно ознакомиться с комплексными числами можно
+## по ссылке.
+## Создайте перегруженные операторы для реализации
+## арифметических операций для по работе с комплексными
+## числами (операции +, -, *, /).
+
+
+
+
+
+
+# class Complex:
+#     def __init__(self, real=0, imag=0):
+#         self.real = real
+#         self.imag = imag
+
+#     def __add__(self, other):
+#         return Complex(self.real + other.real, self.imag + other.imag)
+
+#     def __sub__(self, other):
+#         return Complex(self.real - other.real, self.imag - other.imag)
+
+#     def __mul__(self, other):
+#         return Complex(self.real * other.real - self.imag * other.imag, self.real * other.imag + self.imag * other.real)
+
+#     def __truediv__(self, other):
+#         denominator = other.real ** 2 + other.imag ** 2
+#         return Complex((self.real * other.real + self.imag * other.imag) / denominator,
+#                         (self.imag * other.real - self.real * other.imag) / denominator)
+
+#     def __str__(self):
+#         return f"{self.real} + {self.imag}i"
+
+# c1 = Complex(3, 4)  # represents 3 + 4i
+# c2 = Complex(1, 2)  # represents 1 + 2i
+
+# c3 = c1 + c2  # c3 = Complex(4, 6)  # represents 4 + 6i
+# c4 = c1 - c2  # c4 = Complex(2, 2)  # represents 2 + 2i
+# c5 = c1 * c2  # c5 = Complex(-5, 10)  # represents -5 + 10i
+# c6 = c1 / c2  # c6 = Complex(2.2, -0.4)  # represents 2.2 - 0.4i
+
+# print(c1)  # Output: 3 + 4i
+# print(c2)  # Output: 1 + 2i
+# print(c3)  # Output: 4 + 6i
+# print(c4)  # Output: 2 + 2i
+# print(c5)  # Output: -5 + 10i
+# print(c6)  # Output: 2.2 - 0.4i
+
+
+
+
+
+
+
+
+## c1 = 3 + 4i, где a = 3, b = 4
+## c2 = 1 + 2i, где a = 1, b = 2
+## c3 = 4 + 6i, где a = 4, b = 6
+## c4 = 2 + 2i, где a = 2, b = 2
+## c5 = -5 + 10i, где a = -5, b = 10
+## c6 = 2.2 - 0.4i, где a = 2.2, b = -0.4
+
+
+
+
+## Определение класса
+
+## В коде определен класс Complex, который представляет комплексные числа. Комплексное число - это число, которое можно выразить в виде a + bi, где a - действительная часть, а b - мнимая часть.
+
+## Метод __init__
+
+## Метод __init__ - это специальный метод в Python, который вызывается при создании объекта. В данном случае он инициализирует объект Complex с двумя атрибутами: real и imag. Эти атрибуты представляют действительную и мнимую части комплексного числа, соответственно. Метод __init__ принимает два необязательных аргумента, real и imag, которые по умолчанию равны 0, если не указаны.
+
+## Метод __add__
+
+## Метод __add__ - это специальный метод в Python, который вызывается при использовании оператора +. В данном случае он складывает два комплексных числа. В качестве аргумента метод принимает другой объект Complex, other. Он возвращает новый объект Complex, который представляет собой сумму двух комплексных чисел.
+
+## Вот что происходит при вызове метода c1 + c2:
+
+## c1 и c2 - оба комплексные объекты.
+## Метод __add__ вызывается на c1 с c2 в качестве аргумента.
+## Метод возвращает новый объект Complex с вещественной частью c1.real + c2.real и образной частью c1.imag + c2.imag.
+## Метод __sub__
+
+## Метод __sub__ похож на метод __add__, но вместо сложения он вычитает два комплексных числа.
+
+## Метод __mul__
+
+## Метод __mul__ перемножает два комплексных числа. Он возвращает новый объект Complex с вещественной частью c1.real * c2.real - c1.imag * c2.imag и вещественной частью c1.real * c2.imag + c1.imag * c2.real.
+
+## Метод __truediv__
+
+## Метод __truediv__ делит два комплексных числа. Он возвращает новый объект Complex с вещественной частью (c1.real * c2.real + c1.imag * c2.imag) / знаменатель и вещественной частью (c1.imag * c2.real - c1.real * c2.imag) / знаменатель, где знаменатель равен c2.real ** 2 + c2.imag ** 2.
+
+## Метод __str__
+
+## Метод __str__ возвращает строковое представление комплексного числа. В данном случае он возвращает строку в виде a + bi, где a - действительная часть, а b - мнимая часть.
+
+## Создание комплексных объектов
+
+## Код создает шесть комплексных объектов: c1, c2, c3, c4, c5 и c6.
+
+## c1 представляет комплексное число 3 + 4i.
+## c2 представляет комплексное число 1 + 2i.
+## c3 представляет собой сумму c1 и c2, которая равна 4 + 6i.
+## c4 представляет собой разность c1 и c2, которая равна 2 + 2i.
+## c5 представляет собой произведение c1 и c2, которое равно -5 + 10i.
+## c6 представляет собой коэффициент c1 и c2, который равен 2,2 - 0,4i.
+## Печать сложных объектов
+
+## Код печатает каждый сложный объект с помощью функции print. Для преобразования каждого сложного объекта в строку неявно вызывается метод __str__.
+
+
+
+
+
+
+
+## Задание 3
+## Вам необходимо создать класс Airplane (самолет).
+## С помощью перегрузги операторов реализовать:
+## ■ Проверка на равенство типов самолетов (операция
+## = =);
+## ■ Увеличение и уменьшение пассажиров в салоне са-
+## молета (операции + - += -=);
+## ■ Сравнение двух самолетов по максимально возмож-
+## ному количеству пассажиров на борту (операции >
+## < <= >=).
+
+
+# class Airplane:
+#     def __init__(self, max_passengers):
+#         self.max_passengers = max_passengers
+#         self.passengers = 0
+
+#     def __eq__(self, other):
+#         return self.max_passengers == other.max_passengers
+
+#     def __add__(self, other):
+#         if isinstance(other, Airplane):
+#             if self.max_passengers >= other.passengers:
+#                 self.passengers += other.passengers
+#                 return self
+#             else:
+#                 return "Error: самолет не может вместить всех пассажиров"
+#         elif isinstance(other, int):
+#             if self.passengers + other <= self.max_passengers:
+#                 self.passengers += other
+#                 return self
+#             else:
+#                 return "Error: превышен лимит пассажиров"
+#         else:
+#             return "Error: неверный тип операнда"
+
+#     def __sub__(self, other):
+#         if isinstance(other, Airplane):
+#             if self.passengers >= other.passengers:
+#                 self.passengers -= other.passengers
+#                 return self
+#             else:
+#                 return "Error: недостаточно пассажиров для удаления"
+#         elif isinstance(other, int):
+#             if self.passengers >= other:
+#                 self.passengers -= other
+#                 return self
+#             else:
+#                 return "Error: недостаточно пассажиров для удаления"
+#         else:
+#             return "Error: неверный тип операнда"
+
+#     def __iadd__(self, other):
+#         return self.__add__(other)
+
+#     def __isub__(self, other):
+#         return self.__sub__(other)
+
+#     def __gt__(self, other):
+#         return self.max_passengers > other.max_passengers
+
+#     def __lt__(self, other):
+#         return self.max_passengers < other.max_passengers
+
+#     def __ge__(self, other):
+#         return self.max_passengers >= other.max_passengers
+
+#     def __le__(self, other):
+#         return self.max_passengers <= other.max_passengers
+
+#     def __str__(self):
+#         return f"Airplane(max_passengers={self.max_passengers}, passengers={self.passengers})"
+    
+# plane1 = Airplane(100)
+# plane2 = Airplane(50)
+
+# print(plane1 == plane2)  # False
+
+# plane1 + 20  # добавляем 20 пассажиров
+# print(plane1)  # Airplane(max_passengers=100, passengers=20)
+
+# plane1 - 10  # удаляем 10 пассажиров
+# print(plane1)  # Airplane(max_passengers=100, passengers=10)
+
+# print(plane1 > plane2)  # True
+# print(plane1 < plane2)  # False          
+
+
+
+
+
+
+## Определение класса
+
+## В коде определен класс под названием Airplane. У этого класса есть несколько методов, которые позволяют нам выполнять операции над объектами этого класса.
+
+## Метод __init__
+
+## Метод __init__ - это специальный метод в Python, который вызывается при создании объекта. Он инициализирует атрибуты объекта. В данном случае метод __init__ принимает один аргумент max_passengers, который является максимальным количеством пассажиров, которое может вместить самолет. Он также инициализирует атрибут passengers значением 0 - это текущее количество пассажиров в самолете.
+
+## Метод __eq__
+
+## Метод __eq__ - это специальный метод в Python, который вызывается при использовании оператора ==. Он проверяет, равны ли два объекта. В данном случае метод __eq__ проверяет, равен ли атрибут max_passengers у двух объектов Airplane.
+
+## Метод __add__
+
+## Метод __add__ - это специальный метод в Python, который вызывается при использовании оператора +. Он складывает два объекта вместе. В данном случае метод __add__ может принимать два типа аргументов:
+
+## Другой объект Airplane: Проверяется, может ли текущий самолет вместить всех пассажиров из другого самолета. Если может, то он добавляет пассажиров из другого самолета в текущий самолет. Если нет, то возвращается сообщение об ошибке.
+## Integer: Проверяет, не превысит ли добавление целого числа к текущему количеству пассажиров максимальную вместимость самолета. Если нет, то добавляет целое число к текущему числу пассажиров. Если да, то возвращается сообщение об ошибке.
+## Метод __sub__
+
+## Метод __sub__ похож на метод __add__, но он вычитает, а не прибавляет. Он также может принимать два типа аргументов:
+
+## Другой объект Airplane: Проверяется, достаточно ли пассажиров в текущем самолете, чтобы удалить всех пассажиров из другого самолета. Если да, то он удаляет пассажиров из другого самолета из текущего самолета. Если нет, то возвращается сообщение об ошибке.
+## Целое число: Проверяет, не приведет ли вычитание целого числа из текущего количества пассажиров к отрицательному числу. Если нет, то вычитает целое число из текущего количества пассажиров. Если да, то возвращается сообщение об ошибке.
+## Методы __iadd__ и __isub__
+
+## Эти методы похожи на методы __add__ и __sub__, но они изменяют объект на месте, а не возвращают новый объект.
+
+## Методы сравнения
+
+## Методы __gt__, __lt__, __ge__ и __le__ - это специальные методы в Python, которые вызываются при использовании операторов сравнения (например, >, <, >=, <=). Они сравнивают атрибут max_passengers двух объектов Airplane.
+
+## Метод __str__
+
+## Метод __str__ - это специальный метод в Python, который вызывается при использовании функции str(). Он возвращает строковое представление объекта.
+
+## Пример использования
+
+## Код создает два объекта Airplane, plane1 и plane2, с максимальной вместимостью 100 и 50 пассажиров соответственно.
+
+## Затем он проверяет, равен ли самолет1 самолету2, используя оператор ==, который вызывает метод __eq__. Поскольку максимальные вместимости разные, он возвращает False.
+
+## Затем он добавляет 20 пассажиров к самолету1 с помощью оператора +, который вызывает метод __add__. Поскольку текущее количество пассажиров (0) плюс 20 меньше или равно максимальной вместимости (100), он добавляет 20 пассажиров в самолет1.
+
+## Затем он вычитает 10 пассажиров из самолета1 с помощью оператора -, который вызывает метод __sub__. Поскольку текущее количество пассажиров (20) минус 10 больше или равно 0, он вычитает 10 пассажиров из самолета1.
+
+## Наконец, он сравнивает самолет1 и самолет2 с помощью операторов > и <, которые вызывают методы __gt__ и __lt__ соответственно. Поскольку максимальная вместимость самолета1 больше, чем у самолета2, он возвращает True для оператора > и False для оператора <.
+
+
+
+
+
+## Задание 4
+## Создать класс Flat (квартира). Реализовать перегру-
+## женные операторы:
+## ■ Проверка на равенство площадей квартир (операция
+## ==);
+## ■ Проверка на неравенство площадей квартир (опера-
+## ция !=);
+## ■ Сравнение двух квартир по цене (операции > < <= >=).
+
+
+
+
+
+# class Flat:
+#     def __init__(self, area, price):
+#         self.area = area
+#         self.price = price
+
+#     def __eq__(self, other):
+#         if not isinstance(other, Flat):
+#             raise TypeError("Нельзя сравнивать с объектом другого класса")
+#         return self.area == other.area
+
+#     def __ne__(self, other):
+#         if not isinstance(other, Flat):
+#             raise TypeError("Нельзя сравнивать с объектом другого класса")
+#         return self.area != other.area
+
+#     def __gt__(self, other):
+#         if not isinstance(other, Flat):
+#             raise TypeError("Нельзя сравнивать с объектом другого класса")
+#         return self.price > other.price
+
+#     def __lt__(self, other):
+#         if not isinstance(other, Flat):
+#             raise TypeError("Нельзя сравнивать с объектом другого класса")
+#         return self.price < other.price
+
+#     def __ge__(self, other):
+#         if not isinstance(other, Flat):
+#             raise TypeError("Нельзя сравнивать с объектом другого класса")
+#         return self.price >= other.price
+
+#     def __le__(self, other):
+#         if not isinstance(other, Flat):
+#             raise TypeError("Нельзя сравнивать с объектом другого класса")
+#         return self.price <= other.price
+
+#     def __str__(self):
+#         return f"Flat(area={self.area}, price={self.price})"
+
+# flat1 = Flat(100, 1000)
+# flat2 = Flat(100, 2000)
+# print(flat1)  # Flat(area=100, price=1000)
+# print(flat2)  # Flat(area=100, price=2000)
+# print(flat1 == flat2)  # True
+# print(flat1 != flat2)  # False
+# print(flat1 > flat2)  # False
+# print(flat1 < flat2)  # True
+
+
+
+
+
+
+
+## Определение класса
+
+## В коде определен класс Flat со следующими атрибутами:
+
+## площадь: целое число, представляющее площадь квартиры
+## цена: целое число, представляющее цену квартиры.
+## Класс имеет несколько специальных методов (также известных как «магические методы» или «методы Дандера»), которые используются для переопределения поведения по умолчанию встроенных операторов Python.
+
+## Метод __init__
+
+## Метод __init__ - это специальный метод, который вызывается при создании объекта. Он инициализирует атрибуты объекта заданными значениями. В данном случае он устанавливает атрибуты area и price объекта Flat.
+
+## Методы __eq__ и __ne__
+
+## Метод __eq__ используется для переопределения оператора ==, который проверяет равенство между двумя объектами. В данном случае он проверяет, равен ли атрибут area двух объектов Flat.
+
+## Метод __ne__ используется для переопределения оператора !=, который проверяет неравенство между двумя объектами. Он просто возвращает значение, противоположное методу __eq__.
+
+## Методы __gt__, __lt__, __ge__ и __le__
+
+## Эти методы используются для переопределения операторов сравнения:
+
+## __gt__: Оператор >, проверяет, больше ли атрибут цены текущего объекта, чем атрибут цены другого объекта.
+## __lt__: < оператор, проверяет, меньше ли атрибут цены текущего объекта, чем атрибут цены другого объекта.
+## __ge__: >= оператор, проверяет, больше или равен ли атрибут цены текущего объекта атрибуту цены другого объекта.
+## __le__: <= оператор, проверяет, меньше или равен ли атрибут цены текущего объекта атрибуту цены другого объекта.
+## Метод __str__
+
+## Метод __str__ используется для переопределения функции str(), которая возвращает строковое представление объекта. В данном случае возвращается строка в формате Flat(area=<area>, price=<price>).
+
+## Создание и сравнение объектов
+
+## Код создает два объекта Flat, flat1 и flat2, с разными ценами, но одинаковой площадью.
+
+## Затем код печатает строковое представление каждого объекта с помощью функции print().
+
+## Наконец, код сравнивает два объекта с помощью переопределенных операторов сравнения:
+
+## flat1 == flat2 проверяет, равны ли атрибуты площади, что является истиной.
+## flat1 != flat2 проверяет, не равны ли атрибуты области, что является False.
+## flat1 > flat2 проверяет, что атрибут цены flat1 больше атрибута цены flat2, что является Ложью.
+## flat1 < flat2 проверяет, что ценовой атрибут flat1 меньше ценового атрибута flat2, что является Истиной.
+
+
+
+
+
+
+
+## Модуль 10 Объектно-ориентированное
+## программирование
+## Тема: Классы. Объекты. Часть 1
+
+
+
+
+
+
+##  Задание 1
+##  Реализуйте класс «Автомобиль». Необходимо хранить
+##  в полях класса: название модели, год выпуска, произво-
+##  дителя, объем двигателя, цвет машины, цену. Реализуйте
+##  методы класса для ввода данных, вывода данных, реа-
+##  лизуйте доступ к отдельным полям через методы класса.
+
+
+
+
+
+
+
+# class Car:
+#     def __init__(self, model=None, year=None, manufacturer=None, engine_volume=None, color=None, price=None):
+#         self.model = model
+#         self.year = year
+#         self.manufacturer = manufacturer
+#         self.engine_volume = engine_volume
+#         self.color = color
+#         self.price = price
+
+#     def input_data(self):
+#         self.model = input("Введите модель: ")
+#         self.year = int(input("Введите год выпуска: "))
+#         self.manufacturer = input("Введите производителя: ")
+#         self.engine_volume = float(input("Введите объем двигателя: "))
+#         self.color = input("Введите цвет: ")
+#         self.price = float(input("Введите цену: "))
+
+#     def output_data(self):
+#         print(f"Модель: {self.model}")
+#         print(f"Год выпуска: {self.year}")
+#         print(f"Производитель: {self.manufacturer}")
+#         print(f"Объем двигателя: {self.engine_volume}")
+#         print(f"Цвет: {self.color}")
+#         print(f"Цена: {self.price}")
+
+#     def get_model(self):
+#         return self.model
+
+#     def get_year(self):
+#         return self.year
+
+#     def get_manufacturer(self):
+#         return self.manufacturer
+
+#     def get_engine_volume(self):
+#         return self.engine_volume
+
+#     def get_color(self):
+#         return self.color
+
+#     def get_price(self):
+#         return self.price
+
+# # Создаем объект Car и вводим данные
+# my_car = Car()
+# my_car.input_data()
+# my_car.output_data()
+# print(my_car.get_model())
+
+
+
+
+
+
+
+# # Задание 2
+# Реализуйте класс «Книга». Необходимо хранить в
+# полях класса: название книги, год выпуска, издателя,
+# жанр, автора, цену. Реализуйте методы класса для ввода
+# данных, вывода данных, реализуйте доступ к отдельным
+# полям через методы класса.
+
+
+
+
+
+
+# class Book:
+#     def __init__(self, title=None, year=None, publisher=None, genre=None, author=None, price=None):
+#         self.title = title
+#         self.year = year
+#         self.publisher = publisher
+#         self.genre = genre
+#         self.author = author
+#         self.price = price
+
+#     def input_data(self):
+#         self.title = input("Введите название книги: ")
+#         self.year = int(input("Введите год выпуска: "))
+#         self.publisher = input("Введите издателя: ")
+#         self.genre = input("Введите жанр: ")
+#         self.author = input("Введите автора: ")
+#         self.price = float(input("Введите цену: "))
+
+#     def output_data(self):
+#         print(f"Название книги: {self.title}")
+#         print(f"Год выпуска: {self.year}")
+#         print(f"Издатель: {self.publisher}")
+#         print(f"Жанр: {self.genre}")
+#         print(f"Автор: {self.author}")
+#         print(f"Цена: {self.price}")
+
+#     def get_title(self):
+#         return self.title
+
+#     def get_year(self):
+#         return self.year
+
+#     def get_publisher(self):
+#         return self.publisher
+
+#     def get_genre(self):
+#         return self.genre
+
+#     def get_author(self):
+#         return self.author
+
+#     def get_price(self):
+#         return self.price
+
+# # Создаем объект Book и вводим данные
+# my_book = Book()
+# my_book.input_data()
+# my_book.output_data()
+# print(my_book.get_title())
+
+
+
+
+
+
+
+# Задание 3
+# Реализуйте класс «Стадион». Необходимо хранить в
+# полях класса: название стадиона, дату открытия, страну,
+# город, вместимость. Реализуйте методы класса для ввода
+# данных, вывода данных, реализуйте доступ к отдельным
+# полям через методы класса.
+
+
+
+
+
+# class Stadium:
+#     def __init__(self, name=None, opening_date=None, country=None, city=None, capacity=None):
+#         self.name = name
+#         self.opening_date = opening_date
+#         self.country = country
+#         self.city = city
+#         self.capacity = capacity
+
+#     def input_data(self):
+#         self.name = input("Введите название стадиона: ")
+#         self.opening_date = input("Введите дату открытия (в формате дд.мм.гггг): ")
+#         self.country = input("Введите страну: ")
+#         self.city = input("Введите город: ")
+#         self.capacity = int(input("Введите вместимость: "))
+
+#     def output_data(self):
+#         print(f"Название стадиона: {self.name}")
+#         print(f"Дата открытия: {self.opening_date}")
+#         print(f"Страна: {self.country}")
+#         print(f"Город: {self.city}")
+#         print(f"Вместимость: {self.capacity}")
+
+#     def get_name(self):
+#         return self.name
+
+#     def get_opening_date(self):
+#         return self.opening_date
+
+#     def get_country(self):
+#         return self.country
+
+#     def get_city(self):
+#         return self.city
+
+#     def get_capacity(self):
+#         return self.capacity
+
+# # Создаем объект Stadium и вводим данные
+# my_stadium = Stadium()
+# my_stadium.input_data()
+# my_stadium.output_data()
+# print(my_stadium.get_name())
+
+
+
+
+
+## Модуль 10 Объектно-ориентированное
+## программирование
+## Тема: Классы. Объекты. Конструкторы.
+## Перегрузка методов. Часть 2
+
+
+
+
+
+# Задание 1
+# К уже реализованному классу «Автомобиль» добавьте
+# конструктор, а также необходимые перегруженные методы.
+
+
+# class Car:
+#     def __init__(self, model=None, year=None, manufacturer=None, engine_volume=None, color=None, price=None):
+#         self.model = model
+#         self.year = year
+#         self.manufacturer = manufacturer
+#         self.engine_volume = engine_volume
+#         self.color = color
+#         self.price = price
+
+#     def __str__(self):
+#         return f"Модель: {self.model}, Год выпуска: {self.year}, Производитель: {self.manufacturer}, Объем двигателя: {self.engine_volume}, Цвет: {self.color}, Цена: {self.price}"
+
+#     def __repr__(self):
+#         return f"Car('{self.model}', {self.year}, '{self.manufacturer}', {self.engine_volume}, '{self.color}', {self.price})"
+
+#     def __eq__(self, other):
+#         return self.model == other.model and self.year == other.year and self.manufacturer == other.manufacturer
+
+#     def input_data(self):
+#         self.model = input("Введите модель: ")
+#         self.year = int(input("Введите год выпуска: "))
+#         self.manufacturer = input("Введите производителя: ")
+#         self.engine_volume = float(input("Введите объем двигателя: "))
+#         self.color = input("Введите цвет: ")
+#         self.price = float(input("Введите цену: "))
+
+#     def output_data(self):
+#         print(f"Модель: {self.model}")
+#         print(f"Год выпуска: {self.year}")
+#         print(f"Производитель: {self.manufacturer}")
+#         print(f"Объем двигателя: {self.engine_volume}")
+#         print(f"Цвет: {self.color}")
+#         print(f"Цена: {self.price}")
+
+#     def get_model(self):
+#         return self.model
+
+#     def get_year(self):
+#         return self.year
+
+#     def get_manufacturer(self):
+#         return self.manufacturer
+
+#     def get_engine_volume(self):
+#         return self.engine_volume
+
+#     def get_color(self):
+#         return self.color
+
+#     def get_price(self):
+#         return self.price
+
+# # Создаем объект Car и вводим данные
+# my_car = Car()
+# my_car.input_data()
+# print(my_car)  # Используем перегруженный метод __str__
+# print(repr(my_car))  # Используем перегруженный метод __repr__
+
+# # Создаем другой объект Car
+# my_car2 = Car("Toyota", 2020, "Toyota Motor Corporation", 2.0, "Silver", 25000)
+# print(my_car2)
+
+# # Сравниваем два объекта Car
+# print(my_car == my_car2)  # Используем перегруженный метод __eq__
+
+
+
+
+
+
+
+# Задание 2
+# К уже реализованному классу «Книга» добавьте кон-
+# структор, а также необходимые перегруженные методы.
+
+
+
+
+
+
+# class Book:
+#     def __init__(self, title=None, author=None, year=None, publisher=None, pages=None, price=None):
+#         self.title = title
+#         self.author = author
+#         self.year = year
+#         self.publisher = publisher
+#         self.pages = pages
+#         self.price = price
+
+#     def __str__(self):
+#         return f"Название: {self.title}, Автор: {self.author}, Год издания: {self.year}, Издательство: {self.publisher}, Количество страниц: {self.pages}, Цена: {self.price}"
+
+#     def __repr__(self):
+#         return f"Book('{self.title}', '{self.author}', {self.year}, '{self.publisher}', {self.pages}, {self.price})"
+
+#     def __eq__(self, other):
+#         return self.title == other.title and self.author == other.author and self.year == other.year
+
+#     def input_data(self):
+#         self.title = input("Введите название книги: ")
+#         self.author = input("Введите автора: ")
+#         self.year = int(input("Введите год издания: "))
+#         self.publisher = input("Введите издательство: ")
+#         self.pages = int(input("Введите количество страниц: "))
+#         self.price = float(input("Введите цену: "))
+
+#     def output_data(self):
+#         print(f"Название: {self.title}")
+#         print(f"Автор: {self.author}")
+#         print(f"Год издания: {self.year}")
+#         print(f"Издательство: {self.publisher}")
+#         print(f"Количество страниц: {self.pages}")
+#         print(f"Цена: {self.price}")
+
+#     def get_title(self):
+#         return self.title
+
+#     def get_author(self):
+#         return self.author
+
+#     def get_year(self):
+#         return self.year
+
+#     def get_publisher(self):
+#         return self.publisher
+
+#     def get_pages(self):
+#         return self.pages
+
+#     def get_price(self):
+#         return self.price
+
+# # Создаем объект Book и вводим данные
+# my_book = Book()
+# my_book.input_data()
+# print(my_book)  # Используем перегруженный метод __str__
+# print(repr(my_book))  # Используем перегруженный метод __repr__
+
+# # Создаем другой объект Book
+# my_book2 = Book("Python для начинающих", "Джон Смит", 2020, "ООО 'Издательство'", 300, 1500)
+# print(my_book2)
+
+# # Сравниваем два объекта Book
+# print(my_book == my_book2)  # Используем перегруженный метод __eq__
+
+
+
+
+
+
+
+## Задание 3
+## К уже реализованному классу «Стадион» добавьте
+## конструктор, а также необходимые перегруженные методы.
+
+
+
+
+
+# class Stadium:
+#     def __init__(self, name=None, location=None, capacity=None, opened_year=None, description=None):
+#         self.name = name
+#         self.location = location
+#         self.capacity = capacity
+#         self.opened_year = opened_year
+#         self.description = description
+
+#     def __str__(self):
+#         return f"Название: {self.name}, Местоположение: {self.location}, Вместимость: {self.capacity}, Год открытия: {self.opened_year}, Описание: {self.description}"
+
+#     def __repr__(self):
+#         return f"Stadium('{self.name}', '{self.location}', {self.capacity}, {self.opened_year}, '{self.description}')"
+
+#     def __eq__(self, other):
+#         return self.name == other.name and self.location == other.location
+
+#     def input_data(self):
+#         self.name = input("Введите название стадиона: ")
+#         self.location = input("Введите местоположение стадиона: ")
+#         self.capacity = int(input("Введите вместимость стадиона: "))
+#         self.opened_year = int(input("Введите год открытия стадиона: "))
+#         self.description = input("Введите описание стадиона: ")
+
+#     def output_data(self):
+#         print(f"Название: {self.name}")
+#         print(f"Местоположение: {self.location}")
+#         print(f"Вместимость: {self.capacity}")
+#         print(f"Год открытия: {self.opened_year}")
+#         print(f"Описание: {self.description}")
+
+#     def get_name(self):
+#         return self.name
+
+#     def get_location(self):
+#         return self.location
+
+#     def get_capacity(self):
+#         return self.capacity
+
+#     def get_opened_year(self):
+#         return self.opened_year
+
+#     def get_description(self):
+#         return self.description
+
+# # Создаем объект Stadium и вводим данные
+# my_stadium = Stadium()
+# my_stadium.input_data()
+# print(my_stadium)  # Используем перегруженный метод __str__
+# print(repr(my_stadium))  # Используем перегруженный метод __repr__
+
+# # Создаем другой объект Stadium
+# my_stadium2 = Stadium("Лужники", "Москва", 81000, 1956, "Один из крупнейших стадионов России")
+# print(my_stadium2)
+
+# # Сравниваем два объекта Stadium
+# print(my_stadium == my_stadium2)  # Используем перегруженный метод __eq__
+
+
+
+
+
+
+## Модуль 10 Объектно-ориентированное
+## программирование
+## Тема: Статические методы
+
+
+
+
+
+## Задание 1
+## К уже реализованному классу «Дробь» добавьте ста-
+## тический метод, который при вызове возвращает коли-
+## чество созданных объектов класса «Дробь».
+
