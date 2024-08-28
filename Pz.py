@@ -1008,3 +1008,38 @@
 #         print("Autumn")
 # else:
 #     print("Ошибка: введенное число не в диапазоне от 1 до 12")
+
+
+
+
+
+
+## Модуль 3 Циклы.
+## Часть 1
+
+
+
+
+
+
+
+# Задание 1
+# Пользователь вводит с клавиатуры два числа. Нужно
+# показать все числа в указанном диапазоне.
+# Задание 2
+
+
+
+
+
+# # Input two numbers from the user
+# num1 = int(input("Введите первое число: "))
+# num2 = int(input("Введите второе число: "))
+
+# # Check if num1 is less than or equal to num2
+# if num1 <= num2:
+#     # Print all numbers in the range from num1 to num2
+#     for i in range(num1, num2 + 1):
+#         print(i)
+# else:
+#     print("Ошибка: первое число должно быть меньше или равно второму числу")
