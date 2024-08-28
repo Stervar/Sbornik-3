@@ -20,8 +20,9 @@ generator client {
 model post {
   id        Int     @id @default(autoincrement())
   title     String
-  content   String?
+  content   String? 
   views     Int     @default(0)
+  weith     Float   @default(0.0)
   published Boolean @default(false)
   author_id Int?
   author    user?   @relation(fields: [author_id], references: [id])

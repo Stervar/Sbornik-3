@@ -11,7 +11,7 @@ async def main() -> None:
     # users = await prisma.query_raw('INSERT INTO user(email, name) VALUES (?,?)', 'dsfsd2@dfs.ru', 'user2',)
     # users = await prisma.query_raw('INSERT INTO user(email, name) VALUES (?,?)', 'dsfsd3@dfs.ru', 'user3',)
     # users = await prisma.query_raw('INSERT INTO user(email, name) VALUES (?,?)', 'dsfsd4@dfs.ru', 'user4',)
-    # users = await prisma.query_raw('INSERT INTO user VALUES (?,?)', 'dsfsd41@dfs.ru', 'user4',)
+    #users = await prisma.query_raw('INSERT INTO user VALUES (?,?)', 'dsfsd41@dfs.ru', 'user4',)
     
     
     # users = await prisma.query_raw('''
