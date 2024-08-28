@@ -1262,3 +1262,9 @@
 
 # # Print the horizontal line using the fill character
 # print(fill_char * line_length)
+
+
+
+
+
+## Модуль 3 Циклы. Часть 3
