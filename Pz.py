@@ -1240,3 +1240,25 @@
 
 # # Print the horizontal line using *
 # print("*" * line_length)
+
+
+
+
+
+## Задание 4
+## Пользователь вводит с клавиатуры длину линии и
+## символ для заполнения линии. Нужно отобразить на
+## экране горизонтальную линию из введенного символа,
+## указанной длины.
+## Например, если было введено 5 и &, тогда вывод на
+## экран будет такой: &&&&&.
+
+
+
+
+# # Input the length of the line and the fill character from the user
+# line_length = int(input("Введите длину линии: "))
+# fill_char = input("Введите символ для заполнения линии: ")
+
+# # Print the horizontal line using the fill character
+# print(fill_char * line_length)
