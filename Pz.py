@@ -1144,3 +1144,39 @@
 # for i in range(num1, num2 + 1):
 #     if i % 2 != 0:
 #         print(i)
+
+
+
+
+
+## Модуль 3 Циклы. Часть 2
+
+
+
+
+
+## Задание 1
+## Пользователь вводит с клавиатуры два числа. Нужно
+## посчитать сумму чисел в указанном диапазоне, а также
+## среднеарифметическое.
+
+
+
+
+# # Input two numbers from the user
+# num1 = int(input("Введите первое число: "))
+# num2 = int(input("Введите второе число: "))
+
+# # Normalize the range boundaries
+# if num1 > num2:
+#     num1, num2 = num2, num1
+
+# # Calculate the sum of numbers in the range
+# total_sum = sum(range(num1, num2 + 1))
+
+# # Calculate the average
+# average = total_sum / (num2 - num1 + 1)
+
+# # Print the results
+# print("Сумма чисел в диапазоне:", total_sum)
+# print("Среднеарифметическое:", average)
