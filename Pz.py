@@ -1043,3 +1043,25 @@
 #         print(i)
 # else:
 #     print("Ошибка: первое число должно быть меньше или равно второму числу")
+
+
+
+
+## Задание 2
+## Пользователь вводит с клавиатуры два числа. Нужно
+## показать все нечетные числа в указанном диапазоне.
+
+
+
+# # Input two numbers from the user
+# num1 = int(input("Введите первое число: "))
+# num2 = int(input("Введите второе число: "))
+
+# # Check if num1 is less than or equal to num2
+# if num1 <= num2:
+#     # Print all odd numbers in the range from num1 to num2
+#     for i in range(num1, num2 + 1):
+#         if i % 2 != 0:
+#             print(i)
+# else:
+#     print("Ошибка: первое число должно быть меньше или равно второму числу")
