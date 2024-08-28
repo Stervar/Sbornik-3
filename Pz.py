@@ -300,3 +300,45 @@
 # print("|  дефекты и     |")
 # print("|  протестировать |")
 # print("+---------------+")
+
+
+
+
+
+
+
+## Задание 1
+## Выведите на экран надпись Nothing will work unless
+## you do на разных строках. Пример вывода:
+## Nothing
+## will work
+## unless you do.
+
+
+
+# print("Nothing")
+# print("will work")
+# print("unless you do")
+
+
+
+
+## Задание 2
+## Выведите на экран надпись " Anyone who stops learning
+## is old, whether at twenty or eighty" Henry Ford на разных
+## строках. Пример вывода:
+## “Anyone who
+## stops
+## learning is old,
+## whether at twenty or eighty”.
+## Henry Ford
+
+
+
+# print("""
+# “Anyone who
+#     stops
+#         learning is old,
+#             whether at twenty or eighty”.
+#                                     Henry Ford
+# """)
