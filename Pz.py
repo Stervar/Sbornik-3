@@ -51,40 +51,40 @@
 
 
 
-print("+-----------------+")
-print("|  Выбрать фильм  |")
-print("+-----------------+")
-print("        |")
-print("        |")
-print("        v")
-print("+-----------------+")
-print("| Проверить наличие|")
-print("|       билетов    |")
-print("+-----------------+")
-print("        |")
-print("        |")
-print("        v")
-print("+-----------------+")
-print("|  Купить билет    |")
-print("+-----------------+")
-print("        |")
-print("        |")
-print("        v")
-print("+-----------------+")
-print("|  Прийти в кинотеатр|")
-print("+-----------------+")
-print("        |")
-print("        |")
-print("        v")
-print("+-----------------+")
-print("|  Посмотреть фильм |")
-print("+-----------------+")
-print("        |")
-print("        |")
-print("        v")
-print("+-----------------+")
-print("|  Выйти из кинотеатра|")
-print("+-----------------+")
+# print("+-----------------+")
+# print("|  Выбрать фильм  |")
+# print("+-----------------+")
+# print("        |")
+# print("        |")
+# print("        v")
+# print("+-----------------+")
+# print("| Проверить наличие|")
+# print("|       билетов    |")
+# print("+-----------------+")
+# print("        |")
+# print("        |")
+# print("        v")
+# print("+-----------------+")
+# print("|  Купить билет    |")
+# print("+-----------------+")
+# print("        |")
+# print("        |")
+# print("        v")
+# print("+-----------------+")
+# print("|  Прийти в кинотеатр|")
+# print("+-----------------+")
+# print("        |")
+# print("        |")
+# print("        v")
+# print("+-----------------+")
+# print("|  Посмотреть фильм |")
+# print("+-----------------+")
+# print("        |")
+# print("        |")
+# print("        v")
+# print("+-----------------+")
+# print("|  Выйти из кинотеатра|")
+# print("+-----------------+")
 
 
 
@@ -118,43 +118,43 @@ print("+-----------------+")
 
 
 
-                                  +---------------+
-                                  |  Game Init   |
-                                  +---------------+
-                                            |
-                                            |
-                                            v
-                                  +---------------+
-                                  |  Welcome     |
-                                  |  Get Player   |
-                                  |  Initialize  |
-                                  |  Score to 0   |
-                                  +---------------+
-                                            |
-                                            |
-                                            v
-                                  +---------------+
-                                  |  Game Loop    |
-                                  |  Roll Ball    |
-                                  |  Generate Pins|
-                                  |  Update Score |
-                                  |  Check Strike  |
-                                  |  Check Spare   |
-                                  +---------------+
-                                            |
-                                            |
-                                            v
-                                  +---------------+
-                                  |  Frame Complete|
-                                  |  Move to Next  |
-                                  |  Frame         |
-                                  +---------------+
-                                            |
-                                            |
-                                            v
-                                  +---------------+
-                                  |  Game Over    |
-                                  |  Calculate    |
-                                  |  Final Score  |
-                                  |  Display Score|
-                                  +---------------+
+# print("+---------------+")
+# print("|  Game Init   |")
+# print("+---------------+")
+# print("           |")
+# print("           |")
+# print("           v")
+# print("+---------------+")
+# print("|  Welcome     |")
+# print("|  Get Player   |")
+# print("|  Initialize  |")
+# print("|  Score to 0   |")
+# print("+---------------+")
+# print("           |")
+# print("           |")
+# print("           v")
+# print("+---------------+")
+# print("|  Game Loop    |")
+# print("|  Roll Ball    |")
+# print("|  Generate Pins|")
+# print("|  Update Score |")
+# print("|  Check Strike  |")
+# print("|  Check Spare   |")
+# print("+---------------+")
+# print("           |")
+# print("           |")
+# print("           v")
+# print("+---------------+")
+# print("|  Frame Complete|")
+# print("|  Move to Next  |")
+# print("|  Frame         |")
+# print("+---------------+")
+# print("           |")
+# print("           |")
+# print("           v")
+# print("+---------------+")
+# print("|  Game Over    |")
+# print("|  Calculate    |")
+# print("|  Final Score  |")
+# print("|  Display Score|")
+# print("+---------------+")
