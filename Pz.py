@@ -1180,3 +1180,43 @@
 # # Print the results
 # print("Сумма чисел в диапазоне:", total_sum)
 # print("Среднеарифметическое:", average)
+
+
+
+
+
+
+
+## Задание 2
+## Пользователь вводит с клавиатуры число. Требуется
+## посчитать факториал числа. Например, если введено 3,
+## факториал числа 1*2*3 = 6
+## Формула для расчета факториала: n! = 1*2*3…*n, где
+## n — число для расчета факториала.
+
+
+
+# # Input a number from the user
+# num = int(input("Введите число: "))
+
+# # Calculate the factorial using a loop
+# factorial = 1
+# for i in range(1, num + 1):
+#     factorial *= i
+
+# # Print the result
+# print("Факториал числа:", factorial)
+
+
+
+
+# import math
+
+# # Input a number from the user
+# num = int(input("Введите число: "))
+
+# # Calculate the factorial using the math.factorial function
+# factorial = math.factorial(num)
+
+# # Print the result
+# print("Факториал числа:", factorial)
