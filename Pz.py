@@ -1092,3 +1092,26 @@
 #             print(i)
 # else:
 #     print("Ошибка: первое число должно быть меньше или равно второму числу")
+
+
+
+
+
+## Задание 4
+## Пользователь вводит с клавиатуры два числа. Нуж-
+## но показать все числа в указанном диапазоне в порядке
+## убывания.
+
+
+
+# # Input two numbers from the user
+# num1 = int(input("Введите первое число: "))
+# num2 = int(input("Введите второе число: "))
+
+# # Check if num1 is less than or equal to num2
+# if num1 <= num2:
+#     # Print all numbers in the range from num1 to num2 in descending order
+#     for i in range(num2, num1 - 1, -1):
+#         print(i)
+# else:
+#     print("Ошибка: первое число должно быть меньше или равно второму числу")
