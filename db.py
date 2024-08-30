@@ -26,10 +26,7 @@ async def main() -> None:
     
     # users = await prisma.query_raw("SELECT * FROM user WHERE NOT name='user4' ORDER BY id desc LIMIT 1,3;")
     # users = await prisma.query_raw("SELECT * FROM user WHERE name LIKE '%er3%';")
-    users = await prisma.query_raw('''SELECT *
-                                   FROM user 
-                                   ORDER BY name desc 
-                                   ''')
+    users = await prisma.query_raw('SELECT * FROM fruitvegetables')
 
     # u = await prisma.user.find_many(
     #     include={
@@ -45,12 +42,3 @@ if __name__ == '__main__':
     asyncio.run(main())
 
 
-
-## Задание 4
-## Создайте однотабличную базу данных «Овощи и
-## фрукты». Нужно хранить такую информацию:
-## ■ Название;
-## ■ Тип (овощ или фрукт);
-## ■ Цвет;
-## ■ Калорийность;
-## ■ Краткое описание.
