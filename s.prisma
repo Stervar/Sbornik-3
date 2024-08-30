@@ -35,28 +35,11 @@ model user {
   posts post[]
 }
 
-
-
-// Задание 4
-// Создайте однотабличную базу данных «Овощи и
-// фрукты». Нужно хранить такую информацию:
-// ■ Название;
-// ■ Тип (овощ или фрукт);
-// ■ Цвет;
-// ■ Калорийность;
-// ■ Краткое описание.
-
-
-
-
 model fruitvegetables {
-   id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  
+  id        Int     @id @default(autoincrement())
+  name      String  @unique
+  type      String  
+  color     String  
+  calories  Int
+  description String?
 }
-
-// enum ElType {
-//   FRUIT
-//   VEGETABLE
-// }
