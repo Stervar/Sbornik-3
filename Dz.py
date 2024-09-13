@@ -6169,77 +6169,77 @@
 
 
 
-import copy
+# import copy
 
-# Класс, который будет поддерживать копирование объектов (паттерн Prototype)
-class Prototype:
-    def __init__(self, name, attributes):
-        self.name = name  # Имя объекта (например, название прототипа)
-        self.attributes = attributes  # Словарь с характеристиками объекта
+# # Класс, который будет поддерживать копирование объектов (паттерн Prototype)
+# class Prototype:
+#     def __init__(self, name, attributes):
+#         self.name = name  # Имя объекта (например, название прототипа)
+#         self.attributes = attributes  # Словарь с характеристиками объекта
 
-    # Метод для клонирования объекта (создание копии)
-    def clone(self):
-        # Используем deepcopy для полного копирования объекта и его вложенных структур данных
-        return copy.deepcopy(self)
+#     # Метод для клонирования объекта (создание копии)
+#     def clone(self):
+#         # Используем deepcopy для полного копирования объекта и его вложенных структур данных
+#         return copy.deepcopy(self)
 
-    # Метод для отображения информации об объекте
-    def display(self):
-        print(f"\nИмя объекта: {self.name}")
-        print(f"Характеристики: {self.attributes}")
+#     # Метод для отображения информации об объекте
+#     def display(self):
+#         print(f"\nИмя объекта: {self.name}")
+#         print(f"Характеристики: {self.attributes}")
 
 
-# Функция для создания и клонирования объекта-прототипа
-def prototype_menu():
-    print("\n--- Пример паттерна Prototype ---")
+# # Функция для создания и клонирования объекта-прототипа
+# def prototype_menu():
+#     print("\n--- Пример паттерна Prototype ---")
 
-    # Создаем оригинальный объект
-    name = input("Введите имя оригинального объекта: ")
-    color = input("Введите цвет оригинального объекта: ")
-    size = input("Введите размер оригинального объекта: ")
+#     # Создаем оригинальный объект
+#     name = input("Введите имя оригинального объекта: ")
+#     color = input("Введите цвет оригинального объекта: ")
+#     size = input("Введите размер оригинального объекта: ")
 
-    # Создаем оригинал на основе данных пользователя
-    original = Prototype(name, {"цвет": color, "размер": size})
+#     # Создаем оригинал на основе данных пользователя
+#     original = Prototype(name, {"цвет": color, "размер": size})
     
-    print("\nОригинальный объект:")
-    original.display()
+#     print("\nОригинальный объект:")
+#     original.display()
 
-    # Клонируем оригинальный объект
-    clone = original.clone()
-    clone.name = input("\nВведите новое имя для клонированного объекта: ")
+#     # Клонируем оригинальный объект
+#     clone = original.clone()
+#     clone.name = input("\nВведите новое имя для клонированного объекта: ")
 
-    # Пользователь может изменить характеристики клонированного объекта
-    change_color = input("Изменить цвет клонированного объекта? (y/n): ")
-    if change_color.lower() == 'y':
-        clone.attributes['цвет'] = input("Введите новый цвет: ")
+#     # Пользователь может изменить характеристики клонированного объекта
+#     change_color = input("Изменить цвет клонированного объекта? (y/n): ")
+#     if change_color.lower() == 'y':
+#         clone.attributes['цвет'] = input("Введите новый цвет: ")
 
-    change_size = input("Изменить размер клонированного объекта? (y/n): ")
-    if change_size.lower() == 'y':
-        clone.attributes['размер'] = input("Введите новый размер: ")
+#     change_size = input("Изменить размер клонированного объекта? (y/n): ")
+#     if change_size.lower() == 'y':
+#         clone.attributes['размер'] = input("Введите новый размер: ")
 
-    print("\nКлонированный объект:")
-    clone.display()
-
-
-# Основное меню
-def main_menu():
-    while True:
-        print("\n--- Меню ---")
-        print("1. Создать и клонировать объект")
-        print("2. Выйти")
-        choice = input("Введите номер (1-2): ")
-
-        if choice == '1':
-            prototype_menu()
-        elif choice == '2':
-            print("До свидания!")
-            break
-        else:
-            print("Неверный выбор! Попробуйте снова.")
+#     print("\nКлонированный объект:")
+#     clone.display()
 
 
-# Запуск программы
-if __name__ == "__main__":
-    main_menu()
+# # Основное меню
+# def main_menu():
+#     while True:
+#         print("\n--- Меню ---")
+#         print("1. Создать и клонировать объект")
+#         print("2. Выйти")
+#         choice = input("Введите номер (1-2): ")
+
+#         if choice == '1':
+#             prototype_menu()
+#         elif choice == '2':
+#             print("До свидания!")
+#             break
+#         else:
+#             print("Неверный выбор! Попробуйте снова.")
+
+
+# # Запуск программы
+# if __name__ == "__main__":
+#     main_menu()
 
 
 
@@ -6491,8 +6491,8 @@ if __name__ == "__main__":
 
 
 
-# Модуль 12 Паттерны проектирования
-# Тема: Паттерны проектирования. Часть 2
+## Модуль 12 Паттерны проектирования
+## Тема: Паттерны проектирования. Часть 2
 
 
 
@@ -6506,85 +6506,87 @@ if __name__ == "__main__":
 ## руйте работу созданного класса.
 
 
+
+
 # Интерфейс команды
-class Command:
-    def execute(self):
-        raise NotImplementedError("Метод execute() должен быть переопределен")
+# class Command:
+#     def execute(self):
+#         raise NotImplementedError("Метод execute() должен быть переопределен")
 
-# Конкретная команда - Включить свет
-class TurnOnLightCommand(Command):
-    def __init__(self, light):
-        self.light = light
+# # Конкретная команда - Включить свет
+# class TurnOnLightCommand(Command):
+#     def __init__(self, light):
+#         self.light = light
 
-    def execute(self):
-        self.light.turn_on()
+#     def execute(self):
+#         self.light.turn_on()
 
-# Конкретная команда - Выключить свет
-class TurnOffLightCommand(Command):
-    def __init__(self, light):
-        self.light = light
+# # Конкретная команда - Выключить свет
+# class TurnOffLightCommand(Command):
+#     def __init__(self, light):
+#         self.light = light
 
-    def execute(self):
-        self.light.turn_off()
+#     def execute(self):
+#         self.light.turn_off()
 
-# Класс приемник (тот, на кого действуют команды) - Свет
-class Light:
-    def turn_on(self):
-        print("Свет включен")
+# # Класс приемник (тот, на кого действуют команды) - Свет
+# class Light:
+#     def turn_on(self):
+#         print("Свет включен")
 
-    def turn_off(self):
-        print("Свет выключен")
+#     def turn_off(self):
+#         print("Свет выключен")
 
-# Класс Invoker — вызывает команды
-class RemoteControl:
-    def __init__(self):
-        self.command = None
+# # Класс Invoker — вызывает команды
+# class RemoteControl:
+#     def __init__(self):
+#         self.command = None
 
-    # Устанавливаем команду
-    def set_command(self, command):
-        self.command = command
+#     # Устанавливаем команду
+#     def set_command(self, command):
+#         self.command = command
 
-    # Выполняем команду
-    def press_button(self):
-        if self.command:
-            self.command.execute()
-        else:
-            print("Команда не установлена")
+#     # Выполняем команду
+#     def press_button(self):
+#         if self.command:
+#             self.command.execute()
+#         else:
+#             print("Команда не установлена")
 
-# Функция для тестирования паттерна Command с меню
-def command_menu():
-    light = Light()
-    remote = RemoteControl()
+# # Функция для тестирования паттерна Command с меню
+# def command_menu():
+#     light = Light()
+#     remote = RemoteControl()
 
-    while True:
-        print("\n--- Меню управления светом ---")
-        print("1. Включить свет")
-        print("2. Выключить свет")
-        print("3. Выйти")
-        choice = input("Введите номер (1-3): ")
+#     while True:
+#         print("\n--- Меню управления светом ---")
+#         print("1. Включить свет")
+#         print("2. Выключить свет")
+#         print("3. Выйти")
+#         choice = input("Введите номер (1-3): ")
 
-        if choice == '1':
-            # Создаем команду включения света и передаем ее пульту
-            command = TurnOnLightCommand(light)
-            remote.set_command(command)
-            remote.press_button()
+#         if choice == '1':
+#             # Создаем команду включения света и передаем ее пульту
+#             command = TurnOnLightCommand(light)
+#             remote.set_command(command)
+#             remote.press_button()
 
-        elif choice == '2':
-            # Создаем команду выключения света и передаем ее пульту
-            command = TurnOffLightCommand(light)
-            remote.set_command(command)
-            remote.press_button()
+#         elif choice == '2':
+#             # Создаем команду выключения света и передаем ее пульту
+#             command = TurnOffLightCommand(light)
+#             remote.set_command(command)
+#             remote.press_button()
 
-        elif choice == '3':
-            print("Выход...")
-            break
+#         elif choice == '3':
+#             print("Выход...")
+#             break
 
-        else:
-            print("Неверный выбор! Попробуйте снова.")
+#         else:
+#             print("Неверный выбор! Попробуйте снова.")
 
-# Запуск программы
-if __name__ == "__main__":
-    command_menu()
+# # Запуск программы
+# if __name__ == "__main__":
+#     command_menu()
 
 
 
@@ -6727,9 +6729,518 @@ if __name__ == "__main__":
 
 
 
-# Подведение итогов:
+## Подведение итогов:
 
 ## Метод press_button проверяет, установлена ли команда.
 ## Если команда установлена, она выполняется.
 ## Если команда не установлена, выводится сообщение об ошибке.
 ## Это помогает обеспечить, чтобы программа работала корректно и пользователь знал, когда команда не была задана.
+
+
+
+
+
+## Задание 2
+## Есть класс, предоставляющий доступ к набору чисел.
+## Источником этого набора чисел является некоторый
+## файл. С определенной периодичностью данные в файле
+## меняются (надо реализовать механизм обновления).
+## Приложение должно получать доступ к этим данным и
+## выполнять набор операций над ними (сумма, максимум,
+## минимум и т.д.). При каждой попытке доступа к этому
+## набору необходимо вносить запись в лог-файл. При ре-
+## ализации используйте паттерн Proxy (для логгирования)
+## и другие необходимые паттерны.
+
+
+
+
+
+
+
+
+
+
+## Для реализации задачи мы будем использовать паттерн Proxy для логирования доступа к набору чисел,
+## а также паттерны Singleton и Observer для управления обновлением данных.
+## Приложение будет следовать следующим шагам:
+
+
+
+
+## (1)Создадим интерфейс для работы с данными.
+
+## (2)Реализуем класс, который предоставляет доступ к набору чисел.
+
+## (3)Реализуем прокси-класс для логирования доступа.
+
+## (4)Создадим класс для обновления данных и ведения логов.
+
+## (5)Добавим меню для взаимодействия с пользователем.
+
+
+import os
+import time
+import random
+from abc import ABC, abstractmethod
+
+# Интерфейс для работы с данными
+class DataProvider(ABC):
+    @abstractmethod
+    def get_data(self):
+        pass
+
+    @abstractmethod
+    def update_data(self):
+        pass
+
+# Класс для работы с набором чисел из файла
+class FileDataProvider(DataProvider):
+    def __init__(self, filename):
+        self.filename = filename
+
+    def get_data(self):
+        with open(self.filename, 'r') as file:
+            numbers = [int(line.strip()) for line in file]
+        return numbers
+
+    def update_data(self):
+        with open(self.filename, 'w') as file:
+            for _ in range(10):
+                file.write(f"{random.randint(1, 100)}\n")
+
+# Прокси-класс для логирования доступа
+class LoggingProxy(DataProvider):
+    def __init__(self, real_subject):
+        self.real_subject = real_subject
+
+    def get_data(self):
+        self._log("Get data accessed")
+        return self.real_subject.get_data()
+
+    def update_data(self):
+        self._log("Update data accessed")
+        self.real_subject.update_data()
+
+    def _log(self, message):
+        with open('access.log', 'a') as log_file:
+            log_file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {message}\n")
+
+# Синглтон-класс для управления данными и их обновлением
+class DataManager:
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super().__new__(cls, *args, **kwargs)
+        return cls._instance
+
+    def __init__(self):
+        self.provider = LoggingProxy(FileDataProvider('numbers.txt'))
+
+    def get_numbers(self):
+        return self.provider.get_data()
+
+    def update_numbers(self):
+        self.provider.update_data()
+
+# Функции для операций над данными
+def get_sum(numbers):
+    return sum(numbers)
+
+def get_max(numbers):
+    return max(numbers)
+
+def get_min(numbers):
+    return min(numbers)
+
+# Функция для взаимодействия с пользователем
+def menu():
+    manager = DataManager()
+    
+    while True:
+        print("\n--- Меню ---")
+        print("1. Получить данные")
+        print("2. Обновить данные")
+        print("3. Выполнить операции")
+        print("4. Выход")
+        choice = input("Введите номер (1-4): ")
+
+        if choice == '1':
+            data = manager.get_numbers()
+            print("Данные получены.")
+            print(data)
+        
+        elif choice == '2':
+            manager.update_numbers()
+            print("Данные обновлены.")
+
+        elif choice == '3':
+            data = manager.get_numbers()
+            if data:
+                print("Выберите операцию:")
+                print("1. Сумма")
+                print("2. Максимум")
+                print("3. Минимум")
+                op_choice = input("Введите номер (1-3): ")
+
+                if op_choice == '1':
+                    print(f"Сумма: {get_sum(data)}")
+                elif op_choice == '2':
+                    print(f"Максимум: {get_max(data)}")
+                elif op_choice == '3':
+                    print(f"Минимум: {get_min(data)}")
+                else:
+                    print("Неверный выбор!")
+            else:
+                print("Нет данных для выполнения операции.")
+
+        elif choice == '4':
+            print("Выход...")
+            break
+
+        else:
+            print("Неверный выбор! Попробуйте снова.")
+
+# Запуск программы
+if __name__ == "__main__":
+    menu()
+
+
+
+
+
+
+## 1. Импорт модулей:
+
+
+
+
+
+
+# import os
+# import time
+# import random
+# from abc import ABC, abstractmethod
+
+
+## os: Модуль для работы с операционной системой, например, для работы с файлами.
+
+## time: Модуль для работы с временем, например, для записи временных меток.
+
+## random: Модуль для генерации случайных чисел, используемый для обновления данных.
+
+## abc: Модуль для создания абстрактных базовых классов. Мы используем его для создания интерфейсов.
+
+
+
+
+
+
+## 2. Интерфейс для работы с данными
+
+
+
+
+
+
+# class DataProvider(ABC):
+#     @abstractmethod
+#     def get_data(self):
+#         pass
+
+#     @abstractmethod
+#     def update_data(self):
+#         pass
+
+
+
+
+
+## class DataProvider(ABC): Определяет абстрактный базовый класс (интерфейс) для работы с данными.
+
+## @abstractmethod: Декоратор, который указывает, что метод должен быть реализован в подклассах.
+
+## В этом интерфейсе два метода: get_data и update_data, которые нужно реализовать в конкретных классах.
+
+
+
+
+
+
+
+
+## 3. Класс для работы с набором чисел из файла
+
+
+
+
+
+
+# class FileDataProvider(DataProvider):
+#     def __init__(self, filename):
+#         self.filename = filename
+
+#     def get_data(self):
+#         with open(self.filename, 'r') as file:
+#             numbers = [int(line.strip()) for line in file]
+#         return numbers
+
+#     def update_data(self):
+#         with open(self.filename, 'w') as file:
+#             for _ in range(10):
+#                 file.write(f"{random.randint(1, 100)}\n")
+
+
+
+
+## class FileDataProvider(DataProvider): Реализует интерфейс DataProvider.
+## Обеспечивает доступ к данным из файла.
+
+## __init__(self, filename): Конструктор класса, принимает имя файла, 
+## который будет использоваться для чтения и записи данных.
+
+## get_data(self): Читает данные из файла и возвращает их в виде списка чисел.
+## Каждая строка файла преобразуется в целое число.
+
+## update_data(self): Обновляет файл, записывая в него 10 случайных чисел. 
+## Старые данные в файле удаляются.
+
+
+
+
+
+
+
+
+## 4. Прокси-класс для логирования доступа
+
+
+
+
+
+# class LoggingProxy(DataProvider):
+#     def __init__(self, real_subject):
+#         self.real_subject = real_subject
+
+#     def get_data(self):
+#         self._log("Get data accessed")
+#         return self.real_subject.get_data()
+
+#     def update_data(self):
+#         self._log("Update data accessed")
+#         self.real_subject.update_data()
+
+#     def _log(self, message):
+#         with open('access.log', 'a') as log_file:
+#             log_file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {message}\n")
+
+
+
+
+
+
+## class LoggingProxy(DataProvider): Прокси-класс, который добавляет функциональность логирования к объекту FileDataProvider.
+
+## __init__(self, real_subject): Конструктор класса, принимает объект,
+## который реализует интерфейс DataProvider (например, FileDataProvider).
+
+## get_data(self): Перед вызовом реального метода get_data записывает сообщение в лог-файл,
+#3 а затем возвращает данные.
+
+#3 update_data(self): Перед вызовом реального метода update_data записывает сообщение в лог-файл,
+## а затем обновляет данные.
+
+## _log(self, message): Записывает сообщение в лог-файл access.log с текущим временем.
+
+
+
+
+
+
+
+
+
+## 5. Синглтон-класс для управления данными
+
+
+
+
+
+
+
+# class DataManager:
+#     _instance = None
+
+#     def __new__(cls, *args, **kwargs):
+#         if not cls._instance:
+#             cls._instance = super().__new__(cls, *args, **kwargs)
+#         return cls._instance
+
+#     def __init__(self):
+#         self.provider = LoggingProxy(FileDataProvider('numbers.txt'))
+
+#     def get_numbers(self):
+#         return self.provider.get_data()
+
+#     def update_numbers(self):
+#         self.provider.update_data()
+
+
+
+
+
+
+
+
+
+## class DataManager: Класс, управляющий данными и их обновлением.
+## Реализует паттерн Singleton, чтобы гарантировать, что существует только один экземпляр этого класса.
+
+## _instance: Статическая переменная для хранения единственного экземпляра класса.
+
+## __new__(cls, *args, **kwargs): Переопределяет создание объекта.
+## Если экземпляр класса еще не создан, создается новый, иначе возвращается уже существующий.
+
+## __init__(self): Конструктор класса, создает объект LoggingProxy, который оборачивает FileDataProvider.
+
+## get_numbers(self): Использует прокси для получения данных.
+
+## update_numbers(self): Использует прокси для обновления данных.
+
+
+
+
+
+
+
+
+
+
+## 6. Функции для операций над данными
+
+
+
+
+
+
+# def get_sum(numbers):
+#     return sum(numbers)
+
+# def get_max(numbers):
+#     return max(numbers)
+
+# def get_min(numbers):
+#     return min(numbers)
+
+
+
+
+
+## get_sum(numbers): Возвращает сумму всех чисел в списке.
+
+## get_max(numbers): Возвращает максимальное число в списке.
+
+## get_min(numbers): Возвращает минимальное число в списке.
+
+
+
+
+
+
+
+
+
+## 7. Функция для взаимодействия с пользователем
+
+
+
+
+
+
+# def menu():
+#     manager = DataManager()
+    
+#     while True:
+#         print("\n--- Меню ---")
+#         print("1. Получить данные")
+#         print("2. Обновить данные")
+#         print("3. Выполнить операции")
+#         print("4. Выход")
+#         choice = input("Введите номер (1-4): ")
+
+#         if choice == '1':
+#             data = manager.get_numbers()
+#             print("Данные получены.")
+#             print(data)
+        
+#         elif choice == '2':
+#             manager.update_numbers()
+#             print("Данные обновлены.")
+
+#         elif choice == '3':
+#             data = manager.get_numbers()
+#             if data:
+#                 print("Выберите операцию:")
+#                 print("1. Сумма")
+#                 print("2. Максимум")
+#                 print("3. Минимум")
+#                 op_choice = input("Введите номер (1-3): ")
+
+#                 if op_choice == '1':
+#                     print(f"Сумма: {get_sum(data)}")
+#                 elif op_choice == '2':
+#                     print(f"Максимум: {get_max(data)}")
+#                 elif op_choice == '3':
+#                     print(f"Минимум: {get_min(data)}")
+#                 else:
+#                     print("Неверный выбор!")
+#             else:
+#                 print("Нет данных для выполнения операции.")
+
+#         elif choice == '4':
+#             print("Выход...")
+#             break
+
+#         else:
+#             print("Неверный выбор! Попробуйте снова.")
+
+
+
+
+
+
+
+
+
+## menu(): Основная функция для взаимодействия с пользователем.
+
+## В цикле while True отображается меню и принимается выбор пользователя.
+
+## choice == '1': Получает данные и выводит их.
+## choice == '2': Обновляет данные в файле.
+## choice == '3': Позволяет выбрать операцию (сумма, максимум, минимум) и выполняет её.
+## choice == '4': Выход из программы.
+
+## else: Сообщение о неверном выборе.
+
+## Как это работает:
+## Создание и использование классов:
+## DataManager гарантирует, что всегда используется один и тот же экземпляр.
+## LoggingProxy добавляет логирование к методам get_data и update_data класса FileDataProvider.
+
+
+## Взаимодействие с пользователем:
+## Пользователь выбирает действия через меню.
+## Программа выполняет выбранные действия и отображает результаты.
+
+
+
+
+## Эта структура позволяет управлять данными, отслеживать доступ и выполнять операции, 
+## сохраняя при этом код организованным и легко расширяемым.
+
+
+
+
+
