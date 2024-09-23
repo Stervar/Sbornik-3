@@ -87,14 +87,7 @@
 # алгоритма управления автомобилем.
 
 
-from PIL import Image
-
-# Открываем изображение
-image = Image.open(c:\Users\HyperPC\Downloads\7d5d33c9-8746-4ebb-b09c-03c5f6e27d81.webp')
-
-# Отображаем изображение
-image.show()c:
-
+# Фотография номер один в папке images 
 
 
 
