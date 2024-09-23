@@ -8475,3 +8475,287 @@
 # Создаются экземпляры представления и контроллера.
 
 # Вызывается функция menu, чтобы начать взаимодействие с пользователем.
+
+
+
+
+
+
+
+
+
+
+
+# Код №2
+
+
+
+
+
+
+
+
+
+# import pickle
+
+# class Recipe:
+#     def __init__(self, title: str, author: str, recipe_type: str, description: str, video_link: str, ingredients: list, cuisine: str):
+#         """Конструктор для создания объекта рецепта с начальными атрибутами."""
+#         self.title = title                # Название рецепта
+#         self.author = author              # Автор рецепта
+#         self.recipe_type = recipe_type    # Тип рецепта (первое, второе блюдо и т.д.)
+#         self.description = description     # Текстовое описание рецепта
+#         self.video_link = video_link      # Ссылка на видео с рецептом
+#         self.ingredients = ingredients     # Список ингредиентов
+#         self.cuisine = cuisine             # Название кухни (итальянская, французская и т.д.)
+
+#     def get_info(self):
+#         """Метод для получения информации о рецепте в виде словаря."""
+#         return {
+#             "Title": self.title,
+#             "Author": self.author,
+#             "Recipe Type": self.recipe_type,
+#             "Description": self.description,
+#             "Video Link": self.video_link,
+#             "Ingredients": self.ingredients,
+#             "Cuisine": self.cuisine
+#         }
+
+#     def update_description(self, new_description: str):
+#         """Метод для обновления описания рецепта."""
+#         self.description = new_description
+
+#     def update_video_link(self, new_video_link: str):
+#         """Метод для обновления ссылки на видео рецепта."""
+#         self.video_link = new_video_link
+
+#     def add_ingredient(self, ingredient: str):
+#         """Метод для добавления ингредиента в список."""
+#         self.ingredients.append(ingredient)
+
+#     def remove_ingredient(self, ingredient: str):
+#         """Метод для удаления ингредиента из списка."""
+#         if ingredient in self.ingredients:
+#             self.ingredients.remove(ingredient)
+
+# class RecipeView:
+#     @staticmethod
+#     def display_recipe_info(recipe_info: dict):
+#         """Отображает информацию о рецепте."""
+#         print("Recipe Information:")
+#         for key, value in recipe_info.items():
+#             if isinstance(value, list):
+#                 value = ', '.join(value)  # Преобразуем список в строку
+#             print(f"{key}: {value}")
+
+# class RecipeController:
+#     def __init__(self, model: Recipe, view: RecipeView):
+#         """Инициализирует контроллер с моделью и представлением."""
+#         self.model = model  # Модель рецепта
+#         self.view = view    # Представление для отображения данных
+
+#     def display_recipe_info(self):
+#         """Передает информацию модели в представление для отображения."""
+#         recipe_info = self.model.get_info()
+#         self.view.display_recipe_info(recipe_info)
+
+#     def update_description(self, new_description: str):
+#         """Обновляет описание рецепта."""
+#         self.model.update_description(new_description)
+
+#     def update_video_link(self, new_video_link: str):
+#         """Обновляет ссылку на видео рецепта."""
+#         self.model.update_video_link(new_video_link)
+
+#     def add_ingredient(self, ingredient: str):
+#         """Добавляет ингредиент в рецепт."""
+#         self.model.add_ingredient(ingredient)
+
+#     def remove_ingredient(self, ingredient: str):
+#         """Удаляет ингредиент из рецепта."""
+#         self.model.remove_ingredient(ingredient)
+
+#     def save_to_file(self, filename="recipe_data.pkl"):
+#         """Сохраняет модель рецепта в файл."""
+#         with open(filename, "wb") as file:
+#             pickle.dump(self.model, file)
+#         print(f"Данные сохранены в {filename}.")
+
+#     def load_from_file(self, filename="recipe_data.pkl"):
+#         """Загружает модель рецепта из файла."""
+#         try:
+#             with open(filename, "rb") as file:
+#                 self.model = pickle.load(file)
+#             print(f"Данные загружены из {filename}.")
+#         except FileNotFoundError:
+#             print("Файл не найден, начинается новая сессия.")
+
+# def menu(controller: RecipeController):
+#     while True:
+#         print("\n1. Показать информацию о рецепте")
+#         print("2. Изменить описание рецепта")
+#         print("3. Изменить ссылку на видео")
+#         print("4. Добавить ингредиент")
+#         print("5. Удалить ингредиент")
+#         print("6. Сохранить данные")
+#         print("7. Загрузить данные")
+#         print("8. Выйти")
+
+#         choice = input("Выберите опцию: ")
+
+#         if choice == "1":
+#             controller.display_recipe_info()
+#         elif choice == "2":
+#             new_description = input("Введите новое описание рецепта: ")
+#             controller.update_description(new_description)
+#             print("Описание обновлено.")
+#         elif choice == "3":
+#             new_video_link = input("Введите новую ссылку на видео: ")
+#             controller.update_video_link(new_video_link)
+#             print("Ссылка на видео обновлена.")
+#         elif choice == "4":
+#             new_ingredient = input("Введите ингредиент для добавления: ")
+#             controller.add_ingredient(new_ingredient)
+#             print(f"Ингредиент '{new_ingredient}' добавлен.")
+#         elif choice == "5":
+#             ingredient_to_remove = input("Введите ингредиент для удаления: ")
+#             controller.remove_ingredient(ingredient_to_remove)
+#             print(f"Ингредиент '{ingredient_to_remove}' удален.")
+#         elif choice == "6":
+#             controller.save_to_file()
+#         elif choice == "7":
+#             controller.load_from_file()
+#         elif choice == "8":
+#             print("Выход...")
+#             break
+#         else:
+#             print("Неверный выбор. Попробуйте снова.")
+
+# if __name__ == "__main__":
+#     # Создаем модель рецепта
+#     recipe = Recipe(
+#         title="Паста Карбонара",
+#         author="Итальянский повар",
+#         recipe_type="Основное блюдо",
+#         description="Классическая итальянская паста с беконом и сыром.",
+#         video_link="https://example.com/recipe-video",
+#         ingredients=["Паста", "Яйцо", "Пармезан", "Бекон", "Чёрный перец"],
+#         cuisine="Итальянская"
+#     )
+
+#     # Создаем представление
+#     view = RecipeView()
+
+#     # Создаем контроллер
+#     controller = RecipeController(model=recipe, view=view)
+
+#     # Запускаем меню для взаимодействия
+#     menu(controller)
+
+
+
+
+
+
+
+
+
+# (1) Импортируем библиотеку pickle
+
+# Библиотека pickle используется для сериализации и десериализации объектов Python.
+# Она позволяет сохранять объекты в файл и загружать их обратно.
+
+
+
+
+
+
+
+
+
+
+# (2) Создание класса Recipe
+
+# __init__ Метод: Конструктор класса, 
+# который принимает различные параметры, чтобы создать объект рецепта.
+
+# def __init__(self, title: str, author: str, recipe_type: str, description: str, video_link: str, ingredients: list, cuisine: str):
+
+# Атрибуты:
+# title: Название рецепта.
+
+# author: Автор рецепта.
+
+# recipe_type: Тип рецепта (например, первое, второе блюдо).
+
+# description: Описание рецепта.
+
+# video_link: Ссылка на видео.
+
+# ingredients: Список ингредиентов.
+
+# cuisine: Название кухни.
+
+# Методы:
+# get_info(): Возвращает информацию о рецепте в виде словаря, что позволяет легко получать данные о рецепте.
+
+# update_description(new_description): Обновляет описание рецепта.
+
+# update_video_link(new_video_link): Обновляет ссылку на видео.
+
+# add_ingredient(ingredient): Добавляет новый ингредиент в список.
+
+# remove_ingredient(ingredient): Удаляет указанный ингредиент из списка, если он существует.
+
+
+
+
+
+
+
+
+
+# (3) Создание класса RecipeView
+
+# Этот класс отвечает за отображение информации о рецепте.
+# display_recipe_info(recipe_info): Статический метод, который принимает словарь с информацией о рецепте и выводит его на экран.
+
+# class RecipeView:
+#     @staticmethod
+#     def display_recipe_info(recipe_info: dict):
+#         ...
+
+
+
+
+
+
+# (4) Создание класса RecipeController
+
+# Контроллер связывает модель и представление.
+
+# Он отвечает за обновление модели и отображение данных через представление.
+# Методы:
+# display_recipe_info(): Передает информацию из модели в представление.
+
+# update_description(new_description): Обновляет описание рецепта.
+
+# update_video_link(new_video_link): Обновляет ссылку на видео рецепта.
+
+# add_ingredient(ingredient): Добавляет ингредиент в рецепт.
+
+# remove_ingredient(ingredient): Удаляет ингредиент из рецепта.
+
+# save_to_file(filename): Сохраняет модель рецепта в файл.
+
+# load_from_file(filename): Загружает модель рецепта из файла.
+
+
+
+
+
+
+# (5) Функция menu
+
+# Эта функция создает текстовое меню для взаимодействия с пользователем.
+# Она запрашивает пользователя о действиях
