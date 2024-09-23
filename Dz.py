@@ -90,10 +90,10 @@
 from PIL import Image
 
 # Открываем изображение
-image = Image.open('путь_к_изображению.png')
+image = Image.open(c:\Users\HyperPC\Downloads\7d5d33c9-8746-4ebb-b09c-03c5f6e27d81.webp')
 
 # Отображаем изображение
-image.show()
+image.show()c:
 
 
 
