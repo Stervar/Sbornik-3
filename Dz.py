@@ -6779,132 +6779,132 @@
 ## (5)Добавим меню для взаимодействия с пользователем.
 
 
-import os
-import time
-import random
-from abc import ABC, abstractmethod
+# import os
+# import time
+# import random
+# from abc import ABC, abstractmethod
 
-# Интерфейс для работы с данными
-class DataProvider(ABC):
-    @abstractmethod
-    def get_data(self):
-        pass
+# # Интерфейс для работы с данными
+# class DataProvider(ABC):
+#     @abstractmethod
+#     def get_data(self):
+#         pass
 
-    @abstractmethod
-    def update_data(self):
-        pass
+#     @abstractmethod
+#     def update_data(self):
+#         pass
 
-# Класс для работы с набором чисел из файла
-class FileDataProvider(DataProvider):
-    def __init__(self, filename):
-        self.filename = filename
+# # Класс для работы с набором чисел из файла
+# class FileDataProvider(DataProvider):
+#     def __init__(self, filename):
+#         self.filename = filename
 
-    def get_data(self):
-        with open(self.filename, 'r') as file:
-            numbers = [int(line.strip()) for line in file]
-        return numbers
+#     def get_data(self):
+#         with open(self.filename, 'r') as file:
+#             numbers = [int(line.strip()) for line in file]
+#         return numbers
 
-    def update_data(self):
-        with open(self.filename, 'w') as file:
-            for _ in range(10):
-                file.write(f"{random.randint(1, 100)}\n")
+#     def update_data(self):
+#         with open(self.filename, 'w') as file:
+#             for _ in range(10):
+#                 file.write(f"{random.randint(1, 100)}\n")
 
-# Прокси-класс для логирования доступа
-class LoggingProxy(DataProvider):
-    def __init__(self, real_subject):
-        self.real_subject = real_subject
+# # Прокси-класс для логирования доступа
+# class LoggingProxy(DataProvider):
+#     def __init__(self, real_subject):
+#         self.real_subject = real_subject
 
-    def get_data(self):
-        self._log("Get data accessed")
-        return self.real_subject.get_data()
+#     def get_data(self):
+#         self._log("Get data accessed")
+#         return self.real_subject.get_data()
 
-    def update_data(self):
-        self._log("Update data accessed")
-        self.real_subject.update_data()
+#     def update_data(self):
+#         self._log("Update data accessed")
+#         self.real_subject.update_data()
 
-    def _log(self, message):
-        with open('access.log', 'a') as log_file:
-            log_file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {message}\n")
+#     def _log(self, message):
+#         with open('access.log', 'a') as log_file:
+#             log_file.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')} - {message}\n")
 
-# Синглтон-класс для управления данными и их обновлением
-class DataManager:
-    _instance = None
+# # Синглтон-класс для управления данными и их обновлением
+# class DataManager:
+#     _instance = None
 
-    def __new__(cls, *args, **kwargs):
-        if not cls._instance:
-            cls._instance = super().__new__(cls, *args, **kwargs)
-        return cls._instance
+#     def __new__(cls, *args, **kwargs):
+#         if not cls._instance:
+#             cls._instance = super().__new__(cls, *args, **kwargs)
+#         return cls._instance
 
-    def __init__(self):
-        self.provider = LoggingProxy(FileDataProvider('numbers.txt'))
+#     def __init__(self):
+#         self.provider = LoggingProxy(FileDataProvider('numbers.txt'))
 
-    def get_numbers(self):
-        return self.provider.get_data()
+#     def get_numbers(self):
+#         return self.provider.get_data()
 
-    def update_numbers(self):
-        self.provider.update_data()
+#     def update_numbers(self):
+#         self.provider.update_data()
 
-# Функции для операций над данными
-def get_sum(numbers):
-    return sum(numbers)
+# # Функции для операций над данными
+# def get_sum(numbers):
+#     return sum(numbers)
 
-def get_max(numbers):
-    return max(numbers)
+# def get_max(numbers):
+#     return max(numbers)
 
-def get_min(numbers):
-    return min(numbers)
+# def get_min(numbers):
+#     return min(numbers)
 
-# Функция для взаимодействия с пользователем
-def menu():
-    manager = DataManager()
+# # Функция для взаимодействия с пользователем
+# def menu():
+#     manager = DataManager()
     
-    while True:
-        print("\n--- Меню ---")
-        print("1. Получить данные")
-        print("2. Обновить данные")
-        print("3. Выполнить операции")
-        print("4. Выход")
-        choice = input("Введите номер (1-4): ")
+#     while True:
+#         print("\n--- Меню ---")
+#         print("1. Получить данные")
+#         print("2. Обновить данные")
+#         print("3. Выполнить операции")
+#         print("4. Выход")
+#         choice = input("Введите номер (1-4): ")
 
-        if choice == '1':
-            data = manager.get_numbers()
-            print("Данные получены.")
-            print(data)
+#         if choice == '1':
+#             data = manager.get_numbers()
+#             print("Данные получены.")
+#             print(data)
         
-        elif choice == '2':
-            manager.update_numbers()
-            print("Данные обновлены.")
+#         elif choice == '2':
+#             manager.update_numbers()
+#             print("Данные обновлены.")
 
-        elif choice == '3':
-            data = manager.get_numbers()
-            if data:
-                print("Выберите операцию:")
-                print("1. Сумма")
-                print("2. Максимум")
-                print("3. Минимум")
-                op_choice = input("Введите номер (1-3): ")
+#         elif choice == '3':
+#             data = manager.get_numbers()
+#             if data:
+#                 print("Выберите операцию:")
+#                 print("1. Сумма")
+#                 print("2. Максимум")
+#                 print("3. Минимум")
+#                 op_choice = input("Введите номер (1-3): ")
 
-                if op_choice == '1':
-                    print(f"Сумма: {get_sum(data)}")
-                elif op_choice == '2':
-                    print(f"Максимум: {get_max(data)}")
-                elif op_choice == '3':
-                    print(f"Минимум: {get_min(data)}")
-                else:
-                    print("Неверный выбор!")
-            else:
-                print("Нет данных для выполнения операции.")
+#                 if op_choice == '1':
+#                     print(f"Сумма: {get_sum(data)}")
+#                 elif op_choice == '2':
+#                     print(f"Максимум: {get_max(data)}")
+#                 elif op_choice == '3':
+#                     print(f"Минимум: {get_min(data)}")
+#                 else:
+#                     print("Неверный выбор!")
+#             else:
+#                 print("Нет данных для выполнения операции.")
 
-        elif choice == '4':
-            print("Выход...")
-            break
+#         elif choice == '4':
+#             print("Выход...")
+#             break
 
-        else:
-            print("Неверный выбор! Попробуйте снова.")
+#         else:
+#             print("Неверный выбор! Попробуйте снова.")
 
-# Запуск программы
-if __name__ == "__main__":
-    menu()
+# # Запуск программы
+# if __name__ == "__main__":
+#     menu()
 
 
 
