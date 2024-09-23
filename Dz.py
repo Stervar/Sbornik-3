@@ -7772,198 +7772,433 @@
 
 
 
-1. Импорт библиотеки
+# 1. Импорт библиотеки
 
-import pickle
+# import pickle
 
-import pickle: Импортируем модуль pickle, который позволяет сериализовать и десериализовать объекты Python, 
-чтобы мы могли сохранять и загружать их из файлов.
-
-
-2. Класс Shoe
-
-class Shoe:
-    def __init__(self, gender: str, shoe_type: str, color: str, price: float, manufacturer: str, size: int):
-        """Конструктор для создания объекта обуви с начальными атрибутами."""
-        self.gender = gender            # Пол обуви (мужская или женская)
-        self.shoe_type = shoe_type      # Тип обуви (кроссовки, сапоги и т.д.)
-        self.color = color              # Цвет обуви
-        self.price = price              # Цена обуви
-        self.manufacturer = manufacturer # Производитель обуви
-        self.size = size                # Размер обуви
-
-class Shoe: Определяет класс Shoe, который представляет обувь.
-
-__init__: Конструктор класса, инициализирует объект с атрибутами:
-
-gender: пол обуви.
-shoe_type: тип обуви.
-color: цвет обуви.
-price: цена обуви.
-manufacturer: производитель обуви.
-size: размер обуви.
+# import pickle: Импортируем модуль pickle, который позволяет сериализовать и десериализовать объекты Python, 
+# чтобы мы могли сохранять и загружать их из файлов.
 
 
-    def get_info(self):
-        """Метод для получения информации об обуви в виде словаря."""
-        return {
-            "Gender": self.gender,
-            "Shoe Type": self.shoe_type,
-            "Color": self.color,
-            "Price": self.price,
-            "Manufacturer": self.manufacturer,
-            "Size": self.size
-        }
 
 
-get_info: Метод, возвращающий словарь с информацией об обуви,
-что позволяет легко получить доступ к атрибутам.
 
 
-3. Класс ShoeLibrary
 
-class ShoeLibrary:
-    def __init__(self):
-        """Конструктор для создания объекта библиотеки обуви."""
-        self.shoes = []  # Список для хранения всех записей об обуви
 
-class ShoeLibrary: Определяет класс для управления библиотекой обуви.
-__init__: Создает пустой список shoes, который будет хранить объекты Shoe.
 
-    def add_shoe(self, shoe: Shoe):
-        """Добавляет объект обуви в библиотеку."""
-        self.shoes.append(shoe)
 
-add_shoe: Метод для добавления объекта Shoe в библиотеку (в список shoes).
 
-    def display_all_shoes(self):
-        """Отображает информацию обо всех парах обуви в библиотеке."""
-        if not self.shoes:
-            print("Библиотека пуста.")
-        else:
-            for idx, shoe in enumerate(self.shoes):
-                print(f"\nЗапись {idx + 1}:")
-                shoe_info = shoe.get_info()
-                for key, value in shoe_info.items():
-                    print(f"{key}: {value}")
-            print("\n")
 
-display_all_shoes: Метод, который отображает информацию о всех парах обуви в библиотеке.
-Проверяет, пуст ли список shoes. 
 
-Если пуст, выводит соответствующее сообщение.
-Если не пуст, перебирает все объекты Shoe и выводит их информацию.
 
-    def save_to_file(self, filename="shoes_data.pkl"):
-        """Сохраняет всю библиотеку в файл."""
-        with open(filename, "wb") as file:
-            pickle.dump(self.shoes, file)
-        print(f"Данные сохранены в {filename}.")
 
-save_to_file: Метод, который сохраняет список обуви в файл с помощью pickle.
-Файл называется по умолчанию shoes_data.pkl.
 
-    def load_from_file(self, filename="shoes_data.pkl"):
-        """Загружает библиотеку из файла."""
-        try:
-            with open(filename, "rb") as file:
-                self.shoes = pickle.load(file)
-            print(f"Данные загружены из {filename}.")
-        except FileNotFoundError:
-            print("Файл не найден, начинается новая сессия.")
+# 2. Класс Shoe
 
-load_from_file: Метод для загрузки библиотеки из файла.
+# class Shoe:
+#     def __init__(self, gender: str, shoe_type: str, color: str, price: float, manufacturer: str, size: int):
+#         """Конструктор для создания объекта обуви с начальными атрибутами."""
+#         self.gender = gender            # Пол обуви (мужская или женская)
+#         self.shoe_type = shoe_type      # Тип обуви (кроссовки, сапоги и т.д.)
+#         self.color = color              # Цвет обуви
+#         self.price = price              # Цена обуви
+#         self.manufacturer = manufacturer # Производитель обуви
+#         self.size = size                # Размер обуви
 
-Использует обработку исключений для обработки случаев,
-когда файл не существует, и выводит сообщение об этом.
+# class Shoe: Определяет класс Shoe, который представляет обувь.
 
-4. Класс ShoeView
+# __init__: Конструктор класса, инициализирует объект с атрибутами:
 
-class ShoeView:
-    @staticmethod
-    def display_shoe_info(shoe_info: dict):
-        """Отображает информацию об одной паре обуви."""
-        print("Shoe Information:")
-        for key, value in shoe_info.items():
-            print(f"{key}: {value}")
+# gender: пол обуви.
+# shoe_type: тип обуви.
+# color: цвет обуви.
+# price: цена обуви.
+# manufacturer: производитель обуви.
+# size: размер обуви.
 
-class ShoeView: Определяет класс для представления информации об обуви.
-display_shoe_info: Статический метод, который принимает словарь с информацией об обуви и выводит его на экран.
 
-5. Класс ShoeController
 
-class ShoeController:
-    def __init__(self, model: Shoe, view: ShoeView):
-        """Инициализирует контроллер с моделью и представлением."""
-        self.model = model  # Модель обуви
-        self.view = view    # Представление для отображения данных
 
-class ShoeController: Определяет класс контроллера,
-который управляет взаимодействием между моделью (обувь) и представлением (вывод информации).
-__init__: Инициализирует контроллер с моделью обуви и представлением.
 
-    def set_price(self, price: float):
-        """Изменяет цену обуви через модель."""
-        self.model.price = price
 
-    def set_size(self, size: int):
-        """Изменяет размер обуви через модель."""
-        self.model.size = size
 
-set_price и set_size: Методы для изменения цены и размера обуви через модель.
 
-    def display_shoe_info(self):
-        """Передает информацию модели в представление для отображения."""
-        shoe_info = self.model.get_info()
-        self.view.display_shoe_info(shoe_info)
 
-display_shoe_info: Метод, который получает информацию о обуви из модели и передает ее представлению для отображения.
 
-6. Функция меню
 
-def menu(controller: ShoeController, library: ShoeLibrary):
-    while True:
-        print("\n1. Показать информацию об обуви")
-        print("2. Изменить цену")
-        print("3. Изменить размер")
-        print("4. Добавить обувь в библиотеку")
-        print("5. Показать всю обувь в библиотеке")
-        print("6. Сохранить данные")
-        print("7. Загрузить данные")
-        print("8. Выйти")
 
-menu: Функция, представляющая главное меню для взаимодействия с пользователем.
-Внутри цикла while True выводит доступные опции.
 
-        choice = input("Выберите опцию: ")
 
-        if choice == "1":
-            controller.display_shoe_info()
+#     def get_info(self):
+#         """Метод для получения информации об обуви в виде словаря."""
+#         return {
+#             "Gender": self.gender,
+#             "Shoe Type": self.shoe_type,
+#             "Color": self.color,
+#             "Price": self.price,
+#             "Manufacturer": self.manufacturer,
+#             "Size": self.size
+#         }
 
-Читает выбор пользователя и выполняет соответствующие действия в зависимости от выбора.
 
-        elif choice == "2":
-            try:
-                new_price = float(input("Введите новую цену: "))
-                controller.set_price(new_price)
-            except ValueError:
-                print("Ошибка: цена должна быть числом.")
+# get_info: Метод, возвращающий словарь с информацией об обуви,
+# что позволяет легко получить доступ к атрибутам.
 
-Для опций изменения цены и размера добавлены блоки try-except,
-чтобы обработать возможные ошибки ввода.
 
-        elif choice == "4":
-            library.add_shoe(controller.model)
-            print("Обувь добавлена в библиотеку.")
 
-Позволяет добавлять текущую модель обуви в библиотеку.
 
-        elif choice == "6":
-            library.save_to_file()
-        elif choice == "7":
-            library.load_from_file()
 
-Сохраняет и загружает данные из файла.
+
+
+
+
+# 3. Класс ShoeLibrary
+
+# class ShoeLibrary:
+#     def __init__(self):
+#         """Конструктор для создания объекта библиотеки обуви."""
+#         self.shoes = []  # Список для хранения всех записей об обуви
+
+# class ShoeLibrary: Определяет класс для управления библиотекой обуви.
+# __init__: Создает пустой список shoes, который будет хранить объекты Shoe.
+
+
+
+
+
+
+
+
+
+#     def add_shoe(self, shoe: Shoe):
+#         """Добавляет объект обуви в библиотеку."""
+#         self.shoes.append(shoe)
+
+# add_shoe: Метод для добавления объекта Shoe в библиотеку (в список shoes).
+
+
+
+
+
+
+
+
+
+
+
+
+
+#     def display_all_shoes(self):
+#         """Отображает информацию обо всех парах обуви в библиотеке."""
+#         if not self.shoes:
+#             print("Библиотека пуста.")
+#         else:
+#             for idx, shoe in enumerate(self.shoes):
+#                 print(f"\nЗапись {idx + 1}:")
+#                 shoe_info = shoe.get_info()
+#                 for key, value in shoe_info.items():
+#                     print(f"{key}: {value}")
+#             print("\n")
+
+# display_all_shoes: Метод, который отображает информацию о всех парах обуви в библиотеке.
+# Проверяет, пуст ли список shoes. 
+
+# Если пуст, выводит соответствующее сообщение.
+# Если не пуст, перебирает все объекты Shoe и выводит их информацию.
+
+
+
+
+
+
+
+
+
+
+#     def save_to_file(self, filename="shoes_data.pkl"):
+#         """Сохраняет всю библиотеку в файл."""
+#         with open(filename, "wb") as file:
+#             pickle.dump(self.shoes, file)
+#         print(f"Данные сохранены в {filename}.")
+
+
+# save_to_file: Метод, который сохраняет список обуви в файл с помощью pickle.
+# Файл называется по умолчанию shoes_data.pkl.
+
+
+
+
+
+
+
+
+
+
+#     def load_from_file(self, filename="shoes_data.pkl"):
+#         """Загружает библиотеку из файла."""
+#         try:
+#             with open(filename, "rb") as file:
+#                 self.shoes = pickle.load(file)
+#             print(f"Данные загружены из {filename}.")
+#         except FileNotFoundError:
+#             print("Файл не найден, начинается новая сессия.")
+
+# load_from_file: Метод для загрузки библиотеки из файла.
+
+# Использует обработку исключений для обработки случаев,
+# когда файл не существует, и выводит сообщение об этом.
+
+
+
+
+
+
+
+
+
+
+# 4. Класс ShoeView
+
+# class ShoeView:
+#     @staticmethod
+#     def display_shoe_info(shoe_info: dict):
+#         """Отображает информацию об одной паре обуви."""
+#         print("Shoe Information:")
+#         for key, value in shoe_info.items():
+#             print(f"{key}: {value}")
+
+# class ShoeView: Определяет класс для представления информации об обуви.
+# display_shoe_info: Статический метод, который принимает словарь с информацией об обуви и выводит его на экран.
+
+
+
+
+
+
+
+
+# 5. Класс ShoeController
+
+# class ShoeController:
+#     def __init__(self, model: Shoe, view: ShoeView):
+#         """Инициализирует контроллер с моделью и представлением."""
+#         self.model = model  # Модель обуви
+#         self.view = view    # Представление для отображения данных
+
+# class ShoeController: Определяет класс контроллера,
+# который управляет взаимодействием между моделью (обувь) и представлением (вывод информации).
+# __init__: Инициализирует контроллер с моделью обуви и представлением.
+
+
+
+
+
+
+
+
+
+#     def set_price(self, price: float):
+#         """Изменяет цену обуви через модель."""
+#         self.model.price = price
+
+#     def set_size(self, size: int):
+#         """Изменяет размер обуви через модель."""
+#         self.model.size = size
+
+# set_price и set_size: Методы для изменения цены и размера обуви через модель.
+
+
+
+
+
+
+
+
+
+#     def display_shoe_info(self):
+#         """Передает информацию модели в представление для отображения."""
+#         shoe_info = self.model.get_info()
+#         self.view.display_shoe_info(shoe_info)
+
+# display_shoe_info: Метод, который получает информацию о обуви из модели и передает ее представлению для отображения.
+
+
+
+
+
+
+
+
+
+
+
+# 6. Функция меню
+
+# def menu(controller: ShoeController, library: ShoeLibrary):
+#     while True:
+#         print("\n1. Показать информацию об обуви")
+#         print("2. Изменить цену")
+#         print("3. Изменить размер")
+#         print("4. Добавить обувь в библиотеку")
+#         print("5. Показать всю обувь в библиотеке")
+#         print("6. Сохранить данные")
+#         print("7. Загрузить данные")
+#         print("8. Выйти")
+
+# menu: Функция, представляющая главное меню для взаимодействия с пользователем.
+# Внутри цикла while True выводит доступные опции.
+
+
+
+
+
+
+
+
+
+
+
+#         choice = input("Выберите опцию: ")
+
+#         if choice == "1":
+#             controller.display_shoe_info()
+
+# Читает выбор пользователя и выполняет соответствующие действия в зависимости от выбора.
+
+
+
+
+
+
+
+
+
+
+#         elif choice == "2":
+#             try:
+#                 new_price = float(input("Введите новую цену: "))
+#                 controller.set_price(new_price)
+#             except ValueError:
+#                 print("Ошибка: цена должна быть числом.")
+
+# Для опций изменения цены и размера добавлены блоки try-except,
+# чтобы обработать возможные ошибки ввода.
+
+
+
+
+
+
+
+
+#         elif choice == "4":
+#             library.add_shoe(controller.model)
+#             print("Обувь добавлена в библиотеку.")
+
+# Позволяет добавлять текущую модель обуви в библиотеку.
+
+
+
+
+
+
+
+#         elif choice == "6":
+#             library.save_to_file()
+#         elif choice == "7":
+#             library.load_from_file()
+
+# Сохраняет и загружает данные из файла.
+
+
+
+
+
+
+#         elif choice == "8":
+#             print("Выход...")
+#             break
+#         else:
+#             print("Неверный выбор. Попробуйте снова.")
+
+# Позволяет выходить из программы или обрабатывать неверные вводы.
+
+
+
+
+
+
+
+
+
+
+# 7. Основной блок программы
+
+# if __name__ == "__main__":
+#     # Создаем модель обуви
+#     shoe = Shoe(gender="Мужская", shoe_type="Кроссовки", color="Черный", price=100.0, manufacturer="Nike", size=42)
+
+#     # Создаем представление
+#     view = ShoeView()
+
+#     # Создаем контроллер
+#     controller = ShoeController(model=shoe, view=view)
+
+#     # Создаем библиотеку для хранения всех записей
+#     library = ShoeLibrary()
+
+#     # Загружаем данные из файла
+#     library.load_from_file()
+
+
+
+# Основной блок программы:
+
+# Создается объект Shoe с заданными параметрами.
+
+# Создаются объекты ShoeView, ShoeController и ShoeLibrary.
+
+# Загружаются данные из файла, если он существует.
+
+# Запускается функция menu, позволяющая пользователю взаимодействовать с программой.
+
+
+
+
+
+
+
+
+
+# Общая структура
+
+# Модель (Shoe): Хранит данные об обуви.
+
+# Представление (ShoeView): Отвечает за отображение данных пользователю.
+
+# Контроллер (ShoeController): Управляет взаимодействием между моделью и представлением.
+
+# Библиотека (ShoeLibrary): Хранит и управляет коллекцией обуви.
+
+# Меню: Обеспечивает пользовательский интерфейс для взаимодействия с программой.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Задание 2
 # Создайте класс Рецепт. Необходимо хранить следу-
 # ющую информацию:
