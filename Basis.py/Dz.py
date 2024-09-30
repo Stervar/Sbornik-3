@@ -9818,65 +9818,71 @@
 
 
 
-1. S - Принцип единственной ответственности (Single Responsibility Principle, SRP)
-
-Понятие:
-Каждый класс или модуль должен иметь только одну причину для изменения, то есть выполнять только одну задачу.
-
-Пример:
-
-Представьте класс, который занимается обработкой данных, их выводом и записью в файл. 
-
-Это сразу несколько обязанностей.
-
-Если что-то изменится в способе обработки данных или записи их в файл, вам придётся менять этот класс, что может привести к ошибкам.
 
 
-class Report:
-    def __init__(self, data):
-        self.data = data
-
-    def calculate(self):
-        # Логика расчётов
-        pass
-
-    def print_report(self):
-        # Вывод отчета на экран
-        print(f"Отчет: {self.data}")
-
-    def save_to_file(self):
-        # Сохранение отчета в файл
-        with open('report.txt', 'w') as file:
-            file.write(str(self.data))
 
 
-Здесь класс Report отвечает за расчёты, вывод отчёта и его сохранение. Если изменится способ сохранения данных (например, захотите сохранять в базу данных), придётся изменить этот класс.
-
-Как должно быть:
-Нужно разделить эти обязанности на разные классы:
 
 
-class Report:
-    def __init__(self, data):
-        self.data = data
+# 1. S - Принцип единственной ответственности (Single Responsibility Principle, SRP)
 
-    def calculate(self):
-        # Логика расчётов
-        pass
+# Понятие:
+# Каждый класс или модуль должен иметь только одну причину для изменения, то есть выполнять только одну задачу.
 
-class ReportPrinter:
-    @staticmethod
-    def print_report(report):
-        print(f"Отчет: {report.data}")
+# Пример:
 
-class ReportSaver:
-    @staticmethod
-    def save_to_file(report):
-        with open('report.txt', 'w') as file:
-            file.write(str(report.data))
+# Представьте класс, который занимается обработкой данных, их выводом и записью в файл. 
+
+# Это сразу несколько обязанностей.
+
+# Если что-то изменится в способе обработки данных или записи их в файл, вам придётся менять этот класс, что может привести к ошибкам.
 
 
-Теперь у нас три класса с чёткими обязанностями: один отвечает за расчёты, другой за вывод на экран, третий — за сохранение в файл.
+# class Report:
+#     def __init__(self, data):
+#         self.data = data
+
+#     def calculate(self):
+#         # Логика расчётов
+#         pass
+
+#     def print_report(self):
+#         # Вывод отчета на экран
+#         print(f"Отчет: {self.data}")
+
+#     def save_to_file(self):
+#         # Сохранение отчета в файл
+#         with open('report.txt', 'w') as file:
+#             file.write(str(self.data))
+
+
+# Здесь класс Report отвечает за расчёты, вывод отчёта и его сохранение. Если изменится способ сохранения данных (например, захотите сохранять в базу данных), придётся изменить этот класс.
+
+# Как должно быть:
+# Нужно разделить эти обязанности на разные классы:
+
+
+# class Report:
+#     def __init__(self, data):
+#         self.data = data
+
+#     def calculate(self):
+#         # Логика расчётов
+#         pass
+
+# class ReportPrinter:
+#     @staticmethod
+#     def print_report(report):
+#         print(f"Отчет: {report.data}")
+
+# class ReportSaver:
+#     @staticmethod
+#     def save_to_file(report):
+#         with open('report.txt', 'w') as file:
+#             file.write(str(report.data))
+
+
+# Теперь у нас три класса с чёткими обязанностями: один отвечает за расчёты, другой за вывод на экран, третий — за сохранение в файл.
 
 
 
