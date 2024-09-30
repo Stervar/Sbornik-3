@@ -9988,54 +9988,66 @@ class Square(Shape):
 
 
 
-4. I - Принцип разделения интерфейса (Interface Segregation Principle, ISP)
-Понятие:
-Клиенты не должны зависеть от методов, которые они не используют. Другими словами, не создавайте слишком большие интерфейсы, которые обязывают классы реализовывать ненужные методы.
-
-Пример:
-Представьте интерфейс для многофункционального устройства, которое умеет сканировать, печатать и факсить. Если есть принтер, который не поддерживает функцию факса, но должен её реализовывать, это нарушение ISP.
 
 
-Нарушение ISP:
 
-class MultiFunctionDevice:
-    def print(self):
-        pass
 
-    def scan(self):
-        pass
 
-    def fax(self):
-        pass
 
-class SimplePrinter(MultiFunctionDevice):
-    def print(self):
-        print("Печать")
 
-    def scan(self):
-        pass  # Этот метод не нужен
 
-    def fax(self):
-        pass  # Этот метод тоже не нужен
 
-Здесь SimplePrinter вынужден реализовать ненужные методы, хотя он не поддерживает функции сканирования и факса.
+# 4. I - Принцип разделения интерфейса (Interface Segregation Principle, ISP)
+# Понятие:
+# Клиенты не должны зависеть от методов, которые они не используют. Другими словами, не создавайте слишком большие интерфейсы, которые обязывают классы реализовывать ненужные методы.
 
-Как должно быть:
-Разделите интерфейсы на более мелкие:
+# Пример:
+# Представьте интерфейс для многофункционального устройства, которое умеет сканировать, печатать и факсить. Если есть принтер, который не поддерживает функцию факса, но должен её реализовывать, это нарушение ISP.
 
-class Printer:
-    def print(self):
-        raise NotImplementedError
 
-class Scanner:
-    def scan(self):
-        raise NotImplementedError
+# Нарушение ISP:
 
-class SimplePrinter(Printer):
-    def print(self):
-        print("Печать")
+# class MultiFunctionDevice:
+#     def print(self):
+#         pass
 
-Теперь классы реализуют только то, что им нужно.
+#     def scan(self):
+#         pass
+
+#     def fax(self):
+#         pass
+
+# class SimplePrinter(MultiFunctionDevice):
+#     def print(self):
+#         print("Печать")
+
+#     def scan(self):
+#         pass  # Этот метод не нужен
+
+#     def fax(self):
+#         pass  # Этот метод тоже не нужен
+
+# Здесь SimplePrinter вынужден реализовать ненужные методы, хотя он не поддерживает функции сканирования и факса.
+
+# Как должно быть:
+# Разделите интерфейсы на более мелкие:
+
+# class Printer:
+#     def print(self):
+#         raise NotImplementedError
+
+# class Scanner:
+#     def scan(self):
+#         raise NotImplementedError
+
+# class SimplePrinter(Printer):
+#     def print(self):
+#         print("Печать")
+
+# Теперь классы реализуют только то, что им нужно.
+
+
+
 
 
 
