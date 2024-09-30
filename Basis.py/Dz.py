@@ -11076,3 +11076,132 @@
 
 
 # В функциях add_number, remove_number, check_number, replace_number предусмотрена обработка ошибок при вводе. Например, если пользователь вводит не число, программа не завершится аварийно, а покажет сообщение об ошибке и предложит ввести данные снова.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Задание 2
+# Реализуйте класс стека для работы со строками (стек
+# строк).
+# Стек должен иметь фиксированный размер.
+# Реализуйте набор операций для работы со стеком:
+# ■ помещение строки в стек;
+# ■ выталкивание строки из стека;
+# ■ подсчет количества строк в стеке;
+# ■ проверку пустой ли стек;
+# ■ проверку полный ли стек;
+# ■ очистку стека;
+# ■ получение значения без выталкивания верхней строки
+# из стека.
+# При старте приложения нужно отобразить меню с
+# помощью, которого пользователь может выбрать необ-
+# ходимую операцию.
+
+
+
+
+
+
+
+# class StringStack:
+#     def __init__(self, size):
+#         self.size = size
+#         self.stack = []
+
+#     def push(self, string):
+#         if self.is_full():
+#             print("Стек полный! Невозможно добавить строку.")
+#         else:
+#             self.stack.append(string)
+#             print(f"Строка '{string}' добавлена в стек.")
+
+#     def pop(self):
+#         if self.is_empty():
+#             print("Стек пуст! Невозможно извлечь строку.")
+#         else:
+#             removed_string = self.stack.pop()
+#             print(f"Строка '{removed_string}' извлечена из стека.")
+
+#     def count(self):
+#         return len(self.stack)
+
+#     def is_empty(self):
+#         return len(self.stack) == 0
+
+#     def is_full(self):
+#         return len(self.stack) == self.size
+
+#     def clear(self):
+#         self.stack.clear()
+#         print("Стек очищен.")
+
+#     def peek(self):
+#         if self.is_empty():
+#             print("Стек пуст! Невозможно получить верхнюю строку.")
+#         else:
+#             return self.stack[-1]
+
+# def print_menu():
+#     print("\nМеню:")
+#     print("1. Поместить строку в стек")
+#     print("2. Вытолкнуть строку из стека")
+#     print("3. Подсчитать количество строк в стеке")
+#     print("4. Проверить, пустой ли стек")
+#     print("5. Проверить, полный ли стек")
+#     print("6. Очистить стек")
+#     print("7. Получить верхнюю строку из стека")
+#     print("8. Выход")
+
+# def main():
+#     size = int(input("Введите максимальный размер стека: "))
+#     string_stack = StringStack(size)
+
+#     while True:
+#         print_menu()
+#         choice = input("\nВыберите пункт меню: ")
+
+#         if choice == "1":
+#             string_to_push = input("Введите строку для добавления в стек: ")
+#             string_stack.push(string_to_push)
+#         elif choice == "2":
+#             string_stack.pop()
+#         elif choice == "3":
+#             print(f"Количество строк в стеке: {string_stack.count()}")
+#         elif choice == "4":
+#             if string_stack.is_empty():
+#                 print("Стек пуст.")
+#             else:
+#                 print("Стек не пуст.")
+#         elif choice == "5":
+#             if string_stack.is_full():
+#                 print("Стек полный.")
+#             else:
+#                 print("Стек не полный.")
+#         elif choice == "6":
+#             string_stack.clear()
+#         elif choice == "7":
+#             top_string = string_stack.peek()
+#             if top_string is not None:
+#                 print(f"Верхняя строка в стеке: '{top_string}'")
+#         elif choice == "8":
+#             print("Выход из программы.")
+#             break
+#         else:
+#             print("Неверный выбор, попробуйте снова.")
+
+# if __name__ == "__main__":
+#     main()
