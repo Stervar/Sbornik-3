@@ -10895,104 +10895,104 @@
 
 
 
-def print_menu():
-    print("\nМеню:")
-    print("1. Добавить новое число в список")
-    print("2. Удалить все вхождения числа из списка")
-    print("3. Показать содержимое списка")
-    print("4. Проверить есть ли значение в списке")
-    print("5. Заменить значение в списке")
-    print("6. Выход")
+# def print_menu():
+#     print("\nМеню:")
+#     print("1. Добавить новое число в список")
+#     print("2. Удалить все вхождения числа из списка")
+#     print("3. Показать содержимое списка")
+#     print("4. Проверить есть ли значение в списке")
+#     print("5. Заменить значение в списке")
+#     print("6. Выход")
 
-def add_number(numbers_list):
-    try:
-        num = int(input("Введите число для добавления: "))
-        if num in numbers_list:
-            print(f"Число {num} уже есть в списке!")
-        else:
-            numbers_list.append(num)
-            print(f"Число {num} добавлено в список.")
-    except ValueError:
-        print("Введите корректное число.")
+# def add_number(numbers_list):
+#     try:
+#         num = int(input("Введите число для добавления: "))
+#         if num in numbers_list:
+#             print(f"Число {num} уже есть в списке!")
+#         else:
+#             numbers_list.append(num)
+#             print(f"Число {num} добавлено в список.")
+#     except ValueError:
+#         print("Введите корректное число.")
 
-def remove_number(numbers_list):
-    try:
-        num = int(input("Введите число для удаления: "))
-        numbers_list[:] = [x for x in numbers_list if x != num]
-        print(f"Все вхождения числа {num} удалены.")
-    except ValueError:
-        print("Введите корректное число.")
+# def remove_number(numbers_list):
+#     try:
+#         num = int(input("Введите число для удаления: "))
+#         numbers_list[:] = [x for x in numbers_list if x != num]
+#         print(f"Все вхождения числа {num} удалены.")
+#     except ValueError:
+#         print("Введите корректное число.")
 
-def show_list(numbers_list):
-    choice = input("Показать с начала или с конца? (введите 'начало' или 'конец'): ").strip().lower()
-    if choice == "начало":
-        print("Список с начала:", numbers_list)
-    elif choice == "конец":
-        print("Список с конца:", numbers_list[::-1])
-    else:
-        print("Неверный выбор!")
+# def show_list(numbers_list):
+#     choice = input("Показать с начала или с конца? (введите 'начало' или 'конец'): ").strip().lower()
+#     if choice == "начало":
+#         print("Список с начала:", numbers_list)
+#     elif choice == "конец":
+#         print("Список с конца:", numbers_list[::-1])
+#     else:
+#         print("Неверный выбор!")
 
-def check_number(numbers_list):
-    try:
-        num = int(input("Введите число для поиска: "))
-        if num in numbers_list:
-            print(f"Число {num} присутствует в списке.")
-        else:
-            print(f"Число {num} не найдено.")
-    except ValueError:
-        print("Введите корректное число.")
+# def check_number(numbers_list):
+#     try:
+#         num = int(input("Введите число для поиска: "))
+#         if num in numbers_list:
+#             print(f"Число {num} присутствует в списке.")
+#         else:
+#             print(f"Число {num} не найдено.")
+#     except ValueError:
+#         print("Введите корректное число.")
 
-def replace_number(numbers_list):
-    try:
-        num = int(input("Введите число, которое хотите заменить: "))
-        new_num = int(input("Введите новое число: "))
-        replace_choice = input("Заменить первое вхождение или все? (введите 'первое' или 'все'): ").strip().lower()
+# def replace_number(numbers_list):
+#     try:
+#         num = int(input("Введите число, которое хотите заменить: "))
+#         new_num = int(input("Введите новое число: "))
+#         replace_choice = input("Заменить первое вхождение или все? (введите 'первое' или 'все'): ").strip().lower()
 
-        if replace_choice == "первое":
-            for i in range(len(numbers_list)):
-                if numbers_list[i] == num:
-                    numbers_list[i] = new_num
-                    print(f"Первое вхождение числа {num} заменено на {new_num}.")
-                    break
-            else:
-                print(f"Число {num} не найдено в списке.")
-        elif replace_choice == "все":
-            count = numbers_list.count(num)
-            if count > 0:
-                numbers_list[:] = [new_num if x == num else x for x in numbers_list]
-                print(f"Все вхождения числа {num} заменены на {new_num}.")
-            else:
-                print(f"Число {num} не найдено в списке.")
-        else:
-            print("Неверный выбор.")
-    except ValueError:
-        print("Введите корректное число.")
+#         if replace_choice == "первое":
+#             for i in range(len(numbers_list)):
+#                 if numbers_list[i] == num:
+#                     numbers_list[i] = new_num
+#                     print(f"Первое вхождение числа {num} заменено на {new_num}.")
+#                     break
+#             else:
+#                 print(f"Число {num} не найдено в списке.")
+#         elif replace_choice == "все":
+#             count = numbers_list.count(num)
+#             if count > 0:
+#                 numbers_list[:] = [new_num if x == num else x for x in numbers_list]
+#                 print(f"Все вхождения числа {num} заменены на {new_num}.")
+#             else:
+#                 print(f"Число {num} не найдено в списке.")
+#         else:
+#             print("Неверный выбор.")
+#     except ValueError:
+#         print("Введите корректное число.")
 
-def main():
-    numbers_list = []
+# def main():
+#     numbers_list = []
 
-    while True:
-        print_menu()
-        choice = input("\nВыберите пункт меню: ")
+#     while True:
+#         print_menu()
+#         choice = input("\nВыберите пункт меню: ")
 
-        if choice == "1":
-            add_number(numbers_list)
-        elif choice == "2":
-            remove_number(numbers_list)
-        elif choice == "3":
-            show_list(numbers_list)
-        elif choice == "4":
-            check_number(numbers_list)
-        elif choice == "5":
-            replace_number(numbers_list)
-        elif choice == "6":
-            print("Выход из программы.")
-            break
-        else:
-            print("Неверный выбор, попробуйте снова.")
+#         if choice == "1":
+#             add_number(numbers_list)
+#         elif choice == "2":
+#             remove_number(numbers_list)
+#         elif choice == "3":
+#             show_list(numbers_list)
+#         elif choice == "4":
+#             check_number(numbers_list)
+#         elif choice == "5":
+#             replace_number(numbers_list)
+#         elif choice == "6":
+#             print("Выход из программы.")
+#             break
+#         else:
+#             print("Неверный выбор, попробуйте снова.")
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 
 
 
