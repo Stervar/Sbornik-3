@@ -9852,15 +9852,273 @@
 # том принципов SOLID и паттернов проектирования.
 
 
+1. S - Принцип единственной ответственности (Single Responsibility Principle, SRP)
+
+Понятие:
+Каждый класс или модуль должен иметь только одну причину для изменения, то есть выполнять только одну задачу.
+
+Пример:
+
+Представьте класс, который занимается обработкой данных, их выводом и записью в файл. 
+
+Это сразу несколько обязанностей.
+
+Если что-то изменится в способе обработки данных или записи их в файл, вам придётся менять этот класс, что может привести к ошибкам.
+
+
+class Report:
+    def __init__(self, data):
+        self.data = data
+
+    def calculate(self):
+        # Логика расчётов
+        pass
+
+    def print_report(self):
+        # Вывод отчета на экран
+        print(f"Отчет: {self.data}")
+
+    def save_to_file(self):
+        # Сохранение отчета в файл
+        with open('report.txt', 'w') as file:
+            file.write(str(self.data))
+
+
+Здесь класс Report отвечает за расчёты, вывод отчёта и его сохранение. Если изменится способ сохранения данных (например, захотите сохранять в базу данных), придётся изменить этот класс.
+
+Как должно быть:
+Нужно разделить эти обязанности на разные классы:
+
+
+class Report:
+    def __init__(self, data):
+        self.data = data
+
+    def calculate(self):
+        # Логика расчётов
+        pass
+
+class ReportPrinter:
+    @staticmethod
+    def print_report(report):
+        print(f"Отчет: {report.data}")
+
+class ReportSaver:
+    @staticmethod
+    def save_to_file(report):
+        with open('report.txt', 'w') as file:
+            file.write(str(report.data))
+
+
+Теперь у нас три класса с чёткими обязанностями: один отвечает за расчёты, другой за вывод на экран, третий — за сохранение в файл.
+
+
+
+
+
+2. O - Принцип открытости/закрытости (Open-Closed Principle, OCP)
+Понятие:
+Классы должны быть открыты для расширения, но закрыты для модификации. Это значит, что нужно проектировать систему так, чтобы можно было добавлять новые функции, не изменяя существующий код.
+
+Пример:
+Представьте, что у вас есть система оплаты, которая принимает только наличные, но позже вы хотите добавить оплату картой. Если вы измените существующий код, это может привести к ошибкам или усложнению.
+
+
+Нарушение OCP:
+
+
+class PaymentProcessor:
+    def pay(self, method, amount):
+        if method == "cash":
+            print(f"Оплачено наличными: {amount}")
+        elif method == "card":
+            print(f"Оплачено картой: {amount}")
+
+
+Если вам нужно добавить новый способ оплаты, например через PayPal, придётся менять код.
+
+Как должно быть:
+Используйте наследование или полиморфизм, чтобы расширять поведение классов, не изменяя исходный код:
+
+
+class PaymentProcessor:
+    def pay(self, amount):
+        raise NotImplementedError
+
+class CashPayment(PaymentProcessor):
+    def pay(self, amount):
+        print(f"Оплачено наличными: {amount}")
+
+class CardPayment(PaymentProcessor):
+    def pay(self, amount):
+        print(f"Оплачено картой: {amount}")
+
+
+Теперь, если нужно добавить новый метод оплаты, можно просто создать новый класс, не меняя существующие.
+
+
+
+
+
+3. L - Принцип подстановки Барбары Лисков (Liskov Substitution Principle, LSP)
+Понятие:
+Объекты в программе должны заменяться экземплярами их подклассов без изменения корректности программы. Другими словами, если класс B является подклассом A, то объекты B должны корректно заменять объекты A.
+
+Пример:
+Представьте, что у вас есть базовый класс Shape (форма) и два подкласса: Rectangle (прямоугольник) и Square (квадрат). Согласно LSP, квадрат должен вести себя как прямоугольник.
+
+
+Нарушение LSP:
+
+class Rectangle:
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def set_width(self, width):
+        self.width = width
+
+    def set_height(self, height):
+        self.height = height
+
+class Square(Rectangle):
+    def set_width(self, width):
+        self.width = width
+        self.height = width  # Нарушение LSP
+
+    def set_height(self, height):
+        self.width = height
+        self.height = height  # Нарушение LSP
+
+
+Здесь подкласс Square нарушает поведение базового класса, потому что ширина и высота у него всегда одинаковы. Если этот класс использовать как прямоугольник, логика сломается.
+
+Как должно быть:
+Не пытайтесь вписать поведение, которое кардинально отличается от базового класса. Лучше разделить логику:
+
+class Shape:
+    def area(self):
+        raise NotImplementedError
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+class Square(Shape):
+    def __init__(self, side):
+        self.side = side
+
+    def area(self):
+        return self.side * self.side
+
+Теперь оба класса имеют корректную и независимую реализацию, не нарушая принцип LSP.
 
 
 
 
 
 
+4. I - Принцип разделения интерфейса (Interface Segregation Principle, ISP)
+Понятие:
+Клиенты не должны зависеть от методов, которые они не используют. Другими словами, не создавайте слишком большие интерфейсы, которые обязывают классы реализовывать ненужные методы.
+
+Пример:
+Представьте интерфейс для многофункционального устройства, которое умеет сканировать, печатать и факсить. Если есть принтер, который не поддерживает функцию факса, но должен её реализовывать, это нарушение ISP.
+
+
+Нарушение ISP:
+
+class MultiFunctionDevice:
+    def print(self):
+        pass
+
+    def scan(self):
+        pass
+
+    def fax(self):
+        pass
+
+class SimplePrinter(MultiFunctionDevice):
+    def print(self):
+        print("Печать")
+
+    def scan(self):
+        pass  # Этот метод не нужен
+
+    def fax(self):
+        pass  # Этот метод тоже не нужен
+
+Здесь SimplePrinter вынужден реализовать ненужные методы, хотя он не поддерживает функции сканирования и факса.
+
+Как должно быть:
+Разделите интерфейсы на более мелкие:
+
+class Printer:
+    def print(self):
+        raise NotImplementedError
+
+class Scanner:
+    def scan(self):
+        raise NotImplementedError
+
+class SimplePrinter(Printer):
+    def print(self):
+        print("Печать")
+
+Теперь классы реализуют только то, что им нужно.
+
+5. D - Принцип инверсии зависимостей (Dependency Inversion Principle, DIP)
+Понятие:
+Модули высокого уровня не должны зависеть от модулей низкого уровня. Оба типа модулей должны зависеть от абстракций. Абстракции не должны зависеть от деталей, а детали должны зависеть от абстракций.
+
+Пример:
+Представьте, что класс использует конкретную реализацию другого класса. Если этот класс изменится, то придётся менять и основной код.
+
+
+Нарушение DIP:
+
+class Keyboard:
+    def type(self):
+        print("Набор текста")
+
+class Computer:
+    def __init__(self):
+        self.keyboard = Keyboard()
+
+    def use_keyboard(self):
+        self.keyboard.type()
+
+
+Если в будущем вам понадобится подключить другую клавиатуру (например, виртуальную), придётся менять код класса Computer.
+
+Как должно быть:
+Используйте абстракции (интерфейсы или базовые классы):
+
+class IKeyboard:
+    def type(self):
+        raise NotImplementedError
+
+class MechanicalKeyboard(IKeyboard):
+    def type(self):
+        print("Набор текста на механической клавиатуре")
+
+class Computer:
+    def __init__(self, keyboard: IKeyboard):
+        self.keyboard = keyboard
+
+    def use_keyboard(self):
+        self.keyboard.type()
+
+Теперь, если нужно будет использовать другую клавиатуру, достаточно будет реализовать новый класс, который наследуется от IKeyboard, без изменений в классе Computer.
 
 
 
+Вывод:
+Принципы SOLID помогают структурировать код, делая его легко поддерживаемым и расширяемым. Применение этих принципов на практике требует опыта, но они значительно
 
 
 
