@@ -9885,187 +9885,187 @@
 
 
 
-class HotDog:
-    def __init__(self, name, base_price=100):
-        self.name = name
-        self.base_price = base_price
-        self.ingredients = []
+# class HotDog:
+#     def __init__(self, name, base_price=100):
+#         self.name = name
+#         self.base_price = base_price
+#         self.ingredients = []
 
-    def add_ingredient(self, ingredient, price):
-        self.ingredients.append(ingredient)
-        self.base_price += price
+#     def add_ingredient(self, ingredient, price):
+#         self.ingredients.append(ingredient)
+#         self.base_price += price
 
-    def __str__(self):
-        return f"{self.name} с ингредиентами: {', '.join(self.ingredients)}. Цена: {self.base_price}."
+#     def __str__(self):
+#         return f"{self.name} с ингредиентами: {', '.join(self.ingredients)}. Цена: {self.base_price}."
 
-# Класс для заказа
-class Order:
-    def __init__(self):
-        self.hotdogs = []
-        self.total_price = 0
+# # Класс для заказа
+# class Order:
+#     def __init__(self):
+#         self.hotdogs = []
+#         self.total_price = 0
 
-    def add_hotdog(self, hotdog):
-        self.hotdogs.append(hotdog)
-        self.total_price += hotdog.base_price
+#     def add_hotdog(self, hotdog):
+#         self.hotdogs.append(hotdog)
+#         self.total_price += hotdog.base_price
 
-    def apply_discount(self, discount_strategy):
-        if len(self.hotdogs) >= 3:
-            discount = discount_strategy.calculate_discount(self.total_price)
-            self.total_price -= discount
+#     def apply_discount(self, discount_strategy):
+#         if len(self.hotdogs) >= 3:
+#             discount = discount_strategy.calculate_discount(self.total_price)
+#             self.total_price -= discount
 
-    def __str__(self):
-        return f"Заказ: {[str(hotdog) for hotdog in self.hotdogs]}. Итоговая цена: {self.total_price}"
+#     def __str__(self):
+#         return f"Заказ: {[str(hotdog) for hotdog in self.hotdogs]}. Итоговая цена: {self.total_price}"
 
-# Стратегия скидок
-class DiscountStrategy:
-    def calculate_discount(self, total_price):
-        # Пример: скидка 10% если 3 и более хот-догов
-        return total_price * 0.1
+# # Стратегия скидок
+# class DiscountStrategy:
+#     def calculate_discount(self, total_price):
+#         # Пример: скидка 10% если 3 и более хот-догов
+#         return total_price * 0.1
 
-# Класс для платежей
-class Payment:
-    def __init__(self, method):
-        self.method = method
+# # Класс для платежей
+# class Payment:
+#     def __init__(self, method):
+#         self.method = method
 
-    def pay(self, amount):
-        if self.method == "cash":
-            print(f"Оплачено наличными: {amount}")
-        elif self.method == "card":
-            print(f"Оплачено картой: {amount}")
+#     def pay(self, amount):
+#         if self.method == "cash":
+#             print(f"Оплачено наличными: {amount}")
+#         elif self.method == "card":
+#             print(f"Оплачено картой: {amount}")
 
-# Класс для управления ингредиентами
-class Inventory:
-    def __init__(self):
-        self.ingredients = {
-            "майонез": 5,
-            "горчица": 5,
-            "кетчуп": 5,
-            "сладкий лук": 5,
-            "халапеньо": 5,
-            "чили": 5,
-            "соленный огурец": 5
-        }
+# # Класс для управления ингредиентами
+# class Inventory:
+#     def __init__(self):
+#         self.ingredients = {
+#             "майонез": 5,
+#             "горчица": 5,
+#             "кетчуп": 5,
+#             "сладкий лук": 5,
+#             "халапеньо": 5,
+#             "чили": 5,
+#             "соленный огурец": 5
+#         }
 
-    def check_availability(self, ingredient):
-        return self.ingredients.get(ingredient, 0) > 0
+#     def check_availability(self, ingredient):
+#         return self.ingredients.get(ingredient, 0) > 0
 
-    def reduce_stock(self, ingredient):
-        if self.check_availability(ingredient):
-            self.ingredients[ingredient] -= 1
-        else:
-            print(f"Ингредиент {ingredient} закончился!")
+#     def reduce_stock(self, ingredient):
+#         if self.check_availability(ingredient):
+#             self.ingredients[ingredient] -= 1
+#         else:
+#             print(f"Ингредиент {ingredient} закончился!")
 
-# Класс для киоска
-class Kiosk:
-    def __init__(self):
-        self.inventory = Inventory()
-        self.sales = 0
-        self.profit = 0
-        self.discount_strategy = DiscountStrategy()
+# # Класс для киоска
+# class Kiosk:
+#     def __init__(self):
+#         self.inventory = Inventory()
+#         self.sales = 0
+#         self.profit = 0
+#         self.discount_strategy = DiscountStrategy()
 
-    def make_hotdog(self, name):
-        hotdog = HotDog(name)
-        return hotdog
+#     def make_hotdog(self, name):
+#         hotdog = HotDog(name)
+#         return hotdog
 
-    def order_hotdog(self, order):
-        order.apply_discount(self.discount_strategy)
-        print(order)
-        self.sales += order.total_price
-        self.profit += order.total_price - self.calculate_cost(order)
+#     def order_hotdog(self, order):
+#         order.apply_discount(self.discount_strategy)
+#         print(order)
+#         self.sales += order.total_price
+#         self.profit += order.total_price - self.calculate_cost(order)
 
-    def calculate_cost(self, order):
-        # Простая модель, в реальности стоимость производства выше
-        return order.total_price * 0.3
+#     def calculate_cost(self, order):
+#         # Простая модель, в реальности стоимость производства выше
+#         return order.total_price * 0.3
 
-    def check_inventory(self):
-        for ingredient, count in self.inventory.ingredients.items():
-            if count < 3:
-                print(f"Ингредиент {ingredient} почти закончился! Осталось {count} штук.")
+#     def check_inventory(self):
+#         for ingredient, count in self.inventory.ingredients.items():
+#             if count < 3:
+#                 print(f"Ингредиент {ingredient} почти закончился! Осталось {count} штук.")
 
-    def summary(self):
-        print(f"Продано хот-догов на сумму: {self.sales}")
-        print(f"Прибыль: {self.profit}")
+#     def summary(self):
+#         print(f"Продано хот-догов на сумму: {self.sales}")
+#         print(f"Прибыль: {self.profit}")
 
-# Новое меню выбора ингредиентов и хот-догов
-def choose_ingredients(hotdog, kiosk):
-    ingredients = {
-        "майонез": 5,
-        "горчица": 5,
-        "кетчуп": 5,
-        "сладкий лук": 7,
-        "халапеньо": 7,
-        "чили": 10,
-        "соленный огурец": 8
-    }
+# # Новое меню выбора ингредиентов и хот-догов
+# def choose_ingredients(hotdog, kiosk):
+#     ingredients = {
+#         "майонез": 5,
+#         "горчица": 5,
+#         "кетчуп": 5,
+#         "сладкий лук": 7,
+#         "халапеньо": 7,
+#         "чили": 10,
+#         "соленный огурец": 8
+#     }
 
-    print("\nДоступные ингредиенты для добавления:")
-    for i, (ingredient, price) in enumerate(ingredients.items(), start=1):
-        print(f"{i}. {ingredient} - {price} рублей")
+#     print("\nДоступные ингредиенты для добавления:")
+#     for i, (ingredient, price) in enumerate(ingredients.items(), start=1):
+#         print(f"{i}. {ingredient} - {price} рублей")
 
-    while True:
-        choice = input("\nВыберите номер ингредиента (или 'q' для выхода): ")
-        if choice == 'q':
-            break
-        elif choice.isdigit() and int(choice) in range(1, len(ingredients) + 1):
-            ingredient = list(ingredients.keys())[int(choice) - 1]
-            price = ingredients[ingredient]
-            if kiosk.inventory.check_availability(ingredient):
-                hotdog.add_ingredient(ingredient, price)
-                kiosk.inventory.reduce_stock(ingredient)
-                print(f"Добавлен {ingredient} за {price} рублей")
-            else:
-                print(f"Ингредиент {ingredient} закончился!")
-        else:
-            print("Неверный ввод, попробуйте снова.")
+#     while True:
+#         choice = input("\nВыберите номер ингредиента (или 'q' для выхода): ")
+#         if choice == 'q':
+#             break
+#         elif choice.isdigit() and int(choice) in range(1, len(ingredients) + 1):
+#             ingredient = list(ingredients.keys())[int(choice) - 1]
+#             price = ingredients[ingredient]
+#             if kiosk.inventory.check_availability(ingredient):
+#                 hotdog.add_ingredient(ingredient, price)
+#                 kiosk.inventory.reduce_stock(ingredient)
+#                 print(f"Добавлен {ingredient} за {price} рублей")
+#             else:
+#                 print(f"Ингредиент {ingredient} закончился!")
+#         else:
+#             print("Неверный ввод, попробуйте снова.")
 
-def main_menu():
-    kiosk = Kiosk()
+# def main_menu():
+#     kiosk = Kiosk()
 
-    while True:
-        print("\n1. Заказать хот-дог")
-        print("2. Проверить инвентарь")
-        print("3. Просмотреть выручку и прибыль")
-        print("4. Выход")
+#     while True:
+#         print("\n1. Заказать хот-дог")
+#         print("2. Проверить инвентарь")
+#         print("3. Просмотреть выручку и прибыль")
+#         print("4. Выход")
 
-        choice = input("Выберите опцию: ")
+#         choice = input("Выберите опцию: ")
 
-        if choice == '1':
-            order = Order()
+#         if choice == '1':
+#             order = Order()
 
-            # Предложение выбора хот-дога
-            print("\nВыберите хот-дог:")
-            print("1. Классический (100 рублей)")
-            print("2. Вегетарианский (120 рублей)")
-            print("3. Острая версия (130 рублей)")
-            hotdog_choice = input("\nВведите номер хот-дога: ")
+#             # Предложение выбора хот-дога
+#             print("\nВыберите хот-дог:")
+#             print("1. Классический (100 рублей)")
+#             print("2. Вегетарианский (120 рублей)")
+#             print("3. Острая версия (130 рублей)")
+#             hotdog_choice = input("\nВведите номер хот-дога: ")
 
-            if hotdog_choice == '1':
-                hotdog = kiosk.make_hotdog("Классический")
-            elif hotdog_choice == '2':
-                hotdog = kiosk.make_hotdog("Вегетарианский")
-            elif hotdog_choice == '3':
-                hotdog = kiosk.make_hotdog("Острая версия")
-            else:
-                print("Неверный выбор.")
-                continue
+#             if hotdog_choice == '1':
+#                 hotdog = kiosk.make_hotdog("Классический")
+#             elif hotdog_choice == '2':
+#                 hotdog = kiosk.make_hotdog("Вегетарианский")
+#             elif hotdog_choice == '3':
+#                 hotdog = kiosk.make_hotdog("Острая версия")
+#             else:
+#                 print("Неверный выбор.")
+#                 continue
 
-            # Добавление ингредиентов вручную
-            choose_ingredients(hotdog, kiosk)
+#             # Добавление ингредиентов вручную
+#             choose_ingredients(hotdog, kiosk)
 
-            order.add_hotdog(hotdog)
-            kiosk.order_hotdog(order)
+#             order.add_hotdog(hotdog)
+#             kiosk.order_hotdog(order)
 
-        elif choice == '2':
-            kiosk.check_inventory()
+#         elif choice == '2':
+#             kiosk.check_inventory()
 
-        elif choice == '3':
-            kiosk.summary()
+#         elif choice == '3':
+#             kiosk.summary()
 
-        elif choice == '4':
-            break
+#         elif choice == '4':
+#             break
 
-if __name__ == "__main__":
-    main_menu()
+# if __name__ == "__main__":
+#     main_menu()
 
 
 
