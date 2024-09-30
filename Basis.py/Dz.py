@@ -9926,62 +9926,77 @@ class CardPayment(PaymentProcessor):
 
 
 
-3. L - Принцип подстановки Барбары Лисков (Liskov Substitution Principle, LSP)
-Понятие:
-Объекты в программе должны заменяться экземплярами их подклассов без изменения корректности программы. Другими словами, если класс B является подклассом A, то объекты B должны корректно заменять объекты A.
-
-Пример:
-Представьте, что у вас есть базовый класс Shape (форма) и два подкласса: Rectangle (прямоугольник) и Square (квадрат). Согласно LSP, квадрат должен вести себя как прямоугольник.
 
 
-Нарушение LSP:
-
-class Rectangle:
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
-
-    def set_width(self, width):
-        self.width = width
-
-    def set_height(self, height):
-        self.height = height
-
-class Square(Rectangle):
-    def set_width(self, width):
-        self.width = width
-        self.height = width  # Нарушение LSP
-
-    def set_height(self, height):
-        self.width = height
-        self.height = height  # Нарушение LSP
 
 
-Здесь подкласс Square нарушает поведение базового класса, потому что ширина и высота у него всегда одинаковы. Если этот класс использовать как прямоугольник, логика сломается.
 
-Как должно быть:
-Не пытайтесь вписать поведение, которое кардинально отличается от базового класса. Лучше разделить логику:
 
-class Shape:
-    def area(self):
-        raise NotImplementedError
 
-class Rectangle(Shape):
-    def __init__(self, width, height):
-        self.width = width
-        self.height = height
 
-    def area(self):
-        return self.width * self.height
 
-class Square(Shape):
-    def __init__(self, side):
-        self.side = side
 
-    def area(self):
-        return self.side * self.side
 
-Теперь оба класса имеют корректную и независимую реализацию, не нарушая принцип LSP.
+
+
+
+# 3. L - Принцип подстановки Барбары Лисков (Liskov Substitution Principle, LSP)
+# Понятие:
+# Объекты в программе должны заменяться экземплярами их подклассов без изменения корректности программы. Другими словами, если класс B является подклассом A, то объекты B должны корректно заменять объекты A.
+
+# Пример:
+# Представьте, что у вас есть базовый класс Shape (форма) и два подкласса: Rectangle (прямоугольник) и Square (квадрат). Согласно LSP, квадрат должен вести себя как прямоугольник.
+
+
+# Нарушение LSP:
+
+# class Rectangle:
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+
+#     def set_width(self, width):
+#         self.width = width
+
+#     def set_height(self, height):
+#         self.height = height
+
+# class Square(Rectangle):
+#     def set_width(self, width):
+#         self.width = width
+#         self.height = width  # Нарушение LSP
+
+#     def set_height(self, height):
+#         self.width = height
+#         self.height = height  # Нарушение LSP
+
+
+# Здесь подкласс Square нарушает поведение базового класса, потому что ширина и высота у него всегда одинаковы. Если этот класс использовать как прямоугольник, логика сломается.
+
+# Как должно быть:
+# Не пытайтесь вписать поведение, которое кардинально отличается от базового класса. Лучше разделить логику:
+
+# class Shape:
+#     def area(self):
+#         raise NotImplementedError
+
+# class Rectangle(Shape):
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+
+#     def area(self):
+#         return self.width * self.height
+
+# class Square(Shape):
+#     def __init__(self, side):
+#         self.side = side
+
+#     def area(self):
+#         return self.side * self.side
+
+# Теперь оба класса имеют корректную и независимую реализацию, не нарушая принцип LSP.
+
 
 
 
