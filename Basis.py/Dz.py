@@ -11414,3 +11414,34 @@
 # ■ Минимум из элементов набора.
 # Протестируйте все возможности созданного класса
 # с помощью модульного тестирования(unittest).
+
+
+
+# 1. Класс для набора целых чисел
+
+# class IntegerSet:
+#     def __init__(self, numbers):
+#         # Инициализируем набор целых чисел
+#         self.numbers = numbers
+
+#     def sum(self):
+#         # Возвращает сумму элементов набора
+#         return sum(self.numbers)
+
+#     def average(self):
+#         # Возвращает среднеарифметическое элементов набора
+#         if len(self.numbers) == 0:
+#             return 0
+#         return sum(self.numbers) / len(self.numbers)
+
+#     def maximum(self):
+#         # Возвращает максимальный элемент из набора
+#         if len(self.numbers) == 0:
+#             return None
+#         return max(self.numbers)
+
+#     def minimum(self):
+#         # Возвращает минимальный элемент из набора
+#         if len(self.numbers) == 0:
+#             return None
+#         return min(self.numbers)
