@@ -11445,3 +11445,42 @@
 #         if len(self.numbers) == 0:
 #             return None
 #         return min(self.numbers)
+
+
+
+# 2. Модульное тестирование с использованием unittest
+
+# import unittest
+
+# class TestIntegerSet(unittest.TestCase):
+    
+#     def setUp(self):
+#         # Инициализация перед каждым тестом
+#         self.integer_set = IntegerSet([10, 20, 30, 40, 50])
+
+#     def test_sum(self):
+#         # Тестирование метода суммы
+#         self.assertEqual(self.integer_set.sum(), 150)
+
+#     def test_average(self):
+#         # Тестирование метода среднего арифметического
+#         self.assertEqual(self.integer_set.average(), 30)
+
+#     def test_maximum(self):
+#         # Тестирование метода для нахождения максимума
+#         self.assertEqual(self.integer_set.maximum(), 50)
+
+#     def test_minimum(self):
+#         # Тестирование метода для нахождения минимума
+#         self.assertEqual(self.integer_set.minimum(), 10)
+
+#     def test_empty_set(self):
+#         # Тестирование методов для пустого набора
+#         empty_set = IntegerSet([])
+#         self.assertEqual(empty_set.sum(), 0)
+#         self.assertEqual(empty_set.average(), 0)
+#         self.assertIsNone(empty_set.maximum())
+#         self.assertIsNone(empty_set.minimum())
+
+# if __name__ == '__main__':
+#     unittest.main()
