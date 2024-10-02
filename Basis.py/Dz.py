@@ -11933,3 +11933,167 @@
 
 # Запуск программы:
 # После выполнения модульных тестов запускается основная программа с меню взаимодействия. User
+
+
+
+
+
+
+
+
+
+# Модуль 16. Параллельное, многопоточное, сетевое программирование
+# Тема: Параллельное, многопоточное, сетевое программирование. Часть 1
+
+
+
+
+
+
+
+# Задание 1
+# При старте приложения запускаются три потока.
+# Первый поток заполняет список случайными числами.
+# Два других потока ожидают заполнения. Когда список
+# заполнен оба потока запускаются. Первый поток находит
+# сумму элементов списка, второй поток среднеарифмети-
+# ческое значение в списке. Полученный список, сумма и
+# среднеарифметическое выводятся на экран.
+
+
+
+
+
+
+import threading
+import random
+import time
+
+class NumberList:
+    def __init__(self):
+        self.numbers = []
+        self.is_filled = threading.Event()
+        self.lock = threading.Lock()
+
+    def fill_list(self, size):
+        with self.lock:
+            self.numbers = [random.randint(1, 100) for _ in range(size)]
+        self.is_filled.set()
+
+    def calculate_sum(self):
+        self.is_filled.wait()
+        return sum(self.numbers)
+
+    def calculate_average(self):
+        self.is_filled.wait()
+        return sum(self.numbers) / len(self.numbers) if self.numbers else 0
+
+def filler_thread(number_list, size):
+    print("Заполнение списка...")
+    number_list.fill_list(size)
+    print("Список заполнен.")
+
+def sum_thread(number_list):
+    print("Ожидание заполнения списка для подсчета суммы...")
+    result = number_list.calculate_sum()
+    print(f"Сумма элементов: {result}")
+    return result
+
+def average_thread(number_list):
+    print("Ожидание заполнения списка для подсчета среднего...")
+    result = number_list.calculate_average()
+    print(f"Среднее арифметическое: {result:.2f}")
+    return result
+
+def run_threads(size):
+    number_list = NumberList()
+    
+    filler = threading.Thread(target=filler_thread, args=(number_list, size))
+    summer = threading.Thread(target=sum_thread, args=(number_list,))
+    averager = threading.Thread(target=average_thread, args=(number_list,))
+
+    filler.start()
+    summer.start()
+    averager.start()
+
+    filler.join()
+    summer.join()
+    averager.join()
+
+    return number_list.numbers
+
+def print_menu():
+    print("\nМеню:")
+    print("1. Запустить потоки")
+    print("2. Выйти")
+
+def main():
+    while True:
+        print_menu()
+        choice = input("Выберите действие: ")
+
+        if choice == '1':
+            size = int(input("Введите размер списка: "))
+            numbers = run_threads(size)
+            print(f"Сгенерированный список: {numbers}")
+        elif choice == '2':
+            print("Выход из программы.")
+            break
+        else:
+            print("Неверный выбор. Попробуйте снова.")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+# (1) Импорт необходимых модулей:
+# threading для работы с потоками
+# random для генерации случайных чисел
+# time для возможных задержек (в данном коде не используется, но может пригодиться при расширении функционала)
+
+
+# (2) Класс NumberList:
+# Содержит список чисел, событие is_filled для синхронизации потоков и блокировку lock для безопасного доступа к списку.
+
+# Методы:
+# fill_list: заполняет список случайными числами
+# calculate_sum: вычисляет сумму элементов списка
+# calculate_average: вычисляет среднее арифметическое
+
+# (3) Функции потоков:
+# filler_thread: заполняет список числами
+# sum_thread: вычисляет сумму элементов
+# average_thread: вычисляет среднее арифметическое
+
+
+
+
+# (4) Функция run_ threads:
+# Создает экземпляр класса NumberList
+# Запускает потоки заполнения, суммирования и вычисления среднего
+# Возвращает сгенерированный список
+
+
+
+
+# (5) Функция print_menu:
+# Выводит меню взаимодействия
+
+
+
+
+# (6) Функция main:
+# Основной цикл программы
+# Обрабатывает выбор пользователя и запускает соответствующие действия
+
+
+
+
+# (7) Блок if __name__ == "__main__":
+# Проверяет, запущен ли скрипт напрямую (не импортирован как модуль)
+# Вызывает функцию main для запуска программы
