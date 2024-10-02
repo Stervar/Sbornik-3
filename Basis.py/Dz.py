@@ -11454,25 +11454,25 @@
 
 
 
-Основы использования unittest
+# Основы использования unittest
 
-Создание тестового случая
-Для создания тестового случая необходимо создать класс, наследующийся от unittest.TestCase, 
-и определить в нем методы, начинающиеся с test_.
+# Создание тестового случая
+# Для создания тестового случая необходимо создать класс, наследующийся от unittest.TestCase, 
+# и определить в нем методы, начинающиеся с test_.
 
 
-import unittest
+# import unittest
 
-class TestMathOperations(unittest.TestCase):
+# class TestMathOperations(unittest.TestCase):
 
-    def test_addition(self):
-        self.assertEqual(1 + 1, 2)
+#     def test_addition(self):
+#         self.assertEqual(1 + 1, 2)
 
-    def test_subtraction(self):
-        self.assertEqual(5 - 3, 2)
+#     def test_subtraction(self):
+#         self.assertEqual(5 - 3, 2)
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
 
 
 
