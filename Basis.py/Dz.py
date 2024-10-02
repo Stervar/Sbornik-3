@@ -11965,85 +11965,85 @@
 
 
 
-import threading
-import random
-import time
+# import threading
+# import random
+# import time
 
-class NumberList:
-    def __init__(self):
-        self.numbers = []
-        self.is_filled = threading.Event()
-        self.lock = threading.Lock()
+# class NumberList:
+#     def __init__(self):
+#         self.numbers = []
+#         self.is_filled = threading.Event()
+#         self.lock = threading.Lock()
 
-    def fill_list(self, size):
-        with self.lock:
-            self.numbers = [random.randint(1, 100) for _ in range(size)]
-        self.is_filled.set()
+#     def fill_list(self, size):
+#         with self.lock:
+#             self.numbers = [random.randint(1, 100) for _ in range(size)]
+#         self.is_filled.set()
 
-    def calculate_sum(self):
-        self.is_filled.wait()
-        return sum(self.numbers)
+#     def calculate_sum(self):
+#         self.is_filled.wait()
+#         return sum(self.numbers)
 
-    def calculate_average(self):
-        self.is_filled.wait()
-        return sum(self.numbers) / len(self.numbers) if self.numbers else 0
+#     def calculate_average(self):
+#         self.is_filled.wait()
+#         return sum(self.numbers) / len(self.numbers) if self.numbers else 0
 
-def filler_thread(number_list, size):
-    print("Заполнение списка...")
-    number_list.fill_list(size)
-    print("Список заполнен.")
+# def filler_thread(number_list, size):
+#     print("Заполнение списка...")
+#     number_list.fill_list(size)
+#     print("Список заполнен.")
 
-def sum_thread(number_list):
-    print("Ожидание заполнения списка для подсчета суммы...")
-    result = number_list.calculate_sum()
-    print(f"Сумма элементов: {result}")
-    return result
+# def sum_thread(number_list):
+#     print("Ожидание заполнения списка для подсчета суммы...")
+#     result = number_list.calculate_sum()
+#     print(f"Сумма элементов: {result}")
+#     return result
 
-def average_thread(number_list):
-    print("Ожидание заполнения списка для подсчета среднего...")
-    result = number_list.calculate_average()
-    print(f"Среднее арифметическое: {result:.2f}")
-    return result
+# def average_thread(number_list):
+#     print("Ожидание заполнения списка для подсчета среднего...")
+#     result = number_list.calculate_average()
+#     print(f"Среднее арифметическое: {result:.2f}")
+#     return result
 
-def run_threads(size):
-    number_list = NumberList()
+# def run_threads(size):
+#     number_list = NumberList()
     
-    filler = threading.Thread(target=filler_thread, args=(number_list, size))
-    summer = threading.Thread(target=sum_thread, args=(number_list,))
-    averager = threading.Thread(target=average_thread, args=(number_list,))
+#     filler = threading.Thread(target=filler_thread, args=(number_list, size))
+#     summer = threading.Thread(target=sum_thread, args=(number_list,))
+#     averager = threading.Thread(target=average_thread, args=(number_list,))
 
-    filler.start()
-    summer.start()
-    averager.start()
+#     filler.start()
+#     summer.start()
+#     averager.start()
 
-    filler.join()
-    summer.join()
-    averager.join()
+#     filler.join()
+#     summer.join()
+#     averager.join()
 
-    return number_list.numbers
+#     return number_list.numbers
 
-def print_menu():
-    print("\nМеню:")
-    print("1. Запустить потоки")
-    print("2. Выйти")
+# def print_menu():
+#     print("\nМеню:")
+#     print("1. Запустить потоки")
+#     print("2. Выйти")
 
-def main():
-    while True:
-        print_menu()
-        choice = input("Выберите действие: ")
+# def main():
+#     while True:
+#         print_menu()
+#         choice = input("Выберите действие: ")
 
-        if choice == '1':
-            size = int(input("Введите размер списка: "))
-            numbers = run_threads(size)
-            print(f"Сгенерированный список: {numbers}")
-        elif choice == '2':
-            print("Выход из программы.")
-            break
-        else:
-            print("Неверный выбор. Попробуйте снова.")
+#         if choice == '1':
+#             size = int(input("Введите размер списка: "))
+#             numbers = run_threads(size)
+#             print(f"Сгенерированный список: {numbers}")
+#         elif choice == '2':
+#             print("Выход из программы.")
+#             break
+#         else:
+#             print("Неверный выбор. Попробуйте снова.")
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 
 
 
@@ -12097,3 +12097,253 @@ if __name__ == "__main__":
 # (7) Блок if __name__ == "__main__":
 # Проверяет, запущен ли скрипт напрямую (не импортирован как модуль)
 # Вызывает функцию main для запуска программы
+
+
+
+
+
+
+
+
+
+
+
+
+# Задание 2
+# Пользователь с клавиатуры вводит путь к файлу.
+# После чего запускаются три потока. Первый поток за-
+# полняет файл случайными числами. Два других потока
+# ожидают заполнения. Когда файл заполнен оба потока
+# стартуют. Первый поток находит все простые числа, вто-
+# рой поток факториал каждого числа в файле. Результаты
+# поиска каждый поток должен записать в новый файл. На
+# экран необходимо отобразить статистику выполненных
+# операций.
+
+
+
+
+
+
+
+
+
+
+# import os
+# import random
+# import threading
+# import time
+# import math
+
+# # Глобальные переменные для синхронизации потоков
+# file_filled = threading.Event()
+# prime_numbers_found = 0
+# factorials_calculated = 0
+
+# def generate_random_numbers(file_path, count):
+#     """Генерирует случайные числа и записывает их в файл."""
+#     with open(file_path, 'w') as file:
+#         for _ in range(count):
+#             number = random.randint(1, 1000)
+#             file.write(f"{number}\n")
+#     file_filled.set()  # Сигнализируем, что файл заполнен
+
+# def is_prime(n):
+#     """Проверяет, является ли число простым."""
+#     if n < 2:
+#         return False
+#     for i in range(2, int(math.sqrt(n)) + 1):
+#         if n % i == 0:
+#             return False
+#     return True
+
+# def find_prime_numbers(input_file, output_file):
+#     """Находит простые числа в файле и записывает их в новый файл."""
+#     global prime_numbers_found
+#     file_filled.wait()  # Ожидаем заполнения файла
+#     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
+#         for line in infile:
+#             number = int(line.strip())
+#             if is_prime(number):
+#                 outfile.write(f"{number}\n")
+#                 prime_numbers_found += 1
+
+# def calculate_factorials(input_file, output_file):
+#     """Вычисляет факториалы чисел из файла и записывает их в новый файл."""
+#     global factorials_calculated
+#     file_filled.wait()  # Ожидаем заполнения файла
+#     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
+#         for line in infile:
+#             number = int(line.strip())
+#             factorial = math.factorial(number)
+#             outfile.write(f"{number}! = {factorial}\n")
+#             factorials_calculated += 1
+
+# def process_file(file_path):
+#     """Основная функция для обработки файла."""
+#     global prime_numbers_found, factorials_calculated
+#     prime_numbers_found = 0
+#     factorials_calculated = 0
+#     file_filled.clear()
+
+#     # Создаем и запускаем потоки
+#     thread1 = threading.Thread(target=generate_random_numbers, args=(file_path, 100))
+#     thread2 = threading.Thread(target=find_prime_numbers, args=(file_path, 'prime_numbers.txt'))
+#     thread3 = threading.Thread(target=calculate_factorials, args=(file_path, 'factorials.txt'))
+
+#     start_time = time.time()
+
+#     thread1.start()
+#     thread2.start()
+#     thread3.start()
+
+#     # Ожидаем завершения всех потоков
+#     thread1.join()
+#     thread2.join()
+#     thread3.join()
+
+#     end_time = time.time()
+
+#     # Выводим статистику
+#     print(f"\nСтатистика выполнения:")
+#     print(f"Время выполнения: {end_time - start_time:.2f} секунд")
+#     print(f"Найдено простых чисел: {prime_numbers_found}")
+#     print(f"Вычислено факториалов: {factorials_calculated}")
+
+# def main_menu():
+#     """Главное меню программы."""
+#     while True:
+#         print("\n--- Главное меню ---")
+#         print("1. Обработать файл")
+#         print("2. Выйти")
+#         choice = input("Выберите действие (1-2): ")
+
+#         if choice == '1':
+#             file_path = input("Введите путь к файлу: ")
+#             process_file(file_path)
+#         elif choice == '2':
+#             print("Выход из программы.")
+#             break
+#         else:
+#             print("Неправильный выбор. Пожалуйста, попробуйте еще раз.")
+
+# if __name__ == "__main__":
+#     main_menu()
+
+
+
+
+
+
+
+
+
+
+# Импорт необходимых библиотек:
+
+# os: для работы с файловой системой
+# random: для генерации случайных чисел
+# threading: для работы с потоками
+# time: для измерения времени выполнения
+# math: для математических операций (например, вычисление факториала)
+
+
+
+
+
+# Объявление глобальных переменных:
+# file_filled: объект Event для синхронизации потоков
+# prime_numbers_found: счетчик найденных простых чисел
+# factorials_calculated: счетчик вычисленных факториалов
+
+
+
+
+
+
+# Функция generate_random_numbers:
+# Генерирует случайные числа от 1 до 1000
+# Записывает их в указанный файл
+# Устанавливает событие file_filled, сигнализируя о заполнении файла
+
+
+
+
+
+
+
+
+# Функция is_prime:
+# Проверяет, является ли число простым
+# Использует оптимизированный алгоритм проверки до корня из числа
+
+
+
+
+
+
+
+# Функция find_prime_numbers:
+# Ожидает заполнения файла (file_filled.wait())
+# Читает числа из входного файла
+# Проверяет каждое число на простоту
+# Записывает простые числа в выходной файл
+# Увеличивает счетчик найденных простых чисел
+
+
+
+
+
+
+
+
+
+
+
+
+# Функция calculate_factorials:
+# Ожидает заполнения файла (file_filled.wait())
+# Читает числа из входного файла
+# Вычисляет факториал каждого числа
+# Записывает результаты в выходной файл
+# Увеличивает счетчик вычисленных факториалов
+
+
+
+
+
+
+
+
+
+# Функция process_file:
+# Сбрасывает счетчики и событие file_filled
+# Создает и запускает три потока:
+# Генерация случайных чисел
+# Поиск простых чисел
+# Вычисление факториалов
+# Ожидает завершения всех потоков
+# Измеряет время выполнения
+# Выводит статистику выполнения
+
+
+
+
+
+
+
+
+
+# Функция main_menu:
+# Реализует интерфейс взаимодействия с пользователем
+# Предлагает выбор между обработкой файла и выходом из программы
+# При выборе обработки файла запрашивает путь к файлу и вызывает process_file
+
+
+
+
+
+
+# Основной блок программы:
+# Проверяет, что скрипт запущен напрямую (не импортирован)
+# Вызывает функцию main_menu для начала работы программы
