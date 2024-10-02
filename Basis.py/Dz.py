@@ -11527,32 +11527,32 @@
 
 
 
-Организация тестов
-Использование setUp и tearDown
-Методы setUp и tearDown используются для подготовки и очистки среды перед и после каждого теста соответственно.
+# Организация тестов
+# Использование setUp и tearDown
+# Методы setUp и tearDown используются для подготовки и очистки среды перед и после каждого теста соответственно.
 
 
-import unittest
+# import unittest
 
-class TestMathOperations(unittest.TestCase):
+# class TestMathOperations(unittest.TestCase):
 
-    def setUp(self):
-        # Подготовка перед каждым тестом
-        self.a = 10
-        self.b = 5
+#     def setUp(self):
+#         # Подготовка перед каждым тестом
+#         self.a = 10
+#         self.b = 5
 
-    def tearDown(self):
-        # Очистка после каждого теста
-        pass
+#     def tearDown(self):
+#         # Очистка после каждого теста
+#         pass
 
-    def test_addition(self):
-        self.assertEqual(self.a + self.b, 15)
+#     def test_addition(self):
+#         self.assertEqual(self.a + self.b, 15)
 
-    def test_subtraction(self):
-        self.assertEqual(self.a - self.b, 5)
+#     def test_subtraction(self):
+#         self.assertEqual(self.a - self.b, 5)
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
 
 
 
