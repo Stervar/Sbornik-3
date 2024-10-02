@@ -11565,8 +11565,8 @@
 
 
 
-Тестовые наборы (Test Suites)
-Тестовые наборы позволяют группировать тесты и запускать их вместе.
+# Тестовые наборы (Test Suites)
+# Тестовые наборы позволяют группировать тесты и запускать их вместе.
 
 
 
@@ -11574,32 +11574,32 @@
 
 
 
-import unittest
+# import unittest
 
-class TestMathOperations(unittest.TestCase):
+# class TestMathOperations(unittest.TestCase):
 
-    def test_addition(self):
-        self.assertEqual(1 + 1, 2)
+#     def test_addition(self):
+#         self.assertEqual(1 + 1, 2)
 
-    def test_subtraction(self):
-        self.assertEqual(5 - 3, 2)
+#     def test_subtraction(self):
+#         self.assertEqual(5 - 3, 2)
 
-class TestStringOperations(unittest.TestCase):
+# class TestStringOperations(unittest.TestCase):
 
-    def test_concatenation(self):
-        self.assertEqual('a' + 'b', 'ab')
+#     def test_concatenation(self):
+#         self.assertEqual('a' + 'b', 'ab')
 
-    def test_uppercase(self):
-        self.assertEqual('a'.upper(), 'A')
+#     def test_uppercase(self):
+#         self.assertEqual('a'.upper(), 'A')
 
-# Создание тестового набора
-suite = unittest.TestSuite()
-suite.addTest(unittest.makeSuite(TestMathOperations))
-suite.addTest(unittest.makeSuite(TestStringOperations))
+# # Создание тестового набора
+# suite = unittest.TestSuite()
+# suite.addTest(unittest.makeSuite(TestMathOperations))
+# suite.addTest(unittest.makeSuite(TestStringOperations))
 
-# Запуск тестового набора
-runner = unittest.TextTestRunner()
-runner.run(suite)
+# # Запуск тестового набора
+# runner = unittest.TextTestRunner()
+# runner.run(suite)
 
 
 
