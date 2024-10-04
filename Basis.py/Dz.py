@@ -11116,46 +11116,84 @@
 
 
 
-
 # class StringStack:
 #     def __init__(self, size):
-#         self.size = size
-#         self.stack = []
+#         """
+#         Инициализация стека с заданным максимальным размером.
+        
+#         :param size: максимальное количество элементов в стеке
+#         """
+#         self.size = size  # Максимальный размер стека
+#         self.stack = []   # Список для хранения элементов стека
 
 #     def push(self, string):
+#         """
+#         Добавляет строку в стек, если он не полон.
+        
+#         :param string: строка для добавления
+#         """
 #         if self.is_full():
 #             print("Стек полный! Невозможно добавить строку.")
 #         else:
-#             self.stack.append(string)
+#             self.stack.append(string)  # Добавляем строку в конец списка
 #             print(f"Строка '{string}' добавлена в стек.")
 
 #     def pop(self):
+#         """
+#         Удаляет и возвращает верхний элемент стека, если стек не пуст.
+#         """
 #         if self.is_empty():
 #             print("Стек пуст! Невозможно извлечь строку.")
 #         else:
-#             removed_string = self.stack.pop()
+#             removed_string = self.stack.pop()  # Удаляем и возвращаем последний элемент
 #             print(f"Строка '{removed_string}' извлечена из стека.")
 
 #     def count(self):
+#         """
+#         Возвращает текущее количество элементов в стеке.
+        
+#         :return: количество элементов в стеке
+#         """
 #         return len(self.stack)
 
 #     def is_empty(self):
+#         """
+#         Проверяет, пуст ли стек.
+        
+#         :return: True, если стек пуст, иначе False
+#         """
 #         return len(self.stack) == 0
 
 #     def is_full(self):
+#         """
+#         Проверяет, полон ли стек.
+        
+#         :return: True, если стек полон, иначе False
+#         """
 #         return len(self.stack) == self.size
 
 #     def clear(self):
-#         self.stack.clear()
+#         """
+#         Очищает стек, удаляя все элементы.
+#         """
+#         self.stack.clear()  # Очищаем список
 #         print("Стек очищен.")
 
 #     def peek(self):
+#         """
+#         Возвращает верхний элемент стека без его удаления.
+        
+#         :return: верхний элемент стека или None, если стек пуст
+#         """
 #         if self.is_empty():
 #             print("Стек пуст! Невозможно получить верхнюю строку.")
 #         else:
-#             return self.stack[-1]
+#             return self.stack[-1]  # Возвращаем последний элемент списка
 
 # def print_menu():
+#     """
+#     Выводит меню опций для пользователя.
+#     """
 #     print("\nМеню:")
 #     print("1. Поместить строку в стек")
 #     print("2. Вытолкнуть строку из стека")
@@ -11167,12 +11205,15 @@
 #     print("8. Выход")
 
 # def main():
+#     """
+#     Основная функция программы.
+#     """
 #     size = int(input("Введите максимальный размер стека: "))
-#     string_stack = StringStack(size)
+#     string_stack = StringStack(size)  # Создаем экземпляр стека
 
 #     while True:
 #         print_menu()
-#         choice = input("\nВыберите пункт меню: ")
+#         choice = input("\nВыберите пункт меню: ") # Ввод пользователя
 
 #         if choice == "1":
 #             string_to_push = input("Введите строку для добавления в стек: ")
@@ -11274,36 +11315,52 @@
 
 # class DynamicStringStack:
 #     def __init__(self):
-#         self.stack = []
+#         """Инициализация пустого стека."""
+#         self.stack = []  # Используем список для реализации стека
 
 #     def push(self, string):
-#         self.stack.append(string)
+#         """
+#         Добавляет строку в вершину стека.
+        
+#         :param string: строка для добавления
+#         """
+#         self.stack.append(string)  # Добавляем строку в конец списка (вершина стека)
 #         print(f"Строка '{string}' добавлена в стек.")
 
 #     def pop(self):
+#         """Удаляет и возвращает строку с вершины стека."""
 #         if self.is_empty():
 #             print("Стек пуст! Невозможно извлечь строку.")
 #         else:
-#             removed_string = self.stack.pop()
+#             removed_string = self.stack.pop()  # Удаляем и возвращаем последний элемент списка
 #             print(f"Строка '{removed_string}' извлечена из стека.")
 
 #     def count(self):
+#         """Возвращает количество строк в стеке."""
 #         return len(self.stack)
 
 #     def is_empty(self):
+#         """Проверяет, пуст ли стек."""
 #         return len(self.stack) == 0
 
 #     def clear(self):
-#         self.stack.clear()
+#         """Очищает стек, удаляя все элементы."""
+#         self.stack.clear()  # Очищаем список
 #         print("Стек очищен.")
 
 #     def peek(self):
+#         """
+#         Возвращает строку с вершины стека без её удаления.
+        
+#         :return: строка с вершины стека или None, если стек пуст
+#         """
 #         if self.is_empty():
 #             print("Стек пуст! Невозможно получить верхнюю строку.")
 #         else:
-#             return self.stack[-1]
+#             return self.stack[-1]  # Возвращаем последний элемент списка
 
 # def print_menu():
+#     """Выводит меню опций для пользователя."""
 #     print("\nМеню:")
 #     print("1. Поместить строку в стек")
 #     print("2. Вытолкнуть строку из стека")
@@ -11314,7 +11371,8 @@
 #     print("7. Выход")
 
 # def main():
-#     string_stack = DynamicStringStack()
+#     """Основная функция программы."""
+#     string_stack = DynamicStringStack()  # Создаем экземпляр стека
 
 #     while True:
 #         print_menu()
@@ -11646,34 +11704,64 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 # 1. Класс для набора целых чисел
 
 # class IntegerSet:
 #     def __init__(self, numbers):
-#         # Инициализируем набор целых чисел
-#         self.numbers = numbers
+#         """
+#         Инициализирует набор целых чисел.
+        
+#         :param numbers: список целых чисел для инициализации набора
+#         """
+#         self.numbers = numbers  # Сохраняем переданный список чисел как атрибут класса
 
 #     def sum(self):
-#         # Возвращает сумму элементов набора
-#         return sum(self.numbers)
+#         """
+#         Вычисляет и возвращает сумму всех элементов в наборе.
+        
+#         :return: сумма всех чисел в наборе
+#         """
+#         return sum(self.numbers)  # Используем встроенную функцию sum для подсчета суммы
 
 #     def average(self):
-#         # Возвращает среднеарифметическое элементов набора
-#         if len(self.numbers) == 0:
-#             return 0
-#         return sum(self.numbers) / len(self.numbers)
+#         """
+#         Вычисляет и возвращает среднее арифметическое всех элементов в наборе.
+        
+#         :return: среднее арифметическое чисел в наборе или 0, если набор пуст
+#         """
+#         if len(self.numbers) == 0:  # Проверяем, не пуст ли набор
+#             return 0  # Возвращаем 0, если набор пуст
+#         return sum(self.numbers) / len(self.numbers)  # Вычисляем среднее арифметическое
 
 #     def maximum(self):
-#         # Возвращает максимальный элемент из набора
-#         if len(self.numbers) == 0:
-#             return None
-#         return max(self.numbers)
+#         """
+#         Находит и возвращает максимальный элемент в наборе.
+        
+#         :return: максимальное число в наборе или None, если набор пуст
+#         """
+#         if len(self.numbers) == 0:  # Проверяем, не пуст ли набор
+#             return None  # Возвращаем None, если набор пуст
+#         return max(self.numbers)  # Используем встроенную функцию max для нахождения максимума
 
 #     def minimum(self):
-#         # Возвращает минимальный элемент из набора
-#         if len(self.numbers) == 0:
-#             return None
-#         return min(self.numbers)
+#         """
+#         Находит и возвращает минимальный элемент в наборе.
+        
+#         :return: минимальное число в наборе или None, если набор пуст
+#         """
+#         if len(self.numbers) == 0:  # Проверяем, не пуст ли набор
+#             return None  # Возвращаем None, если набор пуст
+#         return min(self.numbers)  # Используем встроенную функцию min для нахождения минимума
 
 
 
@@ -11684,32 +11772,50 @@
 # class TestIntegerSet(unittest.TestCase):
     
 #     def setUp(self):
-#         # Инициализация перед каждым тестом
+#         """
+#         Метод setUp вызывается перед каждым тестовым методом.
+#         Здесь мы инициализируем объект IntegerSet для использования в тестах.
+#         """
 #         self.integer_set = IntegerSet([10, 20, 30, 40, 50])
 
 #     def test_sum(self):
-#         # Тестирование метода суммы
-#         self.assertEqual(self.integer_set.sum(), 150)
+#         """
+#         Тестирует метод sum() класса IntegerSet.
+#         Проверяет, правильно ли вычисляется сумма элементов набора.
+#         """
+#         self.assertEqual(self.integer_set.sum(), 150, "Сумма элементов должна быть 150")
 
 #     def test_average(self):
-#         # Тестирование метода среднего арифметического
-#         self.assertEqual(self.integer_set.average(), 30)
+#         """
+#         Тестирует метод average() класса IntegerSet.
+#         Проверяет корректность вычисления среднего арифметического элементов набора.
+#         """
+#         self.assertEqual(self.integer_set.average(), 30, "Среднее арифметическое должно быть 30")
 
 #     def test_maximum(self):
-#         # Тестирование метода для нахождения максимума
-#         self.assertEqual(self.integer_set.maximum(), 50)
+#         """
+#         Тестирует метод maximum() класса IntegerSet.
+#         Проверяет, правильно ли определяется максимальный элемент в наборе.
+#         """
+#         self.assertEqual(self.integer_set.maximum(), 50, "Максимальный элемент должен быть 50")
 
 #     def test_minimum(self):
-#         # Тестирование метода для нахождения минимума
-#         self.assertEqual(self.integer_set.minimum(), 10)
+#         """
+#         Тестирует метод minimum() класса IntegerSet.
+#         Проверяет, правильно ли определяется минимальный элемент в наборе.
+#         """
+#         self.assertEqual(self.integer_set.minimum(), 10, "Минимальный элемент должен быть 10")
 
 #     def test_empty_set(self):
-#         # Тестирование методов для пустого набора
+#         """
+#         Тестирует поведение всех методов класса IntegerSet для пустого набора.
+#         Проверяет корректность обработки пустого набора каждым методом.
+#         """
 #         empty_set = IntegerSet([])
-#         self.assertEqual(empty_set.sum(), 0)
-#         self.assertEqual(empty_set.average(), 0)
-#         self.assertIsNone(empty_set.maximum())
-#         self.assertIsNone(empty_set.minimum())
+#         self.assertEqual(empty_set.sum(), 0, "Сумма пустого набора должна быть 0")
+#         self.assertEqual(empty_set.average(), 0, "Среднее арифметическое пустого набора должно быть 0")
+#         self.assertIsNone(empty_set.maximum(), "Максимум пустого набора должен быть None")
+#         self.assertIsNone(empty_set.minimum(), "Минимум пустого набора должен быть None")
 
 # if __name__ == '__main__':
 #     unittest.main()
@@ -11784,8 +11890,8 @@
         
 #         :param value: начальное значение числа (по умолчанию 0)
 #         """
-#         self._value = 0
-#         self.set_value(value)
+#         self._value = 0  # Инициализируем приватное поле
+#         self.set_value(value)  # Устанавливаем значение через метод set_value для валидации
 
 #     def get_value(self):
 #         """
@@ -11793,7 +11899,7 @@
         
 #         :return: текущее значение числа
 #         """
-#         return self._value
+#         return self._value  # Возвращаем текущее значение
 
 #     def set_value(self, value):
 #         """
@@ -11802,10 +11908,10 @@
 #         :param value: новое значение числа
 #         :raises ValueError: если значение не является целым числом
 #         """
-#         if isinstance(value, int):
-#             self._value = value
+#         if isinstance(value, int):  # Проверяем, является ли value целым числом
+#             self._value = value  # Если да, устанавливаем новое значение
 #         else:
-#             raise ValueError("Значение должно быть целым числом")
+#             raise ValueError("Значение должно быть целым числом")  # Если нет, вызываем исключение
 
 #     def to_octal(self):
 #         """
@@ -11813,7 +11919,7 @@
         
 #         :return: строковое представление числа в восьмеричной системе
 #         """
-#         return oct(self._value)[2:]  # Удаляем префикс '0o'
+#         return oct(self._value)[2:]  # Переводим в восьмеричную систему и удаляем префикс '0o'
 
 #     def to_hex(self):
 #         """
@@ -11821,7 +11927,7 @@
         
 #         :return: строковое представление числа в шестнадцатеричной системе
 #         """
-#         return hex(self._value)[2:]  # Удаляем префикс '0x'
+#         return hex(self._value)[2:]  # Переводим в шестнадцатеричную систему и удаляем префикс '0x'
 
 #     def to_binary(self):
 #         """
@@ -11829,7 +11935,7 @@
         
 #         :return: строковое представление числа в двоичной системе
 #         """
-#         return bin(self._value)[2:]  # Удаляем префикс '0b'
+#         return bin(self._value)[2:]  # Переводим в двоичную систему и удаляем префикс '0b'
 
 
 # def print_menu():
@@ -11844,9 +11950,9 @@
 
 
 # def main():
-#     number = Number()
+#     number = Number()  # Создаем экземпляр класса Number
 #     while True:
-#         print_menu()
+#         print_menu()  # Выводим меню
 #         choice = input("Выберите действие (1-6): ")
         
 #         if choice == '1':
@@ -11863,7 +11969,7 @@
 #         elif choice == '4':
 #             print(f"Шестнадцатеричное представление: {number.to_hex()}")
 #         elif choice == '5':
-#             print(f"Двоичное представление: {number.to_binary()}")
+#             print(f"Двоич ное представление: {number.to_binary()}")
 #         elif choice == '6':
 #             print("Программа завершена.")
 #             break
@@ -11873,31 +11979,32 @@
 
 # class TestNumber(unittest.TestCase):
 #     def setUp(self):
-#         self.number = Number(42)
+#         self.number = Number(42)  # Создаем экземпляр класса Number для тестов
 
 #     def test_initial_value(self):
-#         self.assertEqual(self.number.get_value(), 42)
+#         self.assertEqual(self.number.get_value(), 42)  # Тестируем начальное значение
 
-#     def test_set_ value(self):
+#     def test_set_value(self):
 #         self.number.set_value(100)
-#         self.assertEqual(self.number.get_value(), 100)
+#         self.assertEqual(self.number.get_value(), 100)  # Тестируем установку нового значения
 
 #     def test_to_octal(self):
-#         self.assertEqual(self.number.to_octal(), '52')
+#         self.assertEqual(self.number.to_octal(), '52')  # Тестируем перевод в восьмеричную систему
 
 #     def test_to_hex(self):
-#         self.assertEqual(self.number.to_hex(), '2a')
+#         self.assertEqual(self.number.to_hex(), '2a')  # Тестируем перевод в шестнадцатеричную систему
 
 #     def test_to_binary(self):
-#         self.assertEqual(self.number.to_binary(), '101010')
+#         self.assertEqual(self.number.to_binary(), '101010')  # Тестируем перевод в двоичную систему
 
 #     def test_invalid_value(self):
 #         with self.assertRaises(ValueError):
-#             self.number.set_value('abc')
+#             self.number.set_value('abc')  # Тестируем установку невалидного значения
+
 
 # if __name__ == "__main__":
-#     unittest.main(exit=False)
-#     main()
+#     unittest.main(exit=False)  # Запускаем тесты
+#     main()  # Запускаем основную программу
 
 
 
@@ -11971,56 +12078,59 @@
 
 # class NumberList:
 #     def __init__(self):
-#         self.numbers = []
-#         self.is_filled = threading.Event()
-#         self.lock = threading.Lock()
+#         self.numbers = []  # Список для хранения чисел
+#         self.is_filled = threading.Event()  # Событие для сигнализации о заполнении списка
+#         self.lock = threading.Lock()  # Блокировка для безопасного доступа к списку
 
 #     def fill_list(self, size):
-#         with self.lock:
-#             self.numbers = [random.randint(1, 100) for _ in range(size)]
-#         self.is_filled.set()
+#         with self.lock:  # Блокируем доступ к списку на время заполнения
+#             self.numbers = [random.randint(1, 100) for _ in range(size)]  # Заполняем список случайными числами
+#         self.is_filled.set()  # Сигнализируем, что список заполнен
 
 #     def calculate_sum(self):
-#         self.is_filled.wait()
-#         return sum(self.numbers)
+#         self.is_filled.wait()  # Ждем, пока список не будет заполнен
+#         return sum(self.numbers)  # Возвращаем сумму всех чисел в списке
 
 #     def calculate_average(self):
-#         self.is_filled.wait()
-#         return sum(self.numbers) / len(self.numbers) if self.numbers else 0
+#         self.is_filled.wait()  # Ждем, пока список не будет заполнен
+#         return sum(self.numbers) / len(self.numbers) if self.numbers else 0  # Вычисляем среднее значение
 
 # def filler_thread(number_list, size):
 #     print("Заполнение списка...")
-#     number_list.fill_list(size)
+#     number_list.fill_list(size)  # Заполняем список
 #     print("Список заполнен.")
 
 # def sum_thread(number_list):
 #     print("Ожидание заполнения списка для подсчета суммы...")
-#     result = number_list.calculate_sum()
+#     result = number_list.calculate_sum()  # Вычисляем сумму
 #     print(f"Сумма элементов: {result}")
 #     return result
 
 # def average_thread(number_list):
 #     print("Ожидание заполнения списка для подсчета среднего...")
-#     result = number_list.calculate_average()
+#     result = number_list.calculate_average()  # Вычисляем среднее
 #     print(f"Среднее арифметическое: {result:.2f}")
 #     return result
 
 # def run_threads(size):
-#     number_list = NumberList()
+#     number_list = NumberList()  # Создаем объект NumberList
     
+#     # Создаем потоки
 #     filler = threading.Thread(target=filler_thread, args=(number_list, size))
 #     summer = threading.Thread(target=sum_thread, args=(number_list,))
 #     averager = threading.Thread(target=average_thread, args=(number_list,))
 
+#     # Запускаем потоки
 #     filler.start()
 #     summer.start()
 #     averager.start()
 
+#     # Ожидаем завершения всех потоков
 #     filler.join()
 #     summer.join()
 #     averager.join()
 
-#     return number_list.numbers
+#     return number_list.numbers  # Возвращаем заполненный список
 
 # def print_menu():
 #     print("\nМеню:")
@@ -12034,7 +12144,7 @@
 
 #         if choice == '1':
 #             size = int(input("Введите размер списка: "))
-#             numbers = run_threads(size)
+#             numbers = run_threads(size)  # Запускаем потоки и получаем список
 #             print(f"Сгенерированный список: {numbers}")
 #         elif choice == '2':
 #             print("Выход из программы.")
@@ -12043,7 +12153,7 @@
 #             print("Неверный выбор. Попробуйте снова.")
 
 # if __name__ == "__main__":
-#     main()
+#     main()  # Запускаем главную функцию программы
 
 
 
@@ -12136,73 +12246,73 @@
 # import math
 
 # # Глобальные переменные для синхронизации потоков
-# file_filled = threading.Event()
-# prime_numbers_found = 0
-# factorials_calculated = 0
+# file_filled = threading.Event()  # Событие для сигнализации о заполнении файла
+# prime_numbers_found = 0  # Счетчик найденных простых чисел
+# factorials_calculated = 0  # Счетчик вычисленных факториалов
 
 # def generate_random_numbers(file_path, count):
 #     """Генерирует случайные числа и записывает их в файл."""
 #     with open(file_path, 'w') as file:
 #         for _ in range(count):
-#             number = random.randint(1, 1000)
-#             file.write(f"{number}\n")
-#     file_filled.set()  # Сигнализируем, что файл заполнен
+#             number = random.randint(1, 1000)  # Генерируем случайное число от 1 до 1000
+#             file.write(f"{number}\n")  # Записываем число в файл
+#     file_filled.set()  # Устанавливаем флаг, что файл заполнен
 
 # def is_prime(n):
 #     """Проверяет, является ли число простым."""
 #     if n < 2:
-#         return False
+#         return False  # Числа меньше 2 не являются простыми
 #     for i in range(2, int(math.sqrt(n)) + 1):
 #         if n % i == 0:
-#             return False
-#     return True
+#             return False  # Если число делится нацело, оно не простое
+#     return True  # Если нет делителей, число простое
 
 # def find_prime_numbers(input_file, output_file):
 #     """Находит простые числа в файле и записывает их в новый файл."""
 #     global prime_numbers_found
-#     file_filled.wait()  # Ожидаем заполнения файла
+#     file_filled.wait()  # Ждем, пока файл не будет заполнен
 #     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
 #         for line in infile:
 #             number = int(line.strip())
 #             if is_prime(number):
-#                 outfile.write(f"{number}\n")
-#                 prime_numbers_found += 1
+#                 outfile.write(f"{number}\n")  # Записываем простое число в новый файл
+#                 prime_numbers_found += 1  # Увеличиваем счетчик найденных простых чисел
 
 # def calculate_factorials(input_file, output_file):
 #     """Вычисляет факториалы чисел из файла и записывает их в новый файл."""
 #     global factorials_calculated
-#     file_filled.wait()  # Ожидаем заполнения файла
+#     file_filled.wait()  # Ждем, пока файл не будет заполнен
 #     with open(input_file, 'r') as infile, open(output_file, 'w') as outfile:
 #         for line in infile:
 #             number = int(line.strip())
-#             factorial = math.factorial(number)
-#             outfile.write(f"{number}! = {factorial}\n")
-#             factorials_calculated += 1
+#             factorial = math.factorial(number)  # Вычисляем факториал
+#             outfile.write(f"{number}! = {factorial}\n")  # Записываем результат в файл
+#             factorials_calculated += 1  # Увеличиваем счетчик вычисленных факториалов
 
 # def process_file(file_path):
 #     """Основная функция для обработки файла."""
 #     global prime_numbers_found, factorials_calculated
 #     prime_numbers_found = 0
 #     factorials_calculated = 0
-#     file_filled.clear()
+#     file_filled.clear()  # Сбрасываем флаг заполнения файла
 
 #     # Создаем и запускаем потоки
 #     thread1 = threading.Thread(target=generate_random_numbers, args=(file_path, 100))
 #     thread2 = threading.Thread(target=find_prime_numbers, args=(file_path, 'prime_numbers.txt'))
 #     thread3 = threading.Thread(target=calculate_factorials, args=(file_path, 'factorials.txt'))
 
-#     start_time = time.time()
+#     start_time = time.time()  # Засекаем время начала выполнения
 
-#     thread1.start()
+#     thread1. You : start()
 #     thread2.start()
 #     thread3.start()
 
-#     # Ожидаем завершения всех потоков
+#     # Ждем, пока все потоки не завершатся
 #     thread1.join()
 #     thread2.join()
 #     thread3.join()
 
-#     end_time = time.time()
+#     end_time = time.time()  # Засекаем время окончания выполнения
 
 #     # Выводим статистику
 #     print(f"\nСтатистика выполнения:")
@@ -12349,3 +12459,327 @@
 # Вызывает функцию main_menu для начала работы программы
 
 
+
+
+
+
+
+
+
+
+
+
+# Задание 3
+# Пользователь с клавиатуры вводит путь к существу-
+# ющей директории и к новой директории. После чего
+# запускается поток, который должен скопировать содер-
+# жимое директории в новое место. Необходимо сохранить
+# структуру директории. На экран необходимо отобразить
+# статистику выполненных операций.
+
+
+
+
+
+
+
+
+# import os  # Для работы с файловой системой
+# import shutil  # Для копирования файлов и директорий
+# import threading  # Для создания потоков
+# import time  # Для измерения времени выполнения
+
+# class DirectoryCopier:
+#     def __init__(self):
+#         # Инициализация переменных для хранения статистики
+#         self.source_path = ""
+#         self.destination_path = ""
+#         self.files_copied = 0
+#         self.directories_created = 0
+#         self.total_size = 0
+#         self.start_time = 0
+#         self.end_time = 0
+
+#     def get_user_input(self):
+#         # Запрос путей у пользователя
+#         self.source_path = input("Введите путь к исходной директории: ")
+#         self.destination_path = input("Введите путь к новой директории: ")
+
+#     def copy_directory(self):
+#         self.start_time = time.time()  # Засекаем время начала копирования
+        
+#         try:
+#             # Копируем директорию с использованием нашей функции копирования
+#             shutil.copytree(self.source_path, self.destination_path, 
+#                             copy_function=self.copy_with_stats)
+#         except FileExistsError:
+#             print("Директория назначения уже существует. Выберите другой путь.")
+#             return
+#         except FileNotFoundError:
+#             print("Исходная директория не найдена. Проверьте путь.")
+#             return
+        
+#         self.end_time = time.time()  # Засекаем время окончания копирования
+
+#     def copy_with_stats(self, src, dst, symlinks=False, ignore=None):
+#         if os.path.isdir(src):
+#             # Если это директория, создаем ее и увеличиваем счетчик
+#             self.directories_created += 1
+#             os.makedirs(dst, exist_ok=True)
+#             for item in os.listdir(src):
+#                 s = os.path.join(src, item)
+#                 d = os.path.join(dst, item)
+#                 if os.path.isdir(s):
+#                     # Рекурсивно копируем поддиректории
+#                     self.copy_with_stats(s, d, symlinks, ignore)
+#                 else:
+#                     # Копируем файл
+#                     self.copy_file(s, d)
+#         else:
+#             # Если это файл, копируем его
+#             self.copy_file(src, dst)
+
+#     def copy_file(self, src, dst):
+#         # Копируем файл и обновляем статистику
+#         shutil.copy2(src, dst)
+#         self.files_copied += 1
+#         self.total_size += os.path.getsize(src)
+
+#     def display_stats(self):
+#         # Отображаем статистику копирования
+#         print("\nСтатистика копирования:")
+#         print(f"Скопировано файлов: {self.files_copied}")
+#         print(f"Создано директорий: {self.directories_created}")
+#         print(f"Общий размер скопированных данных: {self.total_size / (1024*1024):.2f} МБ")
+#         print(f"Время выполнения: {self.end_time - self.start_time:.2f} секунд")
+
+# def main_menu():
+#     copier = DirectoryCopier()  # Создаем экземпляр класса DirectoryCopier
+    
+#     while True:
+#         # Отображаем меню
+#         print("\nМеню:")
+#         print("1. Копировать директорию")
+#         print("2. Выход")
+        
+#         choice = input("Выберите действие (1-2): ") # Запрашиваем выбор
+        
+#         if choice == "1":
+#             copier.get_user_input()  # Запрашиваем пути
+            
+#             # Создаем поток для копирования
+#             thread = threading.Thread(target=copier.copy_directory)
+#             thread.start()
+            
+#             print("Копирование началось...")
+#             thread.join()  # Ждем окончания потока
+            
+#             copier.display_stats()  # Отображаем статистику
+#         elif choice == "2":
+#             print("Программа завершена.")
+#             break
+#         else:
+#             print("Неверный выбор. Попробуйте снова.")
+
+# if __name__ == "__main__":
+#     main_menu()  # Запускаем главное меню
+
+
+
+
+
+
+# (1)Импорт необходимых модулей:
+
+# os: для работы с файловой системой
+# shutil: для копирования файлов и директорий
+# threading: для создания потока
+# time: для измерения времени выполнения
+
+# (2)Класс DirectoryCopier: содержит методы для копирования директории и отображения статистики.
+
+# (3)Метод get_user_input: запрашивает у пользователя пути к исходной и новой директориям.
+
+# (4)Метод copy_directory: запускает поток для копирования директории и отображает сообщение о начале копирования.
+
+# (5)Метод copy_with_stats: копирует директорию с сохранением структуры и подсчетом статистики (количество скопированных файлов, созданных директорий и общий размер данных).
+
+# (6)Метод copy_file: копирует отдельный файл и обновляет статистику.
+
+# (7)Метод display_stats: отображает статистику копирования.
+
+# (8)Функция main_menu: реализует меню взаимодействия с пользователем.
+
+# (9)В цикле меню пользователь может выбрать копирование директории или выход из программы.
+
+# (10)При выборе копирования директории запрашиваются пути, создается поток для копирования, и после завершения потока отображается статистика.
+
+# (11)При выборе выхода из программы выводится соответствующее сообщение, и программа завершается.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Задание 4
+# Пользователь с клавиатуры вводит путь к существующей
+# директории и слово для поиска. После чего запускаются
+# два потока. Первый должен найти файлы, содержащие
+# искомое слово и слить их содержимое в один файл. Вто-
+# рой поток ожидает завершения работы первого потока.
+# После чего проводит вырезание всех запрещенных слов
+# (список этих слов нужно считать из файла с запрещенны-
+# ми словами) из полученного файла. На экран необходимо
+# отобразить статистику выполненных операций.
+
+
+
+
+
+
+# import os
+# import threading
+# import re
+
+# def find_and_merge_files(directory, search_word, output_file):
+#     """
+#     Находит файлы, содержащие искомое слово, и объединяет их содержимое в один файл.
+    
+#     :param directory: Путь к директории для поиска
+#     :param search_word: Слово для поиска в файлах
+#     :param output_file: Имя выходного файла для объединения содержимого
+#     """
+#     merged_content = []
+#     files_found = 0
+
+#     for root, _, files in os.walk(directory):
+#         for file in files:
+#             if file.endswith('.txt'):  # Ищем только в текстовых файлах
+#                 file_path = os.path.join(root, file)
+#                 try:
+#                     with open(file_path, 'r', encoding='utf-8') as f:
+#                         content = f.read()
+#                         if search_word.lower() in content.lower():
+#                             merged_content.append(content)
+#                             files_found += 1
+#                 except Exception as e:
+#                     print(f"Ошибка при чтении файла {file_path}: {e}")
+
+#     with open(output_file, 'w', encoding='utf-8') as f:
+#         f.write('\n'.join(merged_content))
+
+#     print(f"Найдено и объединено {files_found} файлов.")
+
+# def censor_file(input_file, banned_words_file):
+#     """
+#     Удаляет запрещенные слова из файла.
+    
+#     :param input_file: Имя входного файла для цензурирования
+#     :param banned_words_file: Файл со списком запрещенных слов
+#     """
+#     # Чтение запрещенных слов
+#     with open(banned_words_file, 'r', encoding='utf-8') as f:
+#         banned_words = [word.strip().lower() for word in f.readlines()]
+
+#     # Чтение содержимого файла
+#     with open(input_file, 'r', encoding='utf-8') as f:
+#         content = f.read()
+
+#     # Удаление запрещенных слов
+#     words_removed = 0
+#     for word in banned_words:
+#         pattern = r'\b' + re.escape(word) + r'\b'
+#         content, count = re.subn(pattern, '', content, flags=re.IGNORECASE)
+#         words_removed += count
+
+#     # Запись отцензурированного содержимого обратно в файл
+#     with open(input_file, 'w', encoding='utf-8') as f:
+#         f.write(content)
+
+#     print(f"Удалено {words_removed} запрещенных слов.")
+
+# def main():
+#     directory = input("Введите путь к директории: ")
+#     search_word = input("Введите слово для поиска: ")
+#     output_file = "merged_output.txt"
+#     banned_words_file = "banned_words.txt"
+
+#     # Первый поток: поиск и объединение файлов
+#     thread1 = threading.Thread(target=find_and_merge_files, args=(directory, search_word, output_file))
+#     thread1.start()
+#     thread1.join()  # Ожидание завершения первого потока
+
+#     # Второй поток: цензурирование файла
+#     thread2 = threading.Thread(target=censor_file, args=(output_file, banned_words_file))
+#     thread2.start()
+#     thread2.join()  # Ожидание завершения второго потока
+
+# if __name__ == "__main__":
+#     main()
+
+
+
+
+
+# Импорт библиотек:
+# os: для работы с файловой системой
+# threading: для создания и управления потоками
+# re: для работы с регулярными выражениями
+
+
+
+# Функция find_and_merge_files:
+# Принимает путь к директории, слово для поиска и имя выходного файла
+# Создает пустой список merged_content для хранения содержимого найденных файлов
+# Использует os.walk для перебора всех файлов в указанной директории и поддиректориях
+
+
+
+# Для каждого .txt файла:
+# Открывает файл и читает его содержимое
+# Если искомое слово найдено, добавляет содержимое в список merged_content
+# Увеличивает счетчик найденных файлов
+# Записывает все найденное содержимое в один выходной файл
+# Выводит количество найденных и объединенных файлов
+
+
+
+# Функция censor_file:
+# Принимает имя входного файла и файла с запрещенными словами
+# Читает список запрещенных слов из файла
+# Читает содержимое входного файла
+# Для каждого запрещенного слова:
+# Создает регулярное выражение для поиска слова
+# Удаляет все вхождения слова из текста
+# Подсчитывает количество удаленных слов
+# Записывает отцензурированный текст обратно в файл
+# Выводит количество удаленных слов
+
+
+
+# Функция main:
+# Запрашивает у пользователя путь к директории и слово для поиска
+# Задает имена для выходного файла и файла с запрещенными словами
+# Создает и запускает первый поток для поиска и объединения файлов
+# Ждет завершения первого потока
+# Создает и запускает второй поток для цензурирования файла
+# Ждет завершения второго потока
+
+
+
+# Условие if name == "main":
+# Обеспечивает запуск функции main только если скрипт запущен напрямую, а не импортирован как модуль
