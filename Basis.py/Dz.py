@@ -4149,6 +4149,199 @@
 
 
 
+
+
+# Задание 2
+# Есть некоторый словарь, который хранит названия
+# музыкальных групп(исполнителей) и альбомов. Назва-
+# ние группы используется в качестве ключа, название
+# альбомов в качестве значения. Необходимо реализовать:
+# добавление данных, удаление данных, поиск данных,
+# редактирование данных, сохранение и загрузку данных
+# (используя упаковку и распаковку).
+
+
+
+
+
+
+
+
+
+
+# import pickle
+
+# class MusicDictionary:
+#     def __init__(self):
+#         self.data = {}
+
+#     def add(self, group, album):
+#         """Добавить новую запись в словарь"""
+#         if group in self.data:
+#             self.data[group].append(album)
+#         else:
+#             self.data[group] = [album]
+
+#     def delete(self, group, album=None):
+#         """Удалить запись из словаря"""
+#         if group in self.data:
+#             if album is None:
+#                 del self.data[group]
+#             elif album in self.data[group]:
+#                 self.data[group].remove(album)
+#             else:
+#                 print("Альбом не найден")
+#         else:
+#             print("Группа не найдена")
+
+#     def search(self, group=None, album=None):
+#         """Поиск записей в словаре"""
+#         if group is not None and album is not None:
+#             if group in self.data and album in self.data[group]:
+#                 return f"Альбом '{album}' найден в группе '{group}'"
+#             else:
+#                 return "Запись не найдена"
+#         elif group is not None:
+#             if group in self.data:
+#                 return f"Группа '{group}' найдена с альбомами: {', '.join(self.data[group])}"
+#             else:
+#                 return "Группа не найдена"
+#         elif album is not None:
+#             for group, albums in self.data.items():
+#                 if album in albums:
+#                     return f"Альбом '{album}' найден в группе '{group}'"
+#             return "Альбом не найден"
+#         else:
+#             return "Введите критерий поиска"
+
+#     def edit(self, group, album, new_album):
+#         """Редактировать запись в словаре"""
+#         if group in self.data and album in self.data[group]:
+#             self.data[group].remove(album)
+#             self.data[group].append(new_album)
+#         else:
+#             print("Запись не найдена")
+
+#     def save(self, filename):
+#         """Сохранить словарь в файл"""
+#         with open(filename, 'wb') as f:
+#             pickle.dump(self.data, f)
+
+#     def load(self, filename):
+#         """Загрузить словарь из файла"""
+#         try:
+#             with open(filename, 'rb') as f:
+#                 self.data = pickle.load(f)
+#         except FileNotFoundError:
+#             print("Файл не найден")
+
+# def main():
+#     dictionary = MusicDictionary()
+
+#     while True:
+#         print("\nМеню:")
+#         print("1. Добавить запись")
+#         print("2. Удалить запись")
+#         print("3. Поиск записей")
+#         print("4. Редактировать запись")
+#         print("5. Сохранить словарь")
+#         print("6. Загрузить словарь")
+#         print("7. Выход")
+
+#         choice = input("Введите номер действия: ")
+
+#         if choice == "1":
+#             group = input("Введите название группы: ")
+#             album = input("Введите название альбома: ")
+#             dictionary.add(group, album)
+#         elif choice == "2":
+#             group = input("Введите название группы: ")
+#             album = input("Введите название альбома (оставьте пустым для удаления группы): ")
+#             dictionary.delete(group, album if album else None)
+#         elif choice == "3":
+#             group = input("Введите название группы (оставьте пустым для поиска альбома): ")
+#             album = input("Введите название альбома (оставьте пустым для поиска группы): ")
+#             print(dictionary.search(group if group else None, album if album else None))
+#         elif choice == "4":
+#             group = input("Введите название группы: ")
+#             album = input("Введите название альбома: ")
+#             new_album = input("Введите новое название альбома: ")
+#             dictionary.edit(group, album, new_album)
+#         elif choice == "5":
+#             filename = input("Введите имя файла для сохранения: ")
+#             dictionary.save(filename)
+#         elif choice == "6":
+#             filename = input("Введите имя файла для загрузки: ")
+#             dictionary.load(filename)
+#         elif choice == "7":
+#             break
+#         else:
+#             print("Неправильный выбор")
+
+# if __name__ == "__main__":
+#     main()
+
+
+# Импорт библиотеки:
+# import pickle: Импортируется модуль pickle для сериализации и десериализации объектов Python.
+
+
+
+
+
+# Определение класса MusicDictionary:
+# __init__(self): Инициализирует пустой словарь self.data для хранения данных.
+
+
+
+
+# Методы класса MusicDictionary:
+# add(self, group, album): Добавляет альбом к группе. Если группа уже существует, добавляет альбом к списку альбомов этой группы. 
+# Если группы нет, создает новую запись.
+
+# delete(self, group, album=None): Удаляет группу целиком, если альбом не указан, или конкретный альбом из группы.
+
+# search(self, group=None, album=None): Ищет группу, альбом или комбинацию группы и альбома.
+#  Возвращает соответствующее сообщение о результатах поиска.
+
+# edit(self, group, album, new_album): Редактирует название альбома для указанной группы.
+
+# save(self, filename): Сохраняет словарь в файл, используя pickle для сериализации.
+
+# load(self, filename): Загружает словарь из файла, используя pickle для десериализации.
+
+# Функция main():
+
+# Создает экземпляр класса MusicDictionary.
+
+# Запускает бесконечный цикл с меню выбора действий.
+
+# Обрабатывает пользовательский ввод и вызывает соответствующие методы класса MusicDictionary.
+
+
+
+
+# Структура меню:
+# Выводит список доступных действий.
+# Запрашивает у пользователя номер действия.
+# В зависимости от выбора пользователя:
+# Запрашивает необходимые данные (названия групп, альбомов, имена файлов).
+# Вызывает соответствующий метод объекта dictionary.
+# Выводит результаты операций.
+# Условие if __name__ == "__main__":
+
+# Обеспечивает выполнение функции main() только при непосредственном запуске скрипта.
+
+
+
+
+
+
+
+
+
+
+
 ## Модуль 8 Кортежи, множества, словари
 ## Тема: Кортежи, множества, словари. Часть 1
 
