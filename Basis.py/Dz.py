@@ -4428,6 +4428,91 @@
 
 
 
+
+
+
+# Задание 2
+# К уже реализованному классу «Книга» добавьте воз-
+# можность упаковки и распаковки данных с использова-
+# нием json и pickle.
+
+
+
+
+
+
+
+
+
+# import json
+
+# class Книга:
+#     def __init__(self, название, автор, год_издания, жанр):
+#         self.название = название
+#         self.автор = автор
+#         self.год_издания = год_издания
+#         self.жанр = жанр
+
+#     def to_json(self):
+#         """Преобразует объект в json-строку"""
+#         return json.dumps(self.__dict__)
+
+#     @classmethod
+#     def from_json(cls, json_str):
+#         """Создает объект из json-строки"""
+#         data = json.loads(json_str)
+#         return cls(**data)
+
+# # Пример использования
+# книга = Книга("Война и мир", "Лев Толстой", 1865, "Роман")
+# json_str = книга.to_json()
+# print(json_str)
+
+# книга_из_json = Книга.from_json(json_str)
+# print(книга_из_json.название, книга_из_json.автор, книга_из_json.год_издания, книга_из_json.жанр)
+
+
+
+
+
+
+
+
+# import pickle
+
+# class Книга:
+#     # ...
+
+#     def to_pickle(self):
+#         """Преобразует объект в pickle-строку"""
+#         return pickle.dumps(self)
+
+#     @classmethod
+#     def from_pickle(cls, pickle_str):
+#         """Создает объект из pickle-строки"""
+#         return pickle.loads(pickle_str)
+
+# # Пример использования
+# книга = Книга("Война и мир", "Лев Толстой", 1865, "Роман")
+# pickle_str = книга.to_pickle()
+
+# книга_из_pickle = Книга.from_pickle(pickle_str)
+# print(книга_из_pickle.название, книга_из_pickle.автор, книга_из_pickle.год_издания, книга_из_pickle.жанр)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Модуль 8.2 Кортежи, множества, словари
 ## Тема: Кортежи, множества, словари. Часть 1
 
