@@ -4351,6 +4351,83 @@
 
 
 
+
+
+
+# Задание 1
+# К уже реализованному классу «Автомобиль» добавьте
+# возможность упаковки и распаковки данных с использо-
+# ванием json и pickle.
+
+
+
+
+
+
+
+
+
+
+
+# import json
+
+# class Автомобиль:
+#     def __init__(self, марка, модель, год):
+#         self.марка = марка
+#         self.модель = модель
+#         self.год = год
+
+#     def to_json(self):
+#         """Преобразует объект в json-строку"""
+#         return json.dumps(self.__dict__)
+
+#     @classmethod
+#     def from_json(cls, json_str):
+#         """Создает объект из json-строки"""
+#         data = json.loads(json_str)
+#         return cls(**data)
+
+# # Пример использования
+# автомобиль = Автомобиль("Toyota", "Camry", 2015)
+# json_str = автомобиль.to_json()
+# print(json_str)
+
+# автомобиль_из_json = Автомобиль.from_json(json_str)
+# print(автомобиль_из_json.марка, автомобиль_из_json.модель, автомобиль_из_json.год)
+
+
+
+
+
+
+
+
+# import pickle
+
+# class Автомобиль:
+#     # ...
+
+#     def to_pickle(self):
+#         """Преобразует объект в pickle-строку"""
+#         return pickle.dumps(self)
+
+#     @classmethod
+#     def from_pickle(cls, pickle_str):
+#         """Создает объект из pickle-строки"""
+#         return pickle.loads(pickle_str)
+
+# # Пример использования
+# автомобиль = Автомобиль("Toyota", "Camry", 2015)
+# pickle_str = автомобиль.to_pickle()
+
+# автомобиль_из_pickle = Автомобиль.from_pickle(pickle_str)
+# print(автомобиль_из_pickle.марка, автомобиль_из_pickle.модель, автомобиль_из_pickle.год)
+
+
+
+
+
+
 ## Модуль 8.2 Кортежи, множества, словари
 ## Тема: Кортежи, множества, словари. Часть 1
 
