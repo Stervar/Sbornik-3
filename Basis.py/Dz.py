@@ -4508,6 +4508,78 @@
 
 
 
+# Задание 3
+# К уже реализованному классу «Стадион» добавьте
+# возможность упаковки и распаковки данных с исполь-
+# зованием json и pickle.
+
+
+
+
+
+
+
+# import json
+
+# class Стадион:
+#     def __init__(self, название, адрес, вместимость):
+#         self.название = название
+#         self.адрес = адрес
+#         self.вместимость = вместимость
+
+#     def to_json(self):
+#         """Преобразует объект в json-строку"""
+#         return json.dumps(self.__dict__)
+
+#     @classmethod
+#     def from_json(cls, json_str):
+#         """Создает объект из json-строки"""
+#         data = json.loads(json_str)
+#         return cls(**data)
+
+# # Пример использования
+# стадион = Стадион("Лужники", "Москва, ул. Лужники, 24", 81000)
+# json_str = стадион.to_json()
+# print(json_str)
+
+# стадион_из_json = Стадион.from_json(json_str)
+# print(стадион_из_json.название, стадион_из_json.адрес, стадион_из_json.вместимость)
+
+
+
+
+
+
+
+
+
+# import pickle
+
+# class Стадион:
+#     # ...
+
+#     def to_pickle(self):
+#         """Преобразует объект в pickle-строку"""
+#         return pickle.dumps(self)
+
+#     @classmethod
+#     def from_pickle(cls, pickle_str):
+#         """Создает объект из pickle-строки"""
+#         return pickle.loads(pickle_str)
+
+# # Пример использования
+# стадион = Стадион("Лужники", "Москва, ул. Лужники, 24", 81000)
+# pickle_str = стадион.to_pickle()
+
+# стадион_из_pickle = Стадион.from_pickle(pickle_str)
+# print(стадион_из_pickle.название, стадион_из_pickle.адрес, стадион_из_pickle.вместимость)
+
+
+
+
+
+
+
 
 
 
