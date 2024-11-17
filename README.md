@@ -65,7 +65,7 @@
 
 <h2 align="">◢⸻⸻⸻⸻⸻⸻⸻⸻❃⸻⸻⸻⸻⸻⸻⸻⸻◣
 
-•📑Dz.py - The main part where all tasks and assignments are collected📑
+-📑Dz.py - The main part where all tasks and assignments are collected📑
 
 •📑Pz.py - Additional part of Dz.py where the same tasks are located, but with a different structure📑
 
