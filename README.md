@@ -69,7 +69,7 @@
 
 -📑Pz.py - Additional part of Dz.py where the same tasks are located, but with a different structure📑
 
-•📑db.py - Prisma python everything related to Prisma is in this part with all tasks📑
+-📑db.py - Prisma python everything related to Prisma is in this part with all tasks📑
 
 ### 📝 Project Description 📝
 
