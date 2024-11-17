@@ -67,7 +67,7 @@
 
 -📑Dz.py - The main part where all tasks and assignments are collected📑
 
-•📑Pz.py - Additional part of Dz.py where the same tasks are located, but with a different structure📑
+-📑Pz.py - Additional part of Dz.py where the same tasks are located, but with a different structure📑
 
 •📑db.py - Prisma python everything related to Prisma is in this part with all tasks📑
 
