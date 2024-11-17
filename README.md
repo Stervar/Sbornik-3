@@ -62,6 +62,8 @@
  
 ### • 🗃This is the main repository where most of my code is located,  and that's where all the projects and completed assignments are🗃
 
+<h2 align="">◢⸻⸻⸻⸻⸻⸻⸻⸻❃⸻⸻⸻⸻⸻⸻⸻⸻◣
+
 •📑Dz.py - The main part where all tasks and assignments are collected📑
 
 •📑Pz.py - Additional part of Dz.py where the same tasks are located, but with a different structure📑
