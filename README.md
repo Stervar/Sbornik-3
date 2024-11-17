@@ -67,6 +67,35 @@
 
 •📑db.py - Prisma python everything related to Prisma is in this part with all tasks📑
 
+### 📝 Project Description 📝
 
+- Multifunctional application for controlling devices such as coffee machines and blenders
+- Implementation of design patterns (Command, Singleton, Proxy) for code organization
+- Interactive menu for creating and editing recipes, placing orders and managing ingredients
+
+### 🛠️ Technologies 🛠️
+
+- Python, modules: threading, os, shutil, pickle, json
+- Object-oriented programming
+- SOLID principles
+- Design patterns
+- Multithreaded programming
+- JSON and Pickle for data serialization
+- OOP
+- Data structures
+- Using libraries
+- Using modules
+- Using functions
+- Using variables
+- Using data types
+- Using operators
+- Using functions
+- Software design
+
+### ✨ Key features ✨
+
+- Emulation of home appliance control
+- Creating and editing recipes
+- Logging operations and maintaining sales statistics
 <h2 align="center">◢⸻⸻⸻⸻⸻⸻⸻⸻❃⸻⸻⸻⸻⸻⸻⸻⸻◣
  </h2>
