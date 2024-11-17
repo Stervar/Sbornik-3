@@ -97,5 +97,6 @@
 - Emulation of home appliance control
 - Creating and editing recipes
 - Logging operations and maintaining sales statistics
+
 <h2 align="center">◢⸻⸻⸻⸻⸻⸻⸻⸻❃⸻⸻⸻⸻⸻⸻⸻⸻◣
  </h2>
