@@ -85,16 +85,6 @@
     <img src="https://img.shields.io/badge/Sbornik--3-View%20Code-blue?style=for-the-badge&logo=github&logoColor=white" alt="Sbornik 3">
 </a>
 
-## <p align="center">🤝 Contributions & Feedback / Вклад и Обратная Связь 🤝</p>
-
-**🌐 Открыт для сотрудничества и обмена знаниями! / Open for collaboration and knowledge exchange!**
-
-**💌 Контакты / Contacts:**
-- GitHub Issues
-- Pull Requests
-- Профессиональные сети / Professional networking
-
----
 
 <p align="center">
 🚀 <b>Continuous Learning & Innovation / Непрерывное Обучение и Инновации</b> 🚀
