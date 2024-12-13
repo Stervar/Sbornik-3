@@ -79,7 +79,7 @@
 - Отказоустойчивость / Fault tolerance
 - Высокая масштабируемость / High scalability
 
-## <p align="center">📦 Основной Код / Main Code</p>
+## <p align="center">📦 Основной Код / Main Code 📦</p>
 
 <a href="https://github.com/Stervar/Sbornik-3">
     <img src="https://img.shields.io/badge/Sbornik--3-View%20Code-blue?style=for-the-badge&logo=github&logoColor=white" alt="Sbornik 3">
