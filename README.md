@@ -42,7 +42,7 @@
 
 ## <p align="center">🛠 Технологический Стек 🛠/ Technology Stack</p>
 
-### 💻 Навыки Программирования / Programming Skills
+### 💻 Навыки Программирования / Programming Skills 💻
 
 | Уровень / Level | Технологии / Technologies | Профiciency |
 |-----------------|---------------------------|-------------|
