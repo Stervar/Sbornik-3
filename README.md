@@ -87,7 +87,7 @@
 
 
 <p align="center">
-##🚀 <b>Continuous Learning & Innovation / Непрерывное Обучение и Инновации</b> 🚀
+## 🚀 <b>Continuous Learning & Innovation / Непрерывное Обучение и Инновации</b> 🚀
 </p>
 
 <p align="center">
