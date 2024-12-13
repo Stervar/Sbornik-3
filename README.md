@@ -59,7 +59,7 @@
 - `pickle` 💾 Сериализация объектов / Object serialization
 - `json` 🌐 Работа с JSON-данными / JSON data handling
 
-## <p align="center">✨ Ключевые Возможности / Key Features</p>
+## <p align="center">✨ Ключевые Возможности / Key Features ✨</p>
 
 ### 🤖 Эмуляция Управления Устройствами / Device Control Simulation
 - Полный контроль кофемашин / Full coffee machine control
