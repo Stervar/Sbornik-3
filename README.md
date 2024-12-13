@@ -18,7 +18,7 @@
 
 ## <p align="center">📝 Detailed Project Description / Подробное Описание Проекта</p>
 
-### 🎯 Основные Цели и Задачи / Main Goals and Objectives
+### 🎯 Основные Цели и Задачи / Main Goals and Objectives 🎯
 
 **🤖 Многофункциональное Приложение Управления Устройствами / Multifunctional Device Management Application**
 
